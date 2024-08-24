@@ -2,7 +2,7 @@
 setlocal
 
 :: Define the folder name and path
-set folderName=JCDBME Film
+set folderName=Downloads In Desktop
 set destPath=%userprofile%\Desktop\%folderName%
 
 :: Create the folder on the Desktop

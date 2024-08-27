@@ -15,7 +15,7 @@ if you have Python 3 installed, or
 `python -m simple-http-server`
 
 if you have Python 2 or below installed (any version of Python is much easier).
-You should be able to visit localhost:[portname] and view the site offline on your device, or other devices connected to the same network.
+You should be able to visit `localhost:8000` (or a custom port number if you decided to do so) and view the site offline on your device, or other devices connected to the same network.
 
 ### Maintenance
 If the site is going under heavy maintenance or repetitive changes that will disrupt deployment, you will see a message that says : "Site is going under maintenance", by using another Git branch as a publishing source. Why not just use the branch for the old, unchanged version of the site, you ask? That is a good choice, but I'll have to update both, and merging both may result in unwanted changes that I'd rather not do. So that's why.

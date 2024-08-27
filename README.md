@@ -1,5 +1,5 @@
-# GitHub Pages
-My GitHub Pages site.
+# Anirudh's Site
+My site (made without a website builder).
 You should expect index files and other necessary files here.
 
 ## How to view entire site offline

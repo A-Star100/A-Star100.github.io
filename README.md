@@ -9,6 +9,7 @@ If you want to view the entire site offline as if it was online, do this:
 3. Use (Node.js)[https://github.com/nodejs/node] (more complex), or type in:
 
 `python3 -m http.server`
+
 if you have Python 3 installed, or
 
 `python -m simple-http-server`

@@ -1,7 +1,2 @@
-
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "ntn7c4zrzx");
+// No Microsoft Clarity tracking exists. If you want the source code with tracking, look at the "with-ms-clarity-tracking" branch. Turns out a cookie consent banner is harder than I thought. I'll use Microsoft Clarity for more business-oriented stuff, why use it for my personal site? (at least, in the published branch) :)
 

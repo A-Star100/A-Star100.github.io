@@ -10,7 +10,7 @@ If you want to view the entire site offline as if it was online, do this:
 
 `python3 -m http.server`
 
-if you have Python 3 installed, or
+if you have Python 3 installed, or:
 
 `python -m simple-http-server`
 

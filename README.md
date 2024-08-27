@@ -5,7 +5,7 @@ You should expect index files and other necessary files here.
 ## How to view entire site offline
 If you want to view the entire site offline as if it was online, do this:
 1. Download the source code by clicking the arrow on the "Code" button, then clicking "Download ZIP".
-2. Open Terminal or Command Line, then use the `cd` command to change the directory to the one you downloaded and extracted the source code in.
+2. Open Terminal or Command Line, then use the `cd` command to change the directory to the one the source code is in. 
 3. Use [Node.js](https://github.com/nodejs/node) (more complex for those who do not know JavaScript), or type in:
 
 `python3 -m http.server`

@@ -2,16 +2,6 @@
 <title>Anirudh's Site</title>
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<script>
-    function updateConnectionStatus() {
-    let online = navigator.onLine;
-    if (online === false) {
-    alert("Looks like you're offline! Press the view this page offline button or right-click and click Save As to view pages offline!")
-    }
-    updateConnectionStatus();
-    window.addEventListener('offline', updateConnectionStatus);
-    }
-</script>
 
   
 
@@ -61,6 +51,16 @@ body {
 </style>
 </head>
 <body>
+<script>
+    function updateConnectionStatus() {
+    let online = navigator.onLine;
+    if (online === false) {
+    alert("Looks like you're offline! Press the view this page offline button or right-click and click Save As to view pages offline!")
+    }
+    updateConnectionStatus();
+    window.addEventListener('offline', updateConnectionStatus);
+    }
+</script>
 
 <div class="sidenav">
     <a href="https://tinyurl.com/sonicmisc">My apps</a>

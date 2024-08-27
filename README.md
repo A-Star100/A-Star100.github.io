@@ -1,7 +1,15 @@
 # GitHub Pages
 My GitHub Pages site.
-You should expect index files and other necessary files here. You can download the source code, but if you're going to use it publicly, you might want to look at the MIT license, which states that you can do WHATEVER with the source code, as long as you include the license with all copies or substantial portions of the code. Thanks!
+You should expect index files and other necessary files here.
 
-## Maintenance
+## How to view entire site offline
+If you want to view the entire site offline as if it was online, do this:
+1. Download the source code by clicking the arrow on the "Code" button, then clicking "Download ZIP".
+2. Adjust the file paths ***only if necessary.***
+3. Open Terminal or Command Line, then use the `cd` command to change the directory to the one you downloaded and extracted the source code in.
+4. Use (Node.js)[https://github.com/nodejs/node] (more complex), or type in `python3 http-server` if you have Python 3 installed, or `python simple-http-server` if you have Python 2 or below installed (much easier).
+You should be able to visit `localhost:[portname]` and view the site offline on your device, or other devices connected to the same network.
+
+### Maintenance
 If the site is going under heavy maintenance or repetitive changes that will disrupt deployment, you will see a message that says : "Site is going under maintenance", by using another Git branch as a publishing source. Why not just use the branch for the old, unchanged version of the site, you ask? That is a good choice, but I'll have to update both, and merging both may result in unwanted changes that I'd rather not do. So that's why.
 Anyway, thanks!

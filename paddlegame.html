@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <title>Paddle JS Game</title>
+  <h2>Paddle JS Game</h2>
+  <p>This is one of my best JavaScript games, made using the "p5.js" JavaScript library.</p>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+  </head>
+  <body>
+    <script>
+      // Variables to store assets
+      let img, img2;
+
+      function preload() {
+        // Load assets (ensure these paths are correct)
+        img = loadImage('/volleyball2_1.png'); // Replace with your image path
+        img2 = loadImage('/ball2.png'); // Replace with your image path
+       }
+
+     var ball;
+
+ball = createSprite(200,200,20,20);
+ball.setAnimation("volleyball2_1");
+ball.scale = 0.1;
+
+var ball2;
+
+ball2 = createSprite(200,200,20,20);
+ball2.setAnimation("ball2");
+ball2.scale = 0.09;
+ 
+
+var paddle;
+
+paddle = createSprite(200,350,105,10);
+
+var pit;
+
+pit = createSprite(200,386,400,25);
+pit.shapeColor = "red";
+
+var brick1 = createSprite (60,100,60,30);
+brick1.shapeColor = "yellow";
+
+
+var brick2 = createSprite (126,100,60,30);
+brick2.shapeColor = "green";
+
+var brick3 = createSprite (193,100,60,30);
+brick3.shapeColor = "orange";
+
+var brick4 = createSprite (259,100,60,30);
+brick4.shapeColor = "blue";
+
+var brick5 = createSprite (326,100,60,30);
+brick5.shapeColor = "gray";
+
+
+
+
+
+
+
+createEdgeSprites();
+
+function draw() {
+  background("black");
+  ball.bounceOff(leftEdge);
+  ball.bounceOff(topEdge);
+  ball.bounceOff(rightEdge);
+  ball2.bounceOff(leftEdge);
+  ball2.bounceOff(topEdge);
+  ball2.bounceOff(rightEdge);
+  if (ball.isTouching(brick1)) {
+    ball.bounceOff(brick1);
+    brick1.destroy();
+    //ball.bounceOff(brick1);
+  }
+  if (ball.isTouching(brick2)) {
+    ball.bounceOff(brick2);
+    brick2.destroy();
+  }
+  if (ball.isTouching(brick3)) {
+    ball.bounceOff(brick3);
+    brick3.destroy();
+  }
+  if (ball.isTouching(brick4)) {
+    ball.bounceOff(brick4);
+    brick4.destroy();
+    //ball.bounceOff(brick4);
+  }
+  if (ball.isTouching(brick5)) {
+    ball.bounceOff(brick5);
+    brick5.destroy();
+    //ball.bounceOff(brick5);
+  }
+  drawSprites();
+  paddle.x = World.mouseX;
+  ball.bounceOff(paddle);
+  ball2.bounceOff(paddle);
+  if (ball.y > 380 && ball.y < 386) {
+  playSpeech("Game Over, you touched the pit, try again", "male", "English");
+  console.log ("Game Over, you touched the pit, try again if you didn't hear the speech...");
+  
+  }
+  if (ball2.y > 380 && ball2.y < 386) {
+  playSpeech("Game Over, you touched the pit, try again", "male", "English");
+  console.log ("Game Over, you touched the pit, try again if you didn't hear the speech...");
+  
+  }
+  if (keyDown ("space")) {
+  ball.velocityX = randomNumber (3,7);
+  ball.velocityY = randomNumber (3,7);
+  ball2.velocityX = randomNumber (4,8);
+  ball2.velocityY = randomNumber (8,4);
+  }
+}
+function mousePressed() {
+  ball.velocityX = randomNumber (3,7);
+  ball.velocityY = randomNumber (3,7);
+  ball2.velocityX = randomNumber (4,8);
+  ball2.velocityY = randomNumber (8,4);
+}
+
+
+    </script>
+  </body>
+</html>
+
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+ * {
+   box-sizing: border-box;
+ }
+
+ body {
+   margin: 0;
+   font-family: Arial, Helvetica, sans-serif;
+   background-image: url(/sky.png);
+  background-position: right bottom, left top;
+ }
+</style>

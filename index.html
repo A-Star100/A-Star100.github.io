@@ -53,21 +53,21 @@ body {
 </head>
 <body>
 <script>
-function downloadFile(filePath) {
-    var link = document.createElement('a');
-    link.href = filePath;
-    link.download = filePath.substr(filePath.lastIndexOf('/') + 1);
-    link.click();
-}
-
+<script>
 function updateConnectionStatus() {
     let online = navigator.onLine;
     if (!online) {
-        let text = "Do you want to download a copy of this page?\nYes or no.";
-        if (confirm(text)) {
-            downloadFile('/index.html');
-        }
+        alert("You are offline. To save this page, please use your browser's 'Save As' feature.");
     }
+}
+
+// Call the function once to check the initial status
+updateConnectionStatus();
+
+// Add event listener for when the connection goes offline
+window.addEventListener('offline', updateConnectionStatus);
+</script>
+
 }
 
 // Call the function once to check the initial status

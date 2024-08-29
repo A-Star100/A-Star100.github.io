@@ -4,9 +4,6 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 
-  
-
-
 <style>
 * {
   box-sizing: border-box;
@@ -51,6 +48,7 @@ body {
   margin-left: 200px;
   padding-left: 20px;
 }
+
 </style>
 </head>
 <body>
@@ -58,7 +56,7 @@ body {
     //function updateConnectionStatus() {
     //let online = navigator.onLine;
     //if (online === false) {
-    //alert("Looks like you're offline! Press the view this page offline button or right-click and click Save As to view pages offline!")
+    //alert("Looks like you're offline! Right-click and click Save As to view pages offline!")
     //}
     //updateConnectionStatus();
     //window.addEventListener('offline', updateConnectionStatus);
@@ -104,7 +102,27 @@ body {
 <script src="/msclarity.js"></script>
   
 
+<script>
+function detect() {
+    if (navigator.userAgent.match(/Android/i)
+         || navigator.userAgent.match(/webOS/i)
+         || navigator.userAgent.match(/iPhone/i)
+         || navigator.userAgent.match(/iPad/i)
+         || navigator.userAgent.match(/iPod/i)
+         || navigator.userAgent.match(/BlackBerry/i)
+         || navigator.userAgent.match(/Windows Phone/i)) {
+            a = true ;
+            alert("You're on mobile. Hop onto a computer for the best experience.")
+         } else {
+            a = false ;
 
+           
+  }
+}
+  detect()
+</script>
+
+  
 
 </div>
 </body>

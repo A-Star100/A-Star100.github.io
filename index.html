@@ -53,15 +53,30 @@ body {
 </head>
 <body>
 <script>
-    function updateConnectionStatus() {
+function downloadFile(filePath) {
+    var link = document.createElement('a');
+    link.href = filePath;
+    link.download = filePath.substr(filePath.lastIndexOf('/') + 1);
+    link.click();
+}
+
+function updateConnectionStatus() {
     let online = navigator.onLine;
-    if (online === false) {
-    alert("Looks like you're offline! Right-click and click Save As to view pages offline!")
+    if (!online) {
+        let text = "Do you want to download a copy of this page?\nYes or no.";
+        if (confirm(text)) {
+            downloadFile('/index.html');
+        }
     }
-    updateConnectionStatus();
-    window.addEventListener('offline', updateConnectionStatus);
-   }
+}
+
+// Call the function once to check the initial status
+updateConnectionStatus();
+
+// Add event listener for when the connection goes offline
+window.addEventListener('offline', updateConnectionStatus);
 </script>
+
 
 <div class="sidenav">
     <a href="https://tinyurl.com/sonicmisc">My apps</a>

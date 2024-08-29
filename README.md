@@ -13,7 +13,7 @@ If you want to view the entire site offline as if it was online, do this:
 3. Open Terminal or Command Line, then use the `cd` command to change the directory to the one the source code is in. 
 4. Use [Node.js](https://github.com/nodejs/node) (more complex for those who do not know JavaScript), or type in:
 
-`python3 -m [folder name that source code is in here]`
+`python3 -m http.server`
 
 if you have Python 3 installed, or:
 

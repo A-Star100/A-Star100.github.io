@@ -53,7 +53,6 @@ body {
 </head>
 <body>
 <script>
-<script>
 function updateConnectionStatus() {
     let online = navigator.onLine;
     if (!online) {
@@ -61,19 +60,18 @@ function updateConnectionStatus() {
     }
 }
 
-// Call the function once to check the initial status
+
 updateConnectionStatus();
 
-// Add event listener for when the connection goes offline
 window.addEventListener('offline', updateConnectionStatus);
-</script>
+
 
 }
 
-// Call the function once to check the initial status
+
 updateConnectionStatus();
 
-// Add event listener for when the connection goes offline
+
 window.addEventListener('offline', updateConnectionStatus);
 </script>
 

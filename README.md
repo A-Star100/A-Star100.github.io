@@ -4,7 +4,7 @@ You should expect index files and other necessary files here.
 
 ## How to view entire site offline
 If you want to view the entire site offline as if it was online, do this:
-1. Download the source code by clicking the arrow on the "Code" button, then clicking "Download ZIP", extract the ZIP, and remove this portion of the code:
+1. Download the source code by clicking the arrow on the "Code" button, then clicking "Download ZIP", extract the ZIP, and remove this portion of the code in the file "index.html":
 
 
    `<script>function updateConnectionStatus() { let online = navigator.onLine; if (!online) { alert("You are offline. To save this page, please use your browser's 'Save As' feature."); } } updateConnectionStatus(); window.addEventListener('offline', updateConnectionStatus);</script>

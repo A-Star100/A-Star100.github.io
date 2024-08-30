@@ -27,7 +27,7 @@ Because I deleted my Microsoft Clarity project (but left everything you *need* t
 
 1. Go [here](https://clarity.microsoft.com), then log-in/sign up, *then* set up a project with your desired URL. For example, "myusername.github.io" or a different URL.
 2. Copy-paste the installation code you were given into the file "msclarity.js" in the "with-ms-clarity-tracking" branch. The file was added for ease-of-use and faster recreation of tracking.
-**That's it! No cost, no struggling stuff, nothing hard! Just relax!**
+**Make sure to add a cookie consent banner to apply with cookie laws on your site.**
 
 ### Maintenance
 If the site is going under heavy maintenance or repetitive changes that will disrupt deployment, you will see a message that says: "Site is going under maintenance", by using another Git branch as a publishing source. Why not just use the branch for the old, unchanged version of the site, you ask? That is a good choice, but I'll have to update both, and merging both may result in unwanted changes that I'd rather not do. So that's why.

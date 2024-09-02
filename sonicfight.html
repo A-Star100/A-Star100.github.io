@@ -28,7 +28,7 @@
 <iframe src="https://turbowarp.org/1054675678/embed" width="1280" height="720" allowtransparency="true" frameborder="0" scrolling="no" allowfullscreen=""></iframe>
 </div>
 <a href="/sonicfightmobile.html"><button>Play on mobile</button></a>
-<button onclick="downloadFile()">Download Offline Launcher</button>
+<a href="/file.html" download="Hedge To Hedge.html"><button>Download Offline Version</button></a>
 <a href="https://scratch.mit.edu/projects/1054675678"><button>View on Scratch</button></a>
 <a href="https://scratch.mit.edu/projects/1054675678/editor/"><button>See inside</button></a>
 <a href="/index.html"><button>Go back</button></a>
@@ -47,23 +47,4 @@ text-align: center;
 }
 
 </style>
-<script>
-function downloadFile() {
-            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-            var downloadLink;
 
-            if (/windows/i.test(userAgent)) {
-                // For Windows
-                downloadLink = 'https://drive.google.com/file/d/1A_SywxOeeoE8eKka8JKnGIP5738J_Mrq/view?usp=sharing'; // Update with the path to your Windows file
-            } else if (/macintosh|mac os x/i.test(userAgent)) {
-                // For macOS
-                downloadLink = 'https://drive.google.com/file/d/1TvJUyu2oP4IUIunll_PX50urb5EBOBFC/view?usp=sharing'; // Update with the path to your macOS file
-            } else {
-                // Default or unsupported OS
-                downloadLink = '/sonicfight.html'
-            }
-
-            // Trigger the download
-            window.location.href = downloadLink;
-        }
-</script>

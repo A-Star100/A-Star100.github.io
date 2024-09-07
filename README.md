@@ -11,7 +11,7 @@ If you want to view the entire site offline as if it was online, do this:
 `
 
 3. Open Terminal or Command Line, then use the `cd` command to change the directory to the one the source code is in. 
-4. Use [Node.js](https://github.com/nodejs/node) (more complex for those who do not know JavaScript), or type in:
+4. Use [Node.js](https://github.com/nodejs/node) and use [npm](https://www.npmjs.com/) to install Node.js if you want to, or if you have Python, type in:
 
 `python3 -m http.server`
 
@@ -31,4 +31,5 @@ Because I deleted my Microsoft Clarity project (but left everything you *need* t
 
 ### Maintenance
 If the site is going under heavy maintenance or repetitive changes that will disrupt deployment, you will see a message that says: "Site is going under maintenance", by using another Git branch as a publishing source. Why not just use the branch for the old, unchanged version of the site, you ask? That is a good choice, but I'll have to update both, and merging both may result in unwanted changes that I'd rather not do. So that's why.
+Also, it'll be annoying for users when they get comfortable with a new layout and an old one comes up. It is better to just tell them the site is under maintenance :)
 Anyway, thanks!

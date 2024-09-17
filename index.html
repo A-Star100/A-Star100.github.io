@@ -2,7 +2,7 @@
 <title>Anirudh's Site</title>
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<meta http-equiv="X-Frame-Options" content="DENY">
+
 
 
 </head>
@@ -17,6 +17,26 @@ function updateConnectionStatus() {
 
 
 updateConnectionStatus();
+    
+  let inform = document.getElementById(info)
+  var a;
+      var answer = document.getElementById("result"); 
+  function detect() {
+    if (navigator.userAgent.match(/Android/i)
+         || navigator.userAgent.match(/webOS/i)
+         || navigator.userAgent.match(/iPhone/i)
+         || navigator.userAgent.match(/iPad/i)
+         || navigator.userAgent.match(/iPod/i)
+         || navigator.userAgent.match(/BlackBerry/i)
+         || navigator.userAgent.match(/Windows Phone/i)) {
+            a = true ;
+            updateConnectionStatus();
+         } else {
+            a = false ;
+            
+  }
+}
+
 
 window.addEventListener('offline', updateConnectionStatus);
 

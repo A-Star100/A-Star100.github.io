@@ -18,7 +18,6 @@ function updateConnectionStatus() {
 
 updateConnectionStatus();
     
-  let inform = document.getElementById(info)
   var a;
       var answer = document.getElementById("result"); 
   function detect() {
@@ -30,9 +29,10 @@ updateConnectionStatus();
          || navigator.userAgent.match(/BlackBerry/i)
          || navigator.userAgent.match(/Windows Phone/i)) {
             a = true ;
-            updateConnectionStatus();
+            
          } else {
             a = false ;
+         updateConnectionStatus();
             
   }
 }

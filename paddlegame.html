@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
   <title>Paddle JS Game</title>
-  <head> 
-    <style>
- * {
+  <style>
+    /* Full-width bottom banner */
+    * {
    box-sizing: border-box;
  }
 
@@ -17,37 +18,102 @@
   justify-content: center;
  }
 
-.start-btn{
-    text-align: center;
-	display: inline-block;
-	margin:5px;
-    font-weight: bold;
-    padding: 10px 0 10px 10px ;
-    background-color: lightgray;
-    text-shadow: -1px -1px black, 1px 1px white;
-    color: gray;
-    -webkit-border-radius: 7px;
-	-moz-border-radius: 7px;
-	-o-border-radius: 7px;
-	border-radius: 7px;
-    box-shadow: 0 .2em gray; 
-    cursor: pointer;
-
-}
 iframe {
     width: 1920px;
     height: 1080px;
     margin: 0 auto;
 }
 
-</style>
+    .cookie-banner {
+      display: none; /* Hidden by default */
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%; /* Full width */
+      background-color: #222;
+      color: white;
+      padding: 20px 10px;
+      text-align: center;
+      z-index: 1000;
+      font-family: Arial, sans-serif;
+    }
 
-  </head>
-  <body>
-<iframe src="https://studio.code.org/projects/gamelab/ZkoIueyWIsHDt-wqn8-hR9ZcSp0FcDYapezYA_dFAM4/embed"></iframe>
+    .cookie-banner button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin-left: 15px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .cookie-banner button:hover {
+      background-color: #45a049;
+    }
+
+    /* Make it responsive */
+    @media (max-width: 600px) {
+      .cookie-banner {
+        font-size: 14px;
+        padding: 15px 10px;
+      }
+
+      .cookie-banner button {
+        padding: 8px 15px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <iframe src="https://studio.code.org/projects/gamelab/ZkoIueyWIsHDt-wqn8-hR9ZcSp0FcDYapezYA_dFAM4/embed"></iframe>
+
+  <!-- Cookie Consent Banner -->
+  <div class="cookie-banner" id="cookie-banner">
+    This embedded game includes third-party cookies.
+    <button id="accept-cookies">Ok!</button>
   </div>
-  </body>
+
+  <script>
+    // Function to set a cookie with an expiration date
+    function setCookie(name, value, days) {
+      var expires = "";
+      if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+      }
+      document.cookie = name + "=" + value + expires + "; path=/";
+    }
+
+    // Function to get the value of a specific cookie
+    function getCookie(name) {
+      var nameEQ = name + "=";
+      var ca = document.cookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+      }
+      return null;
+    }
+
+    // Check if the cookie is already set
+    window.onload = function() {
+      if (!getCookie('cookieConsent')) {
+        document.getElementById('cookie-banner').style.display = 'block';
+      }
+    };
+
+    // Handle the button click to accept cookies
+    document.getElementById('accept-cookies').onclick = function() {
+      setCookie('cookieConsent', 'accepted', 365); // Set for 1 year
+      document.getElementById('cookie-banner').style.display = 'none';
+    };
+  </script>
+
+</body>
 </html>
-
-
-

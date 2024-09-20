@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
   <title>Paddle JS Game</title>
-  <h2>Paddle JS Game</h2>
-  <p>This is one of my best JavaScript games, made using the "p5.js" JavaScript library.</p>
   <head>
     <style>
  * {
@@ -14,6 +12,9 @@
    font-family: Arial, Helvetica, sans-serif;
    background-image: url(/sky.png);
   background-position: right bottom, left top;
+  display: flex;
+  align-items: center;
+  justify-content: center;
  }
 
 .start-btn{
@@ -33,17 +34,18 @@
     cursor: pointer;
 
 }
+iframe {
+    width: 1920px;
+    height: 1080px;
+    margin: 0 auto;
+}
+
 </style>
 
   </head>
   <body>
-   <span id="start-btn" class='start-btn'>START</span>
-    <script>
-    document.getElementById('start-btn').addEventListener('click', function() {
-        window.location.href = 'https://studio.code.org/projects/gamelab/ZkoIueyWIsHDt-wqn8-hR9ZcSp0FcDYapezYA_dFAM4';
-    });
-</script>
-
+<iframe src="https://studio.code.org/projects/gamelab/ZkoIueyWIsHDt-wqn8-hR9ZcSp0FcDYapezYA_dFAM4/embed"></iframe>
+<a href='/index.html'><button>Go back</button></a>
   </div>
   </body>
 </html>

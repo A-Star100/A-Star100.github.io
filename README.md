@@ -20,7 +20,7 @@ if you have Python 3 installed, or:
 `python -m simple-http-server`
 
 if you have Python 2 or below installed (any version of Python is much easier).
-You should be able to visit `localhost:8000` (or a custom port number if you decided to do so) and view the site offline on your device, or other devices connected to the same network.
+You should be able to visit [localhost:8000](http://localhost:8000/) (or a custom port number if you decided to do so) and view the site offline on your device, or other devices connected to the same network.
 
 ## How to set up Microsoft Clarity
 Because I deleted my Microsoft Clarity project (but left everything **you need** to set it up), I will give you a tutorial.

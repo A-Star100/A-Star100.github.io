@@ -10,8 +10,12 @@ if (userAgent.includes("Windows")) {
 } else if (userAgent.includes("X11")) {
     alert("You are using Linux. Unfortunately, there is no native build available for Linux, but you can port the Mac version yourself! Redirecting now...");
     window.location.replace('https://drive.google.com/file/d/1Ge2AilW0dNSbuqsgdeupJqCsuWlHdPeK/view?usp=sharing')
+} else if (userAgent.includes("Android)) {
+    alert("You're on Android! Redirecting you to the Android app download now...")
+    window.location.replace('https://bit.ly/jcdbmestream')
 } else {
-    alert("We couldn't figure out your operating system.");
+    alert("We couldn't figure out your operating system. Redirecting to HTML only download now...");
+  window.location.replace('https://bit.ly/jcdbmeserver')
 }
 
 </script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonic Riders Shooting Star Website</title>
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+  <style>
+    flash-content {
+      margin-left: auto;
+  margin-right: auto;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+    }
+  </style>
+</head>
+<body>
+    <h1>Ruffle Flash Content</h1>
+    <div id="flash-content" style="width: 1280px; height: 720px;"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const ruffle = window.RufflePlayer.newest();
+            const player = ruffle.createPlayer();
+            const container = document.getElementById("flash-content");
+            container.appendChild(player);
+            player.load("top.swf");
+        });
+    </script>
+</body>
+</html>
+

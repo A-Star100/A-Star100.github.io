@@ -1,6 +1,17 @@
 <title>JCDBME App (Desktop/Mobile)</title>
 <body>
+<style>
+buttons {
+  margin: auto;
+  width: 50%;
+}
+</style>
+<div id="buttons>
+<a href="https://bit.ly/jcdbmeserver"><button>Download HTML-only</button></a>
+<button onclick = autoDetect()>Download for your OS</button>
+</div>
 <script>
+function autoDetect() {
   const userAgent = navigator.userAgent;
 
 if (userAgent.includes("Windows")) {
@@ -15,6 +26,7 @@ if (userAgent.includes("Windows")) {
 } else {
     alert("We couldn't figure out your operating system. Redirecting to HTML only download now...");
   window.location.replace('https://bit.ly/jcdbmeserver')
+}
 }
 
 </script>

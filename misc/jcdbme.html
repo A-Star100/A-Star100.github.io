@@ -1,33 +1,115 @@
-<title>JCDBME App (Desktop/Mobile)</title>
-<body>
-<style>
-buttons {
-  margin: auto;
-  width: 50%;
-}
-</style>
-<div id="buttons">
-<a href="https://bit.ly/jcdbmeserver"><button>Download HTML-only</button></a>
-<button onclick = autoDetect()>Download for your OS</button>
-</div>
-<script>
-function autoDetect() {
-  const userAgent = navigator.userAgent;
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <title>JCDBME App (Desktop/Mobile)</title>
+    <style>
+        body {
+        background-color: black;
+        }
+        h1 {
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+            text-align: center;
+        }
+        #osSpecific, #htmlOnly, #windows, #mac, #x11, #android {
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 5px 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: 0.5s;
+            
+        }
+        #select-download, #os {
+  margin-top: auto;
+  margin-bottom: auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+        }
+        #select-download1 {
+            margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+        }
+        #direct-download{
+            margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+        }
+        #osSpecific:hover, #htmlOnly:hover, #windows:hover, #mac:hover, #x11:hover, #android:hover {
+            padding: 5px 10px;
+            background-color: rgba(255, 255, 255, 0.7);
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+        p {
+          color:white;
+          margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="title">
+      <h1>JCDBME Server Downloads</h1>
+    </div>
+    <div id="os">
+      <button id="osSpecific" onclick="autoDetect()">Download for your OS</button></a>
+    </div>
+    <div id="select-download">
+      <a href="https://bit.ly/jcdbmeserver"><button id="htmlOnly">Download HTML-only version</button></a>
+    </div>
+    <div id="direct-download">
+      <h1>Direct Download Links:</h1>
+    </div>
+    <div id="select-download1">
+      <a href="https://www.dropbox.com/scl/fi/5ufa2rwvmxtt1re2zemmi/jcdbmeserverwindows.zip?rlkey=vzja3ow451faqyyppc3b9nv3j&st=q4lzh47k&dl=0"><button id="windows"> <img style="height: 3.1em;" src="https://www.srb2.org/wp-content/uploads/icons8-windows-xp-48.png"> Download for Windows</button></a>
+      <a href="https://www.dropbox.com/scl/fi/tk5cstv32cwzc8h4tr5bz/jcdbmeservermacos.zip?rlkey=bhqirc5iqvjkudfm62ryza1ev&st=ptrbnxly&dl=0"><button id="mac"> <img style="height: 3.1em;" src="https://www.srb2.org/wp-content/uploads/icons8-apple-24.png"> Download for Mac </button></a>
+      <a href="https://www.dropbox.com/scl/fi/tk5cstv32cwzc8h4tr5bz/jcdbmeservermacos.zip?rlkey=bhqirc5iqvjkudfm62ryza1ev&st=ptrbnxly&dl=0"><button id="x11"> <img style="height: 3.1em;" src="https://www.srb2.org/wp-content/uploads/icons8-linux-48.png"> Download for Linux (redirect to Mac)</button></a>
+      <a href="https://drive.google.com/file/d/1EtesTAEP9wPDcav8lmyJmUFJN16zT6MB/view?usp=sharing"><button id="android"> <img style="height: 3.1em;" src="https://www.srb2.org/wp-content/uploads/androidlogo48.png"> Download for Android (Android 5.0 and up)</button></a>
+    </div>
+    <p><i style="font-size: x-small;">OS Icons made by <a href="https://icons8.com/">icons8</a> and released under the <a href="https://creativecommons.org/licenses/by-nd/3.0/">Creative Commons Attribution-NoDerivs 3.0 Unported License</a>.</i></p>
+    <script>
+      function autoDetect() {
+        const userAgent = navigator.userAgent;
+      
+      if (userAgent.includes("Windows")) {
+          window.location.replace('https://www.dropbox.com/scl/fi/5ufa2rwvmxtt1re2zemmi/jcdbmeserverwindows.zip?rlkey=vzja3ow451faqyyppc3b9nv3j&st=q4lzh47k&dl=0')
+      } else if (userAgent.includes("Macintosh")) {
+          window.location.replace('https://www.dropbox.com/scl/fi/tk5cstv32cwzc8h4tr5bz/jcdbmeservermacos.zip?rlkey=bhqirc5iqvjkudfm62ryza1ev&st=ptrbnxly&dl=0')
+      } else if (userAgent.includes("X11")) {
+          alert("You are using Linux. Unfortunately, there is no native build available for Linux, but you can port the Mac version yourself! Redirecting now...");
+          window.location.replace('https://www.dropbox.com/scl/fi/tk5cstv32cwzc8h4tr5bz/jcdbmeservermacos.zip?rlkey=bhqirc5iqvjkudfm62ryza1ev&st=ptrbnxly&dl=0')
+      } else if (userAgent.includes("Android")) {
+          window.location.replace('https://drive.google.com/file/d/1EtesTAEP9wPDcav8lmyJmUFJN16zT6MB/view?usp=sharing')
+      } else {
+          alert("We couldn't figure out your operating system. Redirecting to HTML only download now...");
+        window.location.replace('https://bit.ly/jcdbmeserver')
+      }
+      }
+      </script>
+  </body>
+</html>
 
-if (userAgent.includes("Windows")) {
-    window.location.replace('https://www.dropbox.com/scl/fi/5ufa2rwvmxtt1re2zemmi/jcdbmeserverwindows.zip?rlkey=vzja3ow451faqyyppc3b9nv3j&st=q4lzh47k&dl=0')
-} else if (userAgent.includes("Macintosh")) {
-    window.location.replace('https://www.dropbox.com/scl/fi/tk5cstv32cwzc8h4tr5bz/jcdbmeservermacos.zip?rlkey=bhqirc5iqvjkudfm62ryza1ev&st=ptrbnxly&dl=0')
-} else if (userAgent.includes("X11")) {
-    alert("You are using Linux. Unfortunately, there is no native build available for Linux, but you can port the Mac version yourself! Redirecting now...");
-    window.location.replace('https://www.dropbox.com/scl/fi/tk5cstv32cwzc8h4tr5bz/jcdbmeservermacos.zip?rlkey=bhqirc5iqvjkudfm62ryza1ev&st=ptrbnxly&dl=0')
-} else if (userAgent.includes("Android")) {
-    window.location.replace('https://drive.google.com/file/d/1EtesTAEP9wPDcav8lmyJmUFJN16zT6MB/view?usp=sharing')
-} else {
-    alert("We couldn't figure out your operating system. Redirecting to HTML only download now...");
-  window.location.replace('https://bit.ly/jcdbmeserver')
-}
-}
-
-</script>
-</body>
+  

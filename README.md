@@ -9,6 +9,7 @@ If you want to view the entire site offline as if it was online, do this:
 
    `<script>function updateConnectionStatus() { let online = navigator.onLine; if (!online) { alert("You are offline. To save this page, please use your browser's 'Save As' feature."); } } updateConnectionStatus(); window.addEventListener('offline', updateConnectionStatus);</script>
 `
+For styles, add the HTML snippet given: `<link rel="stylesheet" href="style.css">`. You can modify this to modify your local websites styling. If you do this, remove any pre-existing `<style>` tags in older HTML pages in the source.
 
 3. Open Terminal or Command Line, then use the `cd` command to change the directory to the one the source code is in. 
 4. Use [Node.js](https://github.com/nodejs/node) and use [npm](https://www.npmjs.com/) to install Node.js if you want to, or if you have Python, type in:

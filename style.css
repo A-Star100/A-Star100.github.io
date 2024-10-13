@@ -1,0 +1,14 @@
+/* Refer to this for styling */
+* {
+   box-sizing: border-box; 
+body {
+   background-image: url(/sky.png); /* basic background image styling - don't remove */
+  background-position: right bottom, left top; /* background position, may break how the background looks if removed */
+}
+ }
+
+ body {
+   margin: 0;
+   font-family: Arial, Helvetica, sans-serif; /* font - change if not web-safe */
+ }
+

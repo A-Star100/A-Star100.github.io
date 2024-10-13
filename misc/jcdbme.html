@@ -5,8 +5,17 @@
     <title>JCDBME Server App (Desktop/Mobile)</title>
     <style>
         body {
+            font-family: Arial, Helvetica, sans-serif;
         background-color: black;
         }
+        a { color:rgb(26, 158, 241); } /* Globally */
+
+/* Each state */
+
+a:visited { text-decoration: none; color:rgb(26, 158, 241); }
+a:hover { text-decoration: none; color:rgb(26, 158, 241); }
+a:focus { text-decoration: none; color:rgb(26, 158, 241); }
+a:hover, a:active { color:rgb(26, 158, 241) }
         h1 {
             font-family: Arial, Helvetica, sans-serif;
             color: white;
@@ -58,7 +67,7 @@
             cursor: pointer;
             transition: 0.5s;
         }
-        p {
+        #msg1, #msg2 {
           color:white;
           margin-left: auto;
   margin-right: auto;
@@ -68,9 +77,64 @@
   display: flex;
   justify-content: center;
         }
+      /* Fullscreen modal styling */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 1s ease-in-out; /* Fade-in and fade-out effect */
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.modal-content button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-content button:hover {
+  background-color: #45a049;
+}
+
+.modal.show {
+  display: block; /* Show the modal */
+  opacity: 1;
+}
+
+.modal.hide {
+  opacity: 0;
+  /*transition: opacity 1s ease-in-out; /* Fade-out effect */
+}
+
     </style>
   </head>
   <body>
+     <div id="fullscreen-modal" class="modal">
+    <div class="modal-content">
+      <p id="modaltxt">It is heavily recommended to use the JCDBME website for watching the JCDBMEs at <a href="https://bit.ly/jcdbme">https://bit.ly/jcdbme</a>.</p>
+      <button id="ok-button">OK</button>
+    </div>
+  </div>
+
     <div id="title">
       <h1>JCDBME Server Downloads</h1>
     </div>
@@ -90,9 +154,57 @@
       <a href="https://www.dropbox.com/scl/fi/22bqnzbaowizsn4x8hbdn/jcdbmeserver17.apk?rlkey=4gijr2mzrvwl456ab1r31qzst&st=vgytm0pi&dl=0"><button id="android"> <img style="height: 3.1em;" src="https://www.srb2.org/wp-content/uploads/androidlogo48.png"> Download for Android (Android 5.0 and up)</button></a>
       <a href="https://bit.ly/jcdbmeserver"><button id="html5"> <img style="height: 3.1em;" src="/misc/html-5.png"> Download for other devices (HTML5)</button></a>
     </div>
-    <p><i style="font-size: x-small;">OS Icons made by <a href="https://icons8.com/">icons8</a> and released under the <a href="https://creativecommons.org/licenses/by-nd/3.0/">Creative Commons Attribution-NoDerivs 3.0 Unported License</a>. HTML5 icon by <a href="https://www.flaticon.com/free-icons/html-5" title="html 5 icons">Freepik on Flaticon</a></i></p>
-    <p><i style="font-size: x-small;" id="arm64"></i></p>
+    <p id="msg1"><i style="font-size: x-small;">OS Icons made by <a href="https://icons8.com/">icons8</a> and released under the <a href="https://creativecommons.org/licenses/by-nd/3.0/">Creative Commons Attribution-NoDerivs 3.0 Unported License</a>. HTML5 icon by <a href="https://www.flaticon.com/free-icons/html-5" title="html 5 icons">Freepik on Flaticon</a></i></p>
+    <p id="msg2"><i style="font-size: x-small;" id="arm64"></i></p>
     <script>
+      // Function to set a cookie
+function setCookie(name, value, days) {
+  let expires = "";
+  if (days) {
+    const date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    expires = "; expires=" + date.toUTCString();
+  }
+  document.cookie = name + "=" + (value || "") + expires + "; path=/";
+}
+
+// Function to get a cookie
+function getCookie(name) {
+  const nameEQ = name + "=";
+  const cookiesArray = document.cookie.split(';');
+  for (let i = 0; i < cookiesArray.length; i++) {
+    let cookie = cookiesArray[i];
+    while (cookie.charAt(0) == ' ') cookie = cookie.substring(1, cookie.length);
+    if (cookie.indexOf(nameEQ) == 0) return cookie.substring(nameEQ.length, cookie.length);
+  }
+  return null;
+}
+
+// Function to fade out the modal
+function fadeOutModal() {
+  const modal = document.getElementById('fullscreen-modal');
+  modal.classList.remove('show');
+  modal.classList.add('hide');
+  setTimeout(() => {
+    modal.style.display = 'none';
+  }, 1000); // 1s to match the fade-out effect 
+}
+
+// Show the modal if the cookie doesn't exist
+window.onload = function() {
+  const modal = document.getElementById('fullscreen-modal');
+  if (!getCookie('modalShown')) {
+    modal.classList.add('show');
+    modal.style.display = 'block'; // Ensure it's visible
+  }
+};
+
+// Handle "OK" button click
+document.getElementById('ok-button').addEventListener('click', function() {
+  setCookie('modalShown', 'true', 7); // Remember for 7 days
+  fadeOutModal();
+});
+
       if (navigator.userAgent.includes("Macintosh")) {
           arm64.textContent = "If you are on an ARM-based Mac system (a.k.a, one that is using an Apple Silicon processor, you will need Rosetta 2 to install the Mac desktop app."
       }

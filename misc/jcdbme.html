@@ -206,7 +206,7 @@ document.getElementById('ok-button').addEventListener('click', function() {
 });
 
       if (navigator.userAgent.includes("Macintosh")) {
-          arm64.textContent = "If you are on an ARM-based Mac system (one that is not using an Intel processor), you will need Rosetta 2 to install the Mac desktop app."
+          arm64.textContent = "If you are on an ARM-based Mac system (one that is using an Apple Silicon processor), you will need Rosetta 2 to install the Mac desktop app."
       }
       function autoDetect() {
         const userAgent = navigator.userAgent;

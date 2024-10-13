@@ -125,6 +125,10 @@ a:hover, a:active { color:rgb(26, 158, 241) }
   /*transition: opacity 1s ease-in-out; /* Fade-out effect */
 }
 
+#arm64 {
+  display: none;
+}
+
     </style>
   </head>
   <body>
@@ -155,7 +159,7 @@ a:hover, a:active { color:rgb(26, 158, 241) }
       <a href="https://bit.ly/jcdbmeserver"><button id="html5"> <img style="height: 3.1em;" src="/misc/html-5.png"> Download for other devices (HTML5)</button></a>
     </div>
     <p id="msg1"><i style="font-size: x-small;">OS Icons made by <a href="https://icons8.com/">icons8</a> and released under the <a href="https://creativecommons.org/licenses/by-nd/3.0/">Creative Commons Attribution-NoDerivs 3.0 Unported License</a>. HTML5 icon by <a href="https://www.flaticon.com/free-icons/html-5" title="html 5 icons">Freepik on Flaticon</a></i></p>
-    <p id="msg2"><i style="font-size: x-small;" id="arm64"></i></p>
+    <p id="msg2"><i style="font-size: x-small;" id="arm64">If you are on an ARM-based Mac system (one that is using an Apple Silicon processor), you will need <a href="https://support.apple.com/en-us/102527">Rosetta 2</a> to install the Mac app.</i></p>
     <script>
       // Function to set a cookie
 function setCookie(name, value, days) {
@@ -206,7 +210,7 @@ document.getElementById('ok-button').addEventListener('click', function() {
 });
 
       if (navigator.userAgent.includes("Macintosh")) {
-          arm64.textContent = "If you are on an ARM-based Mac system (one that is using an Apple Silicon processor), you will need Rosetta 2 to install the Mac desktop app."
+      arm64.style.display = "block";   
       }
       function autoDetect() {
         const userAgent = navigator.userAgent;

@@ -7,8 +7,18 @@ If you want to view the entire site offline as if it was online, do this:
 1. Download the source code by clicking the arrow on the "Code" button, then clicking "Download ZIP", extract the ZIP, and remove this portion of the code in the file "index.html":
 
 
-   `<script>function updateConnectionStatus() { let online = navigator.onLine; if (!online) { alert("You are offline. To save this page, please use your browser's 'Save As' feature."); } } updateConnectionStatus(); window.addEventListener('offline', updateConnectionStatus);</script>
-`
+
+`<script>
+function updateConnectionStatus() {
+let online = navigator.onLine;
+if (!online) {
+alert("You are offline. To save this page, please use your browser's 'Save As' feature.");
+}
+}
+updateConnectionStatus();
+window.addEventListener('offline', updateConnectionStatus);
+</script>`
+
 
 For styles, add the HTML snippet given: `<link rel="stylesheet" href="style.css">`. You can modify this to modify your local websites styling. If you do this, remove any pre-existing `<style>` tags in older HTML pages in the source.
 

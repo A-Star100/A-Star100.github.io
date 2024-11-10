@@ -2,7 +2,38 @@
 <title>Anirudh's Site</title>
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+    /* Container for the logo */
+    .container {
+      position: relative;
+      width: 1000px;  /* Adjusted for a more reasonable size */
+      height: 100px; /* Adjusted for a more reasonable size */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
 
+    /* The logo element */
+    .logo {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      position: absolute;
+      animation: moveAndZoom 5s ease-in-out forwards;
+      text-align: center;
+    }
+
+    /* Keyframe animation for circular motion and zoom */
+    @keyframes moveAndZoom {
+      0% {
+        transform: rotate(0deg) translateY(-200px) scale(1); /* Start from the top */
+      }
+      100% {
+        transform: rotate(360deg) translateY(-20px) scale(1); /* Finish at the top */
+      }
+    }
+    </style>
 </head>
 <body>
 <script>
@@ -43,8 +74,8 @@ window.addEventListener('offline', updateConnectionStatus);
 
 
 <div class="content">
-  <div class="w3-container w3-center w3-animate-top">
-  <h2><b>Anirudh's Site</b></h2>
+  <div class="container">
+    <div class="logo"><b>Anirudh's Site</b></div>
   </div>
 
 
@@ -77,6 +108,12 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   background-image: url(/sky.png);
   background-position: right bottom, left top;
+      padding: 0;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+color: black;
 }
 
 .sidenav {

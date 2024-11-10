@@ -36,7 +36,7 @@ You can reference the site's source code in many ways.
  Most if not all browsers have a feature where if you right-click and click "Inspect" you can see the website's source code. In [Chrome](https://www.google.com/chrome/), it is called 
  [DevTools](https://developer.chrome.com/docs/devtools). You can copy-paste parts of code you want and view where they are in real-time.
 
-### Maintenance
+## Maintenance
 If the site is going under heavy maintenance or repetitive changes that will disrupt deployment, you will see a message that says: "Site is going under maintenance", by using another Git branch as a publishing source. Why not just use the branch for the old, unchanged version of the site, you ask? That is a good choice, but I'll have to update both, and merging both may result in unwanted changes that I'd rather not do. So that's why.
 Also, it'll be annoying for users when they get comfortable with a new layout and an old one comes up. It is better to just tell them the site is under maintenance :)
 Anyway, thanks!

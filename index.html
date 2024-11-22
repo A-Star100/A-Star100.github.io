@@ -1,102 +1,187 @@
 <!DOCTYPE HTML>
+<html><head>
 <title>Anirudh's Site</title>
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<style>
+/* Basic Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
 
+.et_menu_container {
+    padding: 0; /* Remove default padding inside the sidebar */
+}
+
+.full-width-cover {
+  flex: 1; /* Ensures the div spans all width inside flex container */
+      height: 100px;
+      width: 100vw; 
+}
+
+.custom-menu-button {
+    margin: 0; /* Remove any margin */
+    position: relative; /* Optional for fine-tuning */
+    top: 0; /* Aligns it closer to the top */
+}
+
+
+.anisubmenucenter-bottom {
+  display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Pushes the div to the bottom */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.center {
+  display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Pushes the div to the bottom */
+    left: 0;
+    width: 100%;
+}
+.border {
+  width: 10px; /* Fixed width for the border */
+}
+
+
+.w3-bar-block .w3-bar-item {padding:20px}
+</style>
 </head>
 <body>
+<!-- Sidebar (hidden by default) -->
+<nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left" style="display:none;z-index:2;width:40%;min-width:300px" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button"><img style="width:40px;height:40px" src="close-icon.png">Close Menu</a>
+  <a href="https://tinyurl.com/sonicmisc" class="w3-bar-item w3-button">My apps</a>
+  <a href="https://bit.ly/anihub" class="w3-bar-item w3-button">My Wix Website (before this one)</a>
+  <a href="https://scratch.mit.edu/users/SONICWORLD100" class="w3-bar-item w3-button">My Scratch projects</a>
+<a href="https://github.com/A-Star100" class="w3-bar-item w3-button">My GitHub</a>
+<a href="https://gitlab.com/A-Star100" class="w3-bar-item w3-button">My GitLab</a>
+  <a href="https://a-star100.github.io/ani2021" class="w3-bar-item w3-button">My first website</a>
+  <a href="/extras.html" class="w3-bar-item w3-button">Extras</a>
+  <a href="/sonicfight.html" class="w3-bar-item w3-button">Play Sonic vs. Shadow</a>
+  <a href="/paddlegame.html" class="w3-bar-item w3-button">Play Paddle</a>
+  <a href="/downloads.html" class="w3-bar-item w3-button">Downloads</a>
+  <a href="https://bit.ly/jcdbme" class="w3-bar-item w3-button">My fandubs</a>
+<a href="/songs.html" class="w3-bar-item w3-button">My songs</a>
+  <a href="/archive.html" class="w3-bar-item w3-button">Site Archive</a>
+<a href="https://a-star100.github.io/mobiledetector" class="w3-bar-item w3-button">My mobile browser detector</a>
+<a href="https://sites.google.com/view/anirudhbio/home" class="w3-bar-item w3-button">My older website (serves as a little bio)</a>
+<a href="https://github.com/A-Star100/A-Star100.github.io" class="w3-bar-item w3-button">This site's source code</a>
+</nav>
 
-
-
-<div class="sidenav">
-    <a href="https://tinyurl.com/sonicmisc">My apps</a>
-  <a href="https://bit.ly/anihub">My Wix Website (before this one)</a>
-  <a href="https://scratch.mit.edu/users/SONICWORLD100">My Scratch projects</a>
-<a href="https://github.com/A-Star100">My GitHub</a>
-<a href="https://gitlab.com/A-Star100">My GitLab</a>
-  <a href="https://a-star100.github.io/ani2021">My first website</a>
-  <a href="/extras.html">Extras</a>
-  <a href="/sonicfight.html">Play Sonic vs. Shadow</a>
-  <a href="/paddlegame.html">Play Paddle</a>
-  <a href="/downloads.html">Downloads</a>
-<a href="/songs.html">My Songs</a>
-  <a href="/archive.html">Site Archive</a>
-<a href="https://a-star100.github.io/mobiledetector">My mobile browser detector</a>
-<a href="https://sites.google.com/view/anirudhbio/home">My older website (serves as a little bio)</a>
-<a href="https://github.com/A-Star100/A-Star100.github.io">This site's source code</a>
+<!-- Top menu -->
+<div class="w3-top">
+  <div class="w3-white w3-xlarge" style="max-width:1200px;margin:auto">
+    <header id="main-header" data-height-onload="72" data-height-loaded="true" data-fixed-height-onload="0" style="top: 0px;" class="" style="width: 100vw; display: block;">
+			<div class="container clearfix et_menu_container">
+							<div class="logo_container">
+                <div class="w3-button w3-padding-16 w3-left custom-menu-button" title="Side menu" onclick="w3_open()">☰</div>
+           <div class="w3-padding-16 w3-center" title="Side menu"><b>Anirudh's Site</b></div>
+  </div>
+  </div>
+					</a>
+				</div>
+</ul></div>
+			</div>				</div> <!-- #et-top-navigation -->
+			</div> <!-- .container -->
+					</header>
   
+<!-- !PAGE CONTENT! -->
+<hr id="start">
+<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
+
+  <!-- First Photo Grid-->
+  <div class="w3-row-padding w3-padding-16 w3-center" id="info">
+    <div class="w3-center">
+    <h3>About Me</h3>
+      <p>I'm Anirudh Sevugan, and I do lots of creative things. <b>Lots,</b> and I mean it. It's all too much to tell in just one word.
+        But in a short summary, I like making movies and songs from time to time, as well as being on the tech side making some web apps, native apps, etc.
+      </p>
+    </div>
+  </div>
   
-</div>
-</head>
-
-
-<div class="content">
-  <div class="w3-container w3-center w3-animate-top">
-  <h2><b>Anirudh's Site</b></h2>
+  <!-- Second Photo Grid Example-->
+  <div class="w3-row-padding w3-padding-16 w3-center" style="display:none;">
+    <div class="w3-quarter">
+      <img src="" alt="Popsicle" style="width:100%">
+      <h3></h3>
+      <p></p>
+    </div>
+    </div>
   </div>
 
 
-<div class="footer">
-<strong>This website</strong>
-<p>Web development turned out to be pretty useful. Whenever I made websites in Google Sites, I could use this one as an independent, direct-download file server that didn't get watermarked with Google, DropBox, OneDrive, and all of that stuff. In fact, this also sorta <b>widens my reach</b> which is pretty cool to be honest. Then again, I've been so distracted that I really forgot to update this website. It turned out to be very useful, though, and put my HTML5 skills to the test.</p>
-<strong>My apps</strong>
-<p>I made a <b>bunch</b> of apps in the summer. One could make QR codes. The other was a web browser (that had questionable security). And another was a doodling app (that was feature-rich). When I was 7, I was a certified BYJU's app developer and now it really makes sense why :)</p>
-<strong>My Scratch projects</strong>
-<p>As you can see, I have a Scratch profile with some cool projects, all involving Sonic, my favorite little blue hedgehog. I have publicized some, but over 200 aren't. Some worthy of being published, some not. Enjoy exploring my Scratch creations :)</p>
-<strong>My GitHub</strong>
-<p>I wanted to preserve one of my app's source code on GitHub one day. At the time, I was a beginner at GitHub. I was just doing the basics. Little did I know it would all come to this :)</p> 
-<strong>My 2021 code revival</strong> 
-<p>One day, back in 2021, I followed tutorials to create some websites and hosted them using the now practically-dead <a href="https://000webhost.com">000webhost</a> website hosting service. The revival project revives the deployed project (now removed from 000webhost), and another un-deployed one. The revival can be found <a href="https://ani2021.netlify.app">here</a>.</p>
-<strong>My movies</strong>
-<p>I make tons of movies, including <a href="https://en.wikipedia.org/wiki/Fandub">fandubs</a>. View my fandubs <a href="https://bit.ly/jcdbme">here!</a></p>
-<strong>My songs</strong>
-<p>Along with movies, I also make music. Want to learn more? Well, then listen to them for yourself <a href="/songs.html">here!</a></p>
-<a href='/index.html' download="astar100.html"><button>View this page offline</button></a>
+  <!-- About Section -->
+  <div class="w3-container w3-padding-32 w3-center">  
+    <h3>More about me</h3><br>
+    <img src="me.png" alt="Me" class="w3-image" style="display:block;margin:auto" width="800" height="533">
+    <div class="w3-padding-32">
+      <hr id="moreabout">
+      <h4><b>Anirudh Sevugan</b></h4>
+      <h6><i>A guy who's multi-talented in plenty of aspects</i></h6>
+      <p>I've been exploring a lot of topics over the years, but the thing that made it all click was computer science. It was interesting, fired up my brain, and inspired me to do many things. But I was also interested in math, as it challenged me a lot. And I'm also interested in movies, musicmaking, and apps (which are subtopics of computer science). But I've been doing movies a lot, in fact, I even made a few <a href="https://en.wikipedia.org/wiki/Fandub">fandubs</a> every now and then, which you can learn more about <a href="https://bit.ly/jcdbme">here.</a></p>
+    </hr>
+    </div>
+  </div>
+  <hr>
+  
+  <!-- Footer -->
+  <footer class="w3-row-padding w3-padding-32 w3-center">
+    <div class="submenu-top">
+      <h3><b>Anirudh's Site</b></h3>
+      <p>Made by Anirudh Sevugan</p>
+    </div>
+
+    <div class="border">
+    </div>
+  
+    <div class="w3-third anisubmenucenter-bottom">
+      <h3>Other places to visit</h3>
+      <ul class="w3-ul w3-hoverable">
+        <li class="w3-padding-16">
+          <a class="w3-left w3-margin-right" style="width:50px"></a>
+          <a class="w3-large" href="/archive.html">Anirudh's Site Archive</a><br>
+          <span>An archive consisting of many of the past designs of Anirudh's Site</span>
+        </li>
+        <li class="w3-padding-16">
+          <a class="w3-left w3-margin-right" style="width:50px"></a>
+          <a class="w3-large" href="/songs.html">My songs</a><br>
+          <span>These actually sound quite good! Try listening to them (that is, if you want to).</span>
+        </li>
+        <li class="w3-padding-16">
+          <a class="w3-left w3-margin-right" style="width:50px"></a>
+          <a class="w3-large" href="https://bit.ly/jcdbme">Sonic fandubs</a><br>
+          <span>The crazy thing is, watching all of these fandubs takes more than 2 hours! But if you want any form of entertainment, here might be a spot of interest.</span>
+        </li>
+      </ul>
+    </div>
+    <!-- Pagination -->
+    <div class="w3-center w3-padding-32">
+      <div class="w3-bar">
+        <a href="#start" class="w3-bar-item w3-button w3-hover-black">«</a>
+        <a href="#start" class="w3-bar-item w3-black w3-button">1</a>
+        <a href="#moreabout" class="w3-bar-item w3-button w3-hover-black">2</a>
+        <a href="#moreabout" class="w3-bar-item w3-button w3-hover-black">»</a>
+      </div>
+    </div>
+  </footer>
+
+<!-- End page content -->
 </div>
 
-
-<style>
-* {
-  box-sizing: border-box;
+<script>
+// Script to open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
 }
-
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background-image: url(/sky.png);
-  background-position: right bottom, left top;
+ 
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
 }
-
-.sidenav {
-  height: 100%;
-  width: 200px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-}
-
-
-.sidenav a {
-  color: white;
-  padding: 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.sidenav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.content {
-  margin-left: 200px;
-  padding-left: 20px;
-}
-
-</style>
-
-</div>
-</body>
+</script>

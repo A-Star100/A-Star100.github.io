@@ -1,14 +1,84 @@
 /* Refer to this for styling */
-* {
-   box-sizing: border-box; 
+/* Basic Styling */
 body {
-   background-image: url(/sky.png); /* basic background image styling - don't remove */
-  background-position: right bottom, left top; /* background position, may break how the background looks if removed */
+    font-family: Arial, sans-serif;
+    margin: 0;
 }
- }
 
- body {
-   margin: 0;
-   font-family: Arial, Helvetica, sans-serif; /* font - change if not web-safe */
- }
+.et_menu_container {
+    padding: 0; /* Remove default padding inside the sidebar */
+}
+
+.full-width-cover {
+  flex: 1; /* Ensures the div spans all width inside flex container */
+      height: 100px;
+      width: 100vw; 
+}
+
+   @media (prefers-color-scheme: dark) {
+
+       body.dark-mode {
+
+           background-color: #121212;
+
+           color: #fff;
+
+           /* Other dark mode styles here */
+
+       }
+
+   }
+
+
+.custom-menu-button {
+    margin: 0; /* Remove any margin */
+    position: relative; /* Optional for fine-tuning */
+    top: 0; /* Aligns it closer to the top */
+}
+
+
+.anisubmenucenter-bottom {
+  display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Pushes the div to the bottom */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.center {
+  display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Pushes the div to the bottom */
+    left: 0;
+    width: 100%;
+}
+.border {
+  width: 10px; /* Fixed width for the border */
+}
+
+.horizontal-menu {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          padding: 10px 0;
+          list-style-type: none;
+          margin: 0;
+        }
+      
+        .horizontal-menu li {
+          margin: 0 10px;
+        }
+      
+        .social-icon {
+          width: 24px;
+          height: 24px;
+          object-fit: cover;
+        }
+      
+        .social-icon:hover {
+          opacity: 0.7;
+        }
+
+.w3-bar-block .w3-bar-item {padding:20px}
 

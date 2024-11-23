@@ -1,0 +1,265 @@
+<!DOCTYPE HTML>
+<html><head>
+<title>Anirudh's Site</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<style>
+/* Basic Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+.et_menu_container {
+    padding: 0; /* Remove default padding inside the sidebar */
+}
+
+.full-width-cover {
+  flex: 1; /* Ensures the div spans all width inside flex container */
+      height: 100px;
+      width: 100vw; 
+}
+
+code {
+    color: black;
+    background-color: white;
+}
+
+.custom-menu-button {
+    margin: 0; /* Remove any margin */
+    position: relative; /* Optional for fine-tuning */
+    top: 0; /* Aligns it closer to the top */
+}
+
+
+.anisubmenucenter-bottom {
+  display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Pushes the div to the bottom */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.center {
+  display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Pushes the div to the bottom */
+    left: 0;
+    width: 100%;
+}
+.border {
+  width: 10px; /* Fixed width for the border */
+}
+
+
+.w3-bar-block .w3-bar-item {padding:20px}
+</style>
+</head>
+
+<div class="w3-center">
+<b>MPEG-DASH demo</b>
+</div>
+<p>Before we actually view the demo, let's make it first. For this demo, <b>MPEG-DASH</b> will be used.
+    <b>Prerequisites:</b>
+    <ul>
+        <li>An IDE to make your HTML in <b>(OPTIONAL but <i>heavily</i> recommended)</b></li>
+        <li>A basic knowledge of MPEG-DASH/HLS</li>
+        <li>An MPEG-DASH/HLS-formatted stream (regular MP4 files won't work, you need a specific format, which you can make using ffmpeg)</li>
+        <li>Dash.js (if you are using MPEG-DASH) or HLS.js (if you are using HLS)</li>
+        <li>Video.js <b>(OPTIONAL but recommended)</b></li>
+    </ul>
+Now, let's start with making our HTML!
+First, create an HTML file in your IDE (I'm using Visual Studio Code for this demo).
+In Visual Studio Code, you can do this by pressing "New File" on the Welcome page. After that, name your file (be sure to add a ".html" extension to the file name).
+Save it, and then add someHTML to your file: 
+
+<div class="w3-code notranslate htmlHigh">
+    &lt;!DOCTYPE HTML&gt;
+&lt;html&gt;&lt;head&gt;
+    &lt;title&gt;HLS/MPEG-DASH demo&lt;/title&gt; &lt;!-- Site title --&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt; &lt;!-- Viewport settings --&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://vjs.zencdn.net/8.16.1/video-js.css&quot; rel=&quot;stylesheet&quot;&gt; &lt;!-- Video.js CSS --&gt;
+    &lt;link rel=&quot;icon&quot; type=&quot;image/x-icon&quot; href=&quot;/favicon.ico&quot;&gt;
+&lt;/head&gt;
+    </div>
+The code up there is basic code  to add some style and flair. Then, let's start with the basic Video.js setup:
+<div class="w3-code notranslate htmlHigh">
+    &lt;body&gt;
+  &lt;video
+    id=&quot;my-video&quot;
+    class=&quot;video-js&quot;
+    controls
+    preload=&quot;auto&quot;
+    width=&quot;640&quot;
+    height=&quot;264&quot;
+    poster=&quot;MY_VIDEO_POSTER.jpg&quot;
+    data-setup=&quot;{}&quot;
+  &gt;
+    &lt;source src=&quot;MY_VIDEO.mp4&quot; type=&quot;video/mp4&quot; /&gt; &lt;!-- JavaScript-disabled fallback - Dash.js/HLS.js will replace this URL. --&gt;
+    &lt;p class=&quot;vjs-no-js&quot;&gt;
+      To view this video please enable JavaScript, and consider upgrading to a
+      web browser that
+      &lt;a href=&quot;https://videojs.com/html5-video-support/&quot; target=&quot;_blank&quot;
+        &gt;supports HTML5 video&lt;/a&gt;
+    &lt;/p&gt;
+  &lt;/video&gt;
+
+  &lt;script src=&quot;https://vjs.zencdn.net/8.16.1/video.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;  https://cdnjs.cloudflare.com/ajax/libs/dashjs/4.7.4/dash.all.min.js
+  &quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+</div>
+Now that we have our HTML files almost done, let's move to <b>creating an MPEG-DASH stream using ffmpeg</b>
+If you haven't already, install ffmpeg for Windows <a href="https://ffmpeg.org">here.</a>
+<br>
+For Mac, type in:
+<code>
+    brew install ffmpeg
+</code>
+in Terminal
+<small>You need <a href="https://brew.sh/">Homebrew</a> installed to execute<code>
+    brew install ffmpeg
+</code></small>
+</br>
+<br>
+For Linux, type in:
+<code>
+    sudo apt-get install ffmpeg
+</code>
+<small>This will not work for non-Debian distros of Linux, as they don't support the apt package manager.</small>
+</br>
+<br></br>
+Then, type in this ffmpeg command (make sure you are not in a root directory! Create a subdirectory for your stream, and move your HTML file there as well) to create an MPEG-DASH stream of your video. <B>This example assumes that your input video is <i>input.mp4</i> and your output MPEG-DASH manifest is <i>dash.mpd</i></B>:
+<code>
+    <br>
+    ffmpeg -i input.mp4 \
+    -map 0:v -map 0:a \
+    -c:v libx264 -preset fast -b:v 1500k \
+    -c:a aac -b:a 128k \
+    -f dash \
+    -segment_format mp4 \
+    -segment_list_output dash.mpd \
+    -segment_time 10 \
+    dash/  
+</br>
+</code>
+This process may take a while, so wait patiently. Now, let's add the final touches to our HTML file. 
+Add this code in the &lt;body&gt; element of your HTML file:
+<br></br>
+<div class="w3-code notranslate htmlHigh">
+&lt;script&gt;
+  // Wait for the document to load
+  window.onload = function() {
+    // Create a Dash.js player instance
+    var player = dashjs.MediaPlayer().create();
+
+    // Set the URL of your MPEG-DASH stream
+    var streamUrl = &quot;dash.mpd&quot;;  // Replace with the URL of your DASH stream
+
+    // Attach the player to the video element
+    player.initialize(document.querySelector(&quot;#videoPlayer&quot;), streamUrl, true);
+
+    // Optionally, add event listeners or player settings
+    player.on(dashjs.MediaPlayer.events.PLAYBACK_ENDED, function() {
+      console.log(&quot;Playback ended!&quot;);
+    });
+  }
+&lt;/script&gt;
+</div>
+Then, start an HTTP server using Node.js or Python.
+First, change the directory you are in to the one your MPEG-DASH stream is in. 
+Once done, for Python 3, simply type in:
+<br></br>
+<code>python3 -m http.server</code>
+<br></br>
+or for Node.js, simply type in:
+<br></br>
+<code>npx http-server
+</code>
+<small>npx is not supported in all versions of Node.js, so make sure you've updated to a supported version of Node.js</small>
+Then visit <a href="http://localhost:8080">localhost:8080</a> in your browser (or a custom port number if you chose one,) then watch your MPEG-DASH stream!
+Now, here is all of the HTML code:
+<br></br>
+<div class="w3-code notranslate htmlHigh">
+&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;&lt;head&gt;
+    &lt;title&gt;HLS/MPEG-DASH demo&lt;/title&gt; &lt;!-- Site title --&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt; &lt;!-- Viewport settings --&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://vjs.zencdn.net/8.16.1/video-js.css&quot; /&gt; &lt;!-- Video.js CSS --&gt;
+    &lt;link rel=&quot;icon&quot; type=&quot;image/x-icon&quot; href=&quot;/favicon.ico&quot; /&gt;&lt;/link&gt;
+
+&lt;body&gt;
+  &lt;video
+    id=&quot;my-video&quot;
+    class=&quot;video-js&quot;
+    controls
+    preload=&quot;auto&quot;
+    width=&quot;640&quot;
+    height=&quot;264&quot;
+    poster=&quot;MY_VIDEO_POSTER.jpg&quot;
+    data-setup=&quot;{}&quot;
+  &gt;
+    &lt;source src=&quot;knuckles-short.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+    &lt;p class=&quot;vjs-no-js&quot;&gt;
+      To view this video please enable JavaScript, and consider upgrading to a
+      web browser that
+      &lt;a href=&quot;https://videojs.com/html5-video-support/&quot; target=&quot;_blank&quot;&gt;
+        supports HTML5 video
+      &lt;/a&gt;
+    &lt;/p&gt;
+  &lt;/video&gt;
+
+  &lt;script src=&quot;https://vjs.zencdn.net/8.16.1/video.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot; https://cdnjs.cloudflare.com/ajax/libs/dashjs/4.7.4/dash.all.min.js &quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/body&gt;
+
+&lt;script&gt;
+  // Wait for the document to load
+  window.onload = function() {
+    // Create a Dash.js player instance
+    var player = dashjs.MediaPlayer().create();
+
+    // Set the URL of your MPEG-DASH stream
+    var streamUrl = &quot;dash.mpd&quot;;  // Replace with the URL of your DASH stream
+
+    // Attach the player to the video element
+    player.initialize(document.querySelector(&quot;#videoPlayer&quot;), streamUrl, true);
+
+    // Optionally, add event listeners or player settings
+    player.on(dashjs.MediaPlayer.events.PLAYBACK_ENDED, function() {
+      console.log(&quot;Playback ended!&quot;);
+    });
+  }
+&lt;/script&gt;
+</div>
+</p>
+
+<div class="w3-third anisubmenucenter-bottom">
+    <h3>Other places to visit</h3>
+    <ul class="w3-ul w3-hoverable">
+      <li class="w3-padding-16">
+        <a class="w3-left w3-margin-right" style="width:50px"></a>
+        <a class="w3-large" href="/archive.html">Anirudh's Site Archive</a><br>
+        <span>An archive consisting of many of the past designs of Anirudh's Site</span>
+      </li>
+      <li class="w3-padding-16">
+        <a class="w3-left w3-margin-right" style="width:50px"></a>
+        <a class="w3-large" href="/songs.html">My songs</a><br>
+        <span>These actually sound quite good! Try listening to them (that is, if you want to).</span>
+      </li>
+      <li class="w3-padding-16">
+        <a class="w3-left w3-margin-right" style="width:50px"></a>
+        <a class="w3-large" href="https://bit.ly/jcdbme">Sonic fandubs</a><br>
+        <span>The crazy thing is, watching all of these fandubs takes more than 2 hours! But if you want any form of entertainment, here might be a spot of interest.</span>
+      </li>
+    </ul>
+  </div>
+
+
+  

@@ -17,7 +17,14 @@ if you have Python 3 installed, or:
 
 `python -m simple-http-server`
 
-if you have Python 2 or below installed (any version of Python is much easier).
+if you have Python 2 or below installed.
+
+For Node.js, type in:
+
+`npx http-server`
+
+and you should be ready to go.
+
 You should be able to visit [localhost:8000](http://localhost:8000/) (or a custom port number if you decided to do so) and view the site offline on your device, or other devices connected to the same network.
 
 ## How to set up Microsoft Clarity

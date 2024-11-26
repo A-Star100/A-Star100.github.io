@@ -2,6 +2,12 @@
 My site (made without a website builder).
 You should expect index files and other necessary files here.
 
+## Revamping
+If you noticed (all of you would've but of you didn't it's fine), the site got revamped. This was done using a [W3.CSS](https://google.com)
+template, which was plain. My website now looks more clear and relaxing, and most importantly, less cluttered. If you were **SUPER** attentive, the site almost always used W3.CSS (but it didn't heavily rely on it until now), but the revamp also has its own custom styles (obvi). 
+
+Hope you like the revamped site!
+
 ## How to view entire site offline
 If you want to view the entire site offline as if it was online, do this:
 1. Download the source code by clicking the arrow on the "Code" button, then clicking "Download ZIP", extract the ZIP.
@@ -44,6 +50,4 @@ You can reference the site's source code in many ways.
  [DevTools](https://developer.chrome.com/docs/devtools). You can copy-paste parts of code you want and view where they are in real-time.
 
 ## Maintenance
-If the site is going under heavy maintenance or repetitive changes that will disrupt deployment, you will see a message that says: "Site is going under maintenance", by using another Git branch as a publishing source. Why not just use the branch for the old, unchanged version of the site, you ask? That is a good choice, but I'll have to update both, and merging both may result in unwanted changes that I'd rather not do. So that's why.
-Also, it'll be annoying for users when they get comfortable with a new layout and an old one comes up. It is better to just tell them the site is under maintenance :)
-Anyway, thanks!
+If the site is going under heavy maintenance or repetitive changes that will disrupt deployment, you will see a message that says: "Site is going under maintenance", by using another Git branch as a publishing source. This is only for **HEAVY** maintenance, where repetitive changes will occur, and as you know, multiple deployments can't occur in GitHub, so I have to switch the publishing branch.

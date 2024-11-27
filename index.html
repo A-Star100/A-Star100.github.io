@@ -170,11 +170,27 @@ body {
   
   <!-- Footer -->
   <footer class="w3-row-padding w3-padding-32 w3-center">
+<!-- iFrame code -->
 <iframe 
     src="/ui-extras/gonext.html" 
+    sandbox 
     frameborder="0" 
     scrolling="no" 
-    style="border: none; width: 100vw; height: 100vh; overflow: visible; pointer-events: none;"></iframe>
+    style="border: none; width: 100%;"></iframe>
+
+<script>
+    // Function to resize iframe dynamically
+    function resizeIframe(iframe) {
+        iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+    }
+
+    // Access iframe and apply resizing
+    const iframe = document.querySelector('iframe');
+    iframe.onload = function () {
+        resizeIframe(iframe);
+    };
+</script>
+<!-- End of iframe code -->
 
     <!--<div class="submenu-top">
       <h3><b>Anirudh's Site</b></h3>

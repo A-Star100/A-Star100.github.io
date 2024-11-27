@@ -7,8 +7,17 @@
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <style>
 /* Basic Styling */
-body {
-    font-family: Arial, sans-serif;
+body.light-mode {
+    background-color: white;
+    color: black;
+font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+body.dark-mode {
+    background-color: black;
+    color: whitea;
+font-family: Arial, sans-serif;
     margin: 0;
 }
 
@@ -22,19 +31,6 @@ body {
       width: 100vw; 
 }
 
-   @media (prefers-color-scheme: dark) {
-
-       body.dark-mode {
-
-           background-color: #121212;
-
-           color: #fff;
-
-           /* Other dark mode styles here */
-
-       }
-
-   }
 
 
 .custom-menu-button {
@@ -242,6 +238,29 @@ body {
 </div>
 
 <script>
+// Dark/Light themes
+// Listen for theme preference changes
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (e.matches) {
+        // User prefers dark mode
+        document.body.classList.add('dark-mode');
+        document.body.classList.remove('light-mode');
+    } else {
+        // User prefers light mode
+        document.body.classList.add('light-mode');
+        document.body.classList.remove('dark-mode');
+    }
+});
+
+// Set the initial theme based on the user's preference
+if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    document.body.classList.add('dark-mode');
+    document.body.classList.remove('light-mode');
+} else {
+    document.body.classList.add('light-mode');
+    document.body.classList.remove('dark-mode');
+}
+
 // Script to open and close sidebar
 function w3_open() {
   document.getElementById("mySidebar").style.display = "block";

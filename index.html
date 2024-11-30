@@ -287,9 +287,10 @@ function changeGitHubIcon() {
 const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 mediaQuery.addEventListener('change', changeGitHubIcon);  // Call the function when the theme changes
 
-// Initial icon change based on current theme
+document.addEventListener('DOMContentLoaded', () => {
+   // Initial icon change based on current theme
 changeGitHubIcon();  // Call on page load to set the correct icon based on the current theme
-
+});
 
 // Script to open and close sidebar
 function w3_open() {

@@ -13,8 +13,8 @@
   <g aria-hidden="true" fill="#fff" text-anchor="start" font-family="Verdana,DejaVu Sans,sans-serif" font-size="110">
     <text x="60" y="148" textLength="398" fill="#000" opacity="0.25">release</text>
     <text x="50" y="138" textLength="398">release</text>
-    <text x="553" y="148" textLength="1295" fill="#000" opacity="0.25">HTTP-Server v1.0.0 released</text>
-    <text xmlns="http://www.w3.org/2000/svg" x="543" y="138" textLength="1295">HTTP-Server v1.0.0 released</text>
+    <text x="553" y="148" textLength="1295" fill="#000" opacity="0.25">HTTP-Server v1.0.1 released</text>
+    <text xmlns="http://www.w3.org/2000/svg" x="543" y="138" textLength="1295">HTTP-Server v1.0.1 released</text>
   </g>
   
 </svg>

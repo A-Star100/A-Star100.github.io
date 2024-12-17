@@ -3,35 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HTML5 Video Player with URL Prompt</title>
+  <title>HTML5 Video Player</title>
 </head>
 <body>
 
-  <h1>HTML5 Video Player</h1>
+  <h2>Enter Video URL</h2>
 
-  <!-- Video Player -->
-  <video id="videoPlayer" controls>
+  <!-- Input form for the video URL -->
+  <form id="videoForm">
+    <input type="text" id="videoUrlInput" placeholder="Enter video URL" style="width: 80%;">
+    <button type="button" onclick="setVideoUrl()">Set Video</button>
+  </form>
+
+  <!-- Video player -->
+  <video id="videoPlayer" width="100%" height="auto" controls>
     Your browser does not support the video tag.
   </video>
 
   <script>
-    // Prompt user to input the video URL
-    var videoURL = prompt("Please enter the video URL:");
-
-    // If the user entered a URL, set the video player's source
-    if (videoURL) {
-      var videoPlayer = document.getElementById("videoPlayer");
-
-      // Set the new video source
-      videoPlayer.src = videoURL;
-
-      // Reload the video to reflect the new source
-      videoPlayer.load();
-
-      // Play the video automatically
-      videoPlayer.play();
-    } else {
-      alert("No video URL was entered. Refresh page.");
+    // Function to set the video source
+    function setVideoUrl() {
+      var videoUrl = document.getElementById('videoUrlInput').value;
+      var videoPlayer = document.getElementById('videoPlayer');
+      
+      if (videoUrl) {
+        // Set the video source to the URL entered
+        videoPlayer.src = videoUrl;
+        videoPlayer.load();  // Load the video
+        videoPlayer.play();  // Auto-play the video
+      } else {
+        alert("Please enter a valid URL.");
+      }
     }
   </script>
 

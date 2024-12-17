@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML5 Video Player with URL Prompt</title>
+</head>
+<body>
+
+  <h1>HTML5 Video Player</h1>
+
+  <!-- Video Player -->
+  <video id="videoPlayer" controls>
+    Your browser does not support the video tag.
+  </video>
+
+  <script>
+    // Prompt user to input the video URL
+    var videoURL = prompt("Please enter the video URL:");
+
+    // If the user entered a URL, set the video player's source
+    if (videoURL) {
+      var videoPlayer = document.getElementById("videoPlayer");
+
+      // Set the new video source
+      videoPlayer.src = videoURL;
+
+      // Reload the video to reflect the new source
+      videoPlayer.load();
+
+      // Play the video automatically
+      videoPlayer.play();
+    } else {
+      alert("No video URL was entered. Refresh page.");
+    }
+  </script>
+
+</body>
+</html>

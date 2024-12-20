@@ -11,7 +11,7 @@
             padding: 0;
             font-family: 'Arial', sans-serif;
             box-sizing: border-box;
-          decoration: none;
+            text-decoration: none;
         }
 
         /* General styles */
@@ -50,7 +50,7 @@
             text-decoration: none;
             border-radius: 5px;
             font-size: 1.1rem;
-            transition: background 0.3s ease-in-out;
+            transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
         }
 
         .btn:hover {
@@ -72,6 +72,12 @@
             padding: 20px;
             width: 300px;
             text-align: left;
+            transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+        }
+
+        .feature-box:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1) translateY(-5px);
         }
 
         .feature-box h3 {
@@ -108,9 +114,9 @@
             </div>
 
             <div class="feature-box">
-                <h3>No catches</h3>
-                <p>You don't need random libraries or system requirements, the app is compatible and reliably works with most versions of Android*!</p>
-              <i><b>*Only tested on Android 14, but no issues there</b></i>
+                <h3>No Catches</h3>
+                <p>You don't need random libraries or system requirements; the app is compatible and reliably works with most versions of Android*!</p>
+                <small><i><b>*Only tested on Android 14, but no issues there</b></i></small>
             </div>
 
             <div class="feature-box">
@@ -118,8 +124,8 @@
                 <p>Whenever a new update comes around, don't worry about having to scour for the download page! You'll be notified in an instant, wherever you are!</p>
             </div>
 
-          <div class="feature-box">
-                <h3>Take your creativity to the next level</h3>
+            <div class="feature-box">
+                <h3>Take Your Creativity to the Next Level</h3>
                 <p>Download the <a href="https://github.com/A-Star100/ExoPlayerCreator/raw/refs/heads/main/decompiled-releases/aia/">source code</a>, read the README, and instantly modify the app to add your own features and UI!</p>
             </div>
         </div>

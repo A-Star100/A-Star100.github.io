@@ -44,13 +44,19 @@
 
         .btn {
             display: inline-block;
+            border: none; /* Remove border */
             background: #ff6b6b;
             color: #fff;
             padding: 15px 30px;
+            box-shadow: none;
             text-decoration: none;
             border-radius: 5px;
             font-size: 1.1rem;
             transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+        }
+        
+        #watchVideoButton {
+        padding: 19px 30px;
         }
 
         .btn:hover {
@@ -94,13 +100,73 @@
             margin-top: 50px;
             font-size: 0.9rem;
         }
+        /* Dialog Overlay */
+.dialog {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Dialog Content */
+.dialog-content {
+    position: relative;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Close Button */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+}
+
+.close-button:hover {
+    color: red;
+}
+
+/* Video Container */
+video {
+    max-width: 100%;
+    border-radius: 10px;
+}
     </style>
 </head>
 <body>
     <div class="container">
         <h1>About ExoPlayer Creator</h1>
         <p>The ultimate tool to create ExoPlayer instances right on your phone in just a few seconds.</p>
-        <a href="#features" class="btn">Explore Features</a>
+        <a href="#features" class="btn">Explore features!</a>
+        <!-- Watch Video Button -->
+    <button class="btn" id="watchVideoButton">Watch the demo!</button>
+
+    <!-- Video Dialog -->
+    <div id="videoDialog" class="dialog">
+        <div class="dialog-content">
+            <!-- Close Button -->
+            <button id="closeButton" class="close-button">X</button>
+
+            <!-- Video Container -->
+            <video id="video" width="500" controls>
+                <source src="https://www.dropbox.com/scl/fi/f22nvmgdizvdxelnexe4q/android-exoplayer-creator-demo.mp4?rlkey=19f55tj203cs85suclqaobqhb&st=lb38kp1r&raw=1" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
 
         <div class="features" id="features">
             <div class="feature-box">
@@ -125,7 +191,7 @@
             </div>
 
             <div class="feature-box">
-                <h3>Take Your Creativity to the Next Level</h3>
+                <h3>Take your creativity to the next level</h3>
                 <p>Download the <a href="https://github.com/A-Star100/ExoPlayerCreator/raw/refs/heads/main/decompiled-releases/aia/">source code</a>, read the README, and instantly modify the app to add your own features and UI!</p>
             </div>
         </div>
@@ -134,5 +200,35 @@
             &copy; 2024 Anirudh Sevugan. All rights reserved.
         </footer>
     </div>
+    <script>
+        // Get elements
+const watchVideoButton = document.getElementById("watchVideoButton");
+const videoDialog = document.getElementById("videoDialog");
+const closeButton = document.getElementById("closeButton");
+const video = document.getElementById("video");
+
+// Open the video dialog when the button is clicked
+watchVideoButton.addEventListener("click", function() {
+    videoDialog.style.display = "flex"; // Show the dialog
+    video.play(); // Play the video
+});
+
+// Close the video dialog when the close button is clicked
+closeButton.addEventListener("click", function() {
+    videoDialog.style.display = "none"; // Hide the dialog
+    video.pause(); // Pause the video
+    video.currentTime = 0; // Reset video to start
+});
+
+// Optional: Close the dialog when clicked outside of the video content
+window.addEventListener("click", function(event) {
+    if (event.target === videoDialog) {
+        videoDialog.style.display = "none"; // Hide the dialog
+        video.pause(); // Pause the video
+        video.currentTime = 0; // Reset video to start
+    }
+});
+
+    </script>
 </body>
 </html>

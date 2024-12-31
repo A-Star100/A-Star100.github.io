@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ExoPlayer Creator</title>
-            <!-- Place this tag in your head or just before your close body tag. -->
-<script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script>
+        function media2() {
+            video.src = "https://www.dropbox.com/scl/fi/f22nvmgdizvdxelnexe4q/android-exoplayer-creator-demo.mp4?rlkey=19f55tj203cs85suclqaobqhb&st=lb38kp1r&raw=1"
+        }
+
+        function media3() {
+            video.src = "https://www.dropbox.com/scl/fi/y4nne1gv2qgef6nvnz0fn/android-media3-exoplayer-creator-demo.mp4?rlkey=uodlv87b5znqsam14mru7m2r8&st=b6tl1fc3&raw=1"
+        }
+    </script>
     <style>
         /* Reset */
-        body, html {
+        body,
+        html {
             margin: 0;
             padding: 0;
             font-family: 'Inter', sans-serif;
@@ -47,7 +58,8 @@
 
         .btn {
             display: inline-block;
-            border: none; /* Remove border */
+            border: none;
+            /* Remove border */
             background: #ff6b6b;
             color: #fff;
             padding: 10px 30px;
@@ -57,9 +69,9 @@
             font-size: 1.1rem;
             transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
         }
-        
-        #watchVideoButton {
-        padding: 13px 30px;
+
+        #watchVideoButton, #watchVideoButton2 {
+            padding: 13px 30px;
         }
 
         .btn:hover {
@@ -103,82 +115,87 @@
             margin-top: 50px;
             font-size: 0.9rem;
         }
+
         /* Dialog Overlay */
-.dialog {
-    display: none; /* Hidden by default */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
+        .dialog {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            /* Semi-transparent black background */
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
 
-/* Dialog Content */
-.dialog-content {
-    position: relative;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-}
+        /* Dialog Content */
+        .dialog-content {
+            position: relative;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
 
-/* Close Button */
-.close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 18px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #333;
-}
+        /* Close Button */
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 18px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #333;
+        }
 
-.close-button:hover {
-    color: red;
-}
+        .close-button:hover {
+            color: red;
+        }
 
-/* Video Container */
-video {
-    max-width: 100%;
-    border-radius: 10px;
-}
+        /* Video Container */
+        video {
+            max-width: 100%;
+            border-radius: 10px;
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>About ExoPlayer Creator</h1>
         <p>The ultimate tool to create both <b>Media 3 ExoPlayers</b> and <b>Media 2 ExoPlayers</b> in two separate apps right on your phone in just a few seconds, with a good UI.</p>
         <a href="#features" class="btn">Explore features!</a>
-<!-- Place this tag where you want the button to render. -->
-<a class="github-button" href="https://github.com/A-Star100/ExoPlayerCreator" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" aria-label="Use this template A-Star100/ExoPlayerCreator on GitHub">View on GitHub</a>
+        <!-- Place this tag where you want the button to render. -->
+        <a class="github-button" href="https://github.com/A-Star100/ExoPlayerCreator" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" aria-label="Use this template A-Star100/ExoPlayerCreator on GitHub">View on GitHub</a>
         <!-- Watch Video Button -->
-    <button class="btn" id="watchVideoButton">Watch the demo! (Media2)</button>
+        <button class="btn" id="watchVideoButton" onclick="media2()">Watch the Media2 demo!</button>
+        <button class="btn" id="watchVideoButton2" onclick="media3()">Watch the Media3 demo!</button>
 
-    <!-- Video Dialog -->
-    <div id="videoDialog" class="dialog">
-        <div class="dialog-content">
-            <!-- Close Button -->
-            <button id="closeButton" class="close-button">X</button>
+        <!-- Video Dialog -->
+        <div id="videoDialog" class="dialog">
+            <div class="dialog-content">
+                <!-- Close Button -->
+                <button id="closeButton" class="close-button">X</button>
 
-            <!-- Video Container -->
-            <video id="video" width="500" controls>
-                <source src="https://www.dropbox.com/scl/fi/f22nvmgdizvdxelnexe4q/android-exoplayer-creator-demo.mp4?rlkey=19f55tj203cs85suclqaobqhb&st=lb38kp1r&raw=1" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+                <!-- Video Container -->
+                <video id="video" width="500" controls>
+                    <source src="https://www.dropbox.com/scl/fi/f22nvmgdizvdxelnexe4q/android-exoplayer-creator-demo.mp4?rlkey=19f55tj203cs85suclqaobqhb&st=lb38kp1r&raw=1" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
         </div>
-    </div>
 
         <div class="features" id="features">
             <div class="feature-box">
                 <h2>Multiple Players</h2>
                 <p>Not only can you create ExoPlayer 2 instances, you can also create HTML5 video players, and even Camcorder players (which ask you to record a video and plays it back once done).</p>
             </div>
-            
+
             <div class="feature-box">
                 <h3>Easy Customization</h3>
                 <p>Create and customize ExoPlayer instances with intuitive controls and options, and a user-friendly UI out of the box.</p>
@@ -209,39 +226,46 @@ video {
         <footer>
             &copy; 2024 Anirudh Sevugan. All rights reserved.
             <noscript>
-            <small><i>JavaScript is disabled, webpage may not function properly in some cases.</i></small>
+                <small><i>JavaScript is disabled, webpage may not function properly in some cases.</i></small>
             </noscript>
         </footer>
     </div>
     <script>
         // Get elements
-const watchVideoButton = document.getElementById("watchVideoButton");
-const videoDialog = document.getElementById("videoDialog");
-const closeButton = document.getElementById("closeButton");
-const video = document.getElementById("video");
+        const watchVideoButton = document.getElementById("watchVideoButton");
+        const watchVideoButton2 = document.getElementById("watchVideoButton2");
+        const videoDialog = document.getElementById("videoDialog");
+        const closeButton = document.getElementById("closeButton");
+        const video = document.getElementById("video");
 
-// Open the video dialog when the button is clicked
-watchVideoButton.addEventListener("click", function() {
-    videoDialog.style.display = "flex"; // Show the dialog
-    video.play(); // Play the video
-});
+        // Open the video dialog when the button is clicked
+        watchVideoButton.addEventListener("click", function() {
+            videoDialog.style.display = "flex"; // Show the dialog
+            video.play(); // Play the video
+        });
 
-// Close the video dialog when the close button is clicked
-closeButton.addEventListener("click", function() {
-    videoDialog.style.display = "none"; // Hide the dialog
-    video.pause(); // Pause the video
-    video.currentTime = 0; // Reset video to start
-});
+        // Open the video dialog when the button is clicked
+        watchVideoButton2.addEventListener("click", function() {
+            videoDialog.style.display = "flex"; // Show the dialog
+            video.play(); // Play the video
+        });
 
-// Optional: Close the dialog when clicked outside of the video content
-window.addEventListener("click", function(event) {
-    if (event.target === videoDialog) {
-        videoDialog.style.display = "none"; // Hide the dialog
-        video.pause(); // Pause the video
-        video.currentTime = 0; // Reset video to start
-    }
-});
+        // Close the video dialog when the close button is clicked
+        closeButton.addEventListener("click", function() {
+            videoDialog.style.display = "none"; // Hide the dialog
+            video.pause(); // Pause the video
+            video.currentTime = 0; // Reset video to start
+        });
 
+        // Optional: Close the dialog when clicked outside of the video content
+        window.addEventListener("click", function(event) {
+            if (event.target === videoDialog) {
+                videoDialog.style.display = "none"; // Hide the dialog
+                video.pause(); // Pause the video
+                video.currentTime = 0; // Reset video to start
+            }
+        });
     </script>
 </body>
+
 </html>

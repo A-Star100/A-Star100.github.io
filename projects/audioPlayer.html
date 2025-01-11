@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audio Player</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- CSS -->
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .audio-player {
+      background-color: #ffffff;
+      color: #4a4a4a;
+      border-radius: 10px;
+      padding: 20px;
+      width: 320px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 1px solid #ddd;
+    }
+
+    .controls {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      margin-top: 15px;
+    }
+
+    button {
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0c63d9;
+    }
+
+    .slider-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 15px;
+      width: 100%;
+    }
+
+    input[type="range"] {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      width: 120px;
+      height: 6px;
+      border-radius: 5px;
+      background: #e0e0e0;
+      outline: none;
+      transition: background 0.2s ease;
+    }
+
+    input[type="range"]:hover {
+      background: #ccc;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      background: #1a73e8;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    /* Dialog and overlay styles */
+    #overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    #dialog {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      width: 400px;
+      text-align: center;
+    }
+
+    .dialog-button {
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      padding: 15px 25px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .dialog-button:hover {
+      background-color: #0c63d9;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      width: 80%;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="audio-player">
+    <h1><i class="fa-solid fa-headphones"></i></h1>
+    <audio id="audio" style="height: 300px; width: 300px;"></audio>
+
+    <div class="controls">
+      <button id="playPauseBtn" title="Play/Pause">
+        <span class="icon" id="playIcon">►</span>
+        <span class="icon" id="pauseIcon" style="display: none;">❚❚</span>
+      </button>
+
+      <div class="slider-container">
+        <label for="progressBar" class="slider-label"><i class="fas fa-random"></i></label>
+        <input type="range" id="progressBar" value="0" max="100" step="1">
+      </div>
+
+      <div class="slider-container">
+        <label for="volumeControl" class="slider-label"><i class="fa-solid fa-volume-high"></i></label>
+        <input type="range" id="volumeControl" value="100" max="100" step="1">
+      </div>
+
+      <button id="playAnotherBtn">Play Another Audio Track</button>
+    </div>
+  </div>
+
+  <!-- Overlay and Dialog for file selection or URL input -->
+  <div id="overlay"></div>
+  <div id="dialog">
+    <h3>Select Audio Source</h3>
+    <button class="dialog-button" id="fileButton">Choose File</button>
+    <button class="dialog-button" id="urlButton">Enter URL</button>
+    <input type="file" id="fileInput">
+    <input type="text" id="urlInput" style="display:none;" placeholder="Enter audio URL">
+  </div>
+
+  <script>
+    const audio = document.getElementById("audio");
+    const playPauseBtn = document.getElementById("playPauseBtn");
+    const playIcon = document.getElementById("playIcon");
+    const pauseIcon = document.getElementById("pauseIcon");
+    const progressBar = document.getElementById("progressBar");
+    const volumeControl = document.getElementById("volumeControl");
+
+    // Get the dialog and overlay elements
+    const overlay = document.getElementById("overlay");
+    const dialog = document.getElementById("dialog");
+    const fileButton = document.getElementById("fileButton");
+    const urlButton = document.getElementById("urlButton");
+    const fileInput = document.getElementById("fileInput");
+    const urlInput = document.getElementById("urlInput");
+    const playAnotherBtn = document.getElementById("playAnotherBtn");
+
+    // Show the dialog overlay
+    function openDialog() {
+      overlay.style.display = "block";
+      dialog.style.display = "block";
+    }
+
+    // Hide the dialog overlay
+    function closeDialog() {
+      overlay.style.display = "none";
+      dialog.style.display = "none";
+    }
+
+    // Handle play/pause button
+    playPauseBtn.addEventListener("click", function() {
+      if (audio.paused) {
+        audio.play();
+        playIcon.style.display = "none";
+        pauseIcon.style.display = "inline-block";
+      } else {
+        audio.pause();
+        playIcon.style.display = "inline-block";
+        pauseIcon.style.display = "none";
+      }
+    });
+
+    // Update progress bar as audio plays
+    audio.addEventListener("timeupdate", function() {
+      const progress = (audio.currentTime / audio.duration) * 100;
+      progressBar.value = progress;
+    });
+
+    // Seek functionality for progress bar
+    progressBar.addEventListener("input", function() {
+      const seekTo = (progressBar.value / 100) * audio.duration;
+      audio.currentTime = seekTo;
+    });
+
+    // Volume control functionality
+    volumeControl.addEventListener("input", function() {
+      audio.volume = volumeControl.value / 100;
+    });
+
+    // Event for "Play Another Audio Track" button
+    playAnotherBtn.addEventListener("click", function() {
+      openDialog();
+    });
+
+    // Show file input dialog
+    fileButton.addEventListener("click", function() {
+      urlInput.style.display = "none";
+      fileInput.style.display = "block";
+      fileInput.click();
+    });
+
+    // Handle file selection
+    fileInput.addEventListener("change", function() {
+      const file = fileInput.files[0];
+      const fileUrl = URL.createObjectURL(file);
+      loadAudio(fileUrl);
+      closeDialog();
+    });
+
+    // Show URL input dialog
+    urlButton.addEventListener("click", function() {
+      fileInput.style.display = "none";
+      urlInput.style.display = "block";
+      urlInput.focus();
+    });
+
+    // Load audio from URL
+    urlInput.addEventListener("change", function() {
+      const url = urlInput.value.trim();
+      if (url) {
+        loadAudio(url);
+        closeDialog();
+      }
+    });
+
+    // Load audio into player
+    function loadAudio(src) {
+      audio.src = src;
+      audio.play();
+      playIcon.style.display = "none";
+      pauseIcon.style.display = "inline-block";
+    }
+
+    // Close the dialog when clicking outside the dialog
+    overlay.addEventListener("click", closeDialog);
+
+    // Close dialog on Escape key press
+    document.addEventListener("keydown", function(event) {
+      if (event.key === "Escape") {
+        closeDialog();
+      }
+    });
+
+    // Initial dialog prompt when DOM is loaded
+    openDialog();
+  </script>
+</body>
+</html>

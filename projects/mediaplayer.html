@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media Player</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+    .dialog-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 9999;
+    }
+    .dialog {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+    }
+    .dialog button {
+      margin: 10px 5px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background: #1a73e8;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .dialog button:hover {
+      background: #0c63d9;
+    }
+    video {
+      margin-top: 20px;
+      max-width: 100%;
+      height: auto;
+    }
+    .gap-box {
+    height: 20px;
+    }
+    #showDialogBtn {
+       margin: 10px 5px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background: #1a73e8;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    #showDialogBtn:hover {
+    background: #0c63d9;
+    }
+  </style>
+</head>
+<body>
+  <h1>Media Player</h1>
+  <div class="dialog-overlay" id="dialogOverlay">
+    <div class="dialog">
+      <p>Select how you want to load media:</p>
+      <button id="chooseFileBtn">Choose a File</button>
+      <button id="enterUrlBtn">Enter a URL</button>
+      <button id="hideDialogBtn">Go back</button>
+      <input type="file" id="fileInput" accept="video/*,audio/*" style="display: none;">
+    </div>
+  </div>
+
+  <video id="mediaPlayer" controls></video>
+  <div class="gap-box"></div>
+  <button id="showDialogBtn">Play more media</button>
+
+  <!-- JavaScript -->
+  <script>
+    const dialogOverlay = document.getElementById('dialogOverlay');
+    const chooseFileBtn = document.getElementById('chooseFileBtn');
+    const enterUrlBtn = document.getElementById('enterUrlBtn');
+    const fileInput = document.getElementById('fileInput');
+    const mediaPlayer = document.getElementById('mediaPlayer');
+    const showDialogBtn = document.getElementById('showDialogBtn');
+    const hideDialogBtn = document.getElementById('hideDialogBtn');
+
+    // Show the dialog on page load
+    window.onload = function() {
+      dialogOverlay.style.display = 'block';
+    };
+
+    // Handle "Choose a File" button
+    chooseFileBtn.addEventListener('click', () => {
+      fileInput.click();
+    });
+
+    // Handle file input
+    fileInput.addEventListener('change', (event) => {
+      const file = event.target.files[0];
+      if (file) {
+        const fileURL = URL.createObjectURL(file);
+        mediaPlayer.src = fileURL;
+        dialogOverlay.style.display = 'none'; // Close the dialog
+      }
+    });
+
+    // Handle "Enter a URL" button
+    enterUrlBtn.addEventListener('click', () => {
+      const url = prompt('Enter the URL of the media:');
+      if (url) {
+        mediaPlayer.src = url;
+        dialogOverlay.style.display = 'none'; // Close the dialog
+      }
+    });
+    
+    // Handle "Play more media" button
+    showDialogBtn.addEventListener('click', () => {
+      dialogOverlay.style.display = 'block';
+    });
+    
+    // Handle "Back" button
+    hideDialogBtn.addEventListener('click', () => {
+      dialogOverlay.style.display = 'none';
+    });
+  </script>
+</body>
+</html>

@@ -52,10 +52,10 @@
       height: auto;
     }
     .gap-box {
-    height: 20px;
+      height: 20px;
     }
     #showDialogBtn {
-       margin: 10px 5px;
+      margin: 10px 5px;
       padding: 10px 20px;
       border: none;
       border-radius: 5px;
@@ -65,9 +65,13 @@
       cursor: pointer;
     }
     #showDialogBtn:hover {
-    background: #0c63d9;
+      background: #0c63d9;
     }
   </style>
+  <!-- Include HLS.js for HLS support -->
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <!-- Include dash.js for MPEG-DASH support -->
+  <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
 </head>
 <body>
   <h1>Media Player</h1>
@@ -75,7 +79,7 @@
     <div class="dialog">
       <p>Select how you want to load media:</p>
       <button id="chooseFileBtn">Choose a File</button>
-      <button id="enterUrlBtn">Enter a URL</button>
+      <button id="enterUrlBtn">Enter a URL <small>(Supports MPEG-DASH and HLS)</small></button>
       <button id="hideDialogBtn">Go back</button>
       <input type="file" id="fileInput" accept="video/*,audio/*" style="display: none;">
     </div>
@@ -119,16 +123,35 @@
     enterUrlBtn.addEventListener('click', () => {
       const url = prompt('Enter the URL of the media:');
       if (url) {
-        mediaPlayer.src = url;
+        if (url.includes('.m3u8')) {
+          // HLS stream
+          if (Hls.isSupported()) {
+            const hls = new Hls();
+            hls.loadSource(url);
+            hls.attachMedia(mediaPlayer);
+            hls.on(Hls.Events.MANIFEST_PARSED, function() {
+              mediaPlayer.play();
+            });
+          } else {
+            alert('HLS not supported on your browser.');
+          }
+        } else if (url.includes('.mpd')) {
+          // MPEG-DASH stream
+          const player = dashjs.MediaPlayer().create();
+          player.initialize(mediaPlayer, url, true);
+        } else {
+          mediaPlayer.src = url;
+          mediaPlayer.play();
+        }
         dialogOverlay.style.display = 'none'; // Close the dialog
       }
     });
-    
+
     // Handle "Play more media" button
     showDialogBtn.addEventListener('click', () => {
       dialogOverlay.style.display = 'block';
     });
-    
+
     // Handle "Back" button
     hideDialogBtn.addEventListener('click', () => {
       dialogOverlay.style.display = 'none';

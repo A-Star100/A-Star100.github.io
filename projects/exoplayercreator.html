@@ -9,12 +9,15 @@
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script>
+        const count = 0;
         function media2() {
+            if count = 0 {
             video.src = "https://www.dropbox.com/scl/fi/f22nvmgdizvdxelnexe4q/android-exoplayer-creator-demo.mp4?rlkey=19f55tj203cs85suclqaobqhb&st=lb38kp1r&raw=1"
-        }
-
-        function media3() {
-            video.src = "https://www.dropbox.com/scl/fi/y4nne1gv2qgef6nvnz0fn/android-media3-exoplayer-creator-demo.mp4?rlkey=uodlv87b5znqsam14mru7m2r8&st=b6tl1fc3&raw=1"
+                count += 1;
+            } else {
+                video.src = "https://www.dropbox.com/scl/fi/y4nne1gv2qgef6nvnz0fn/android-media3-exoplayer-creator-demo.mp4?rlkey=uodlv87b5znqsam14mru7m2r8&st=b6tl1fc3&raw=1"
+                count -= 1;
+            }
         }
     </script>
     <style>
@@ -168,13 +171,12 @@
 <body>
     <div class="container">
         <h1>About ExoPlayer Creator</h1>
-        <p>The ultimate tool to create both <b>Media 3 ExoPlayers</b> and <b>Media 2 ExoPlayers</b> in two separate apps right on your phone in just a few seconds, with a good UI.</p>
+        <p>The ultimate tool to create ExoPlayers instantly on your Android device.</p>
         <a href="#features" class="btn">Explore features!</a>
         <!-- Place this tag where you want the button to render. -->
         <a class="github-button" href="https://github.com/A-Star100/ExoPlayerCreator" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" aria-label="Use this template A-Star100/ExoPlayerCreator on GitHub">View on GitHub</a>
         <!-- Watch Video Button -->
-        <button class="btn" id="watchVideoButton" onclick="media2()">Watch the Media2 demo!</button>
-        <button class="btn" id="watchVideoButton2" onclick="media3()">Watch the Media3 demo!</button>
+        <button class="btn" id="watchVideoButton" onclick="media2()">Watch the demos!</button>
 
         <!-- Video Dialog -->
         <div id="videoDialog" class="dialog">
@@ -193,7 +195,7 @@
         <div class="features" id="features">
             <div class="feature-box">
                 <h2>Multiple Players</h2>
-                <p>Not only can you create ExoPlayer 2 instances, you can also create HTML5 video players, and even Camcorder players (which ask you to record a video and plays it back once done).</p>
+                <p>Take advantage of multiple media player options in one flexible app, without leaving to another app.</p>
             </div>
 
             <div class="feature-box">
@@ -237,6 +239,7 @@
         const videoDialog = document.getElementById("videoDialog");
         const closeButton = document.getElementById("closeButton");
         const video = document.getElementById("video");
+                
 
         // Open the video dialog when the button is clicked
         watchVideoButton.addEventListener("click", function() {

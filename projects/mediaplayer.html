@@ -5,8 +5,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="lib/dash.js"></script>
-  <script src="lib/hls.js"></script>
+  <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
   <title>SimpliPlay</title>
   <style>
     body {
@@ -29,7 +29,8 @@
       cursor: pointer;
     }
 
-    .dialog-overlay {
+    .dialog-overlay,
+    .subtitles-overlay {
       display: none;
       position: fixed;
       top: 0;
@@ -40,7 +41,8 @@
       z-index: 9999;
     }
 
-    .dialog {
+    .dialog,
+    .subtitles-dialog {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -55,7 +57,8 @@
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     }
 
-    .dialog input[type="url"] {
+    .dialog input[type="url"],
+    .subtitles-dialog input[type="url"] {
       width: 80%;
       padding: 10px;
       font-size: 16px;
@@ -64,7 +67,8 @@
       margin-bottom: 10px;
     }
 
-    .dialog button {
+    .dialog button,
+    .subtitles-dialog button {
       margin: 10px 5px;
       padding: 10px 20px;
       border: none;
@@ -75,7 +79,8 @@
       cursor: pointer;
     }
 
-    .dialog button:hover {
+    .dialog button:hover,
+    .subtitles-dialog button:hover {
       background: #0c63d9;
     }
 
@@ -189,7 +194,16 @@
     </div>
   </div>
 
-  <video id="mediaPlayer" autoplay></video>
+  <div class="subtitles-overlay" id="subtitlesOverlay">
+    <div class="subtitles-dialog">
+      <p>Enter subtitle URL:</p>
+      <input type="url" id="subtitlesInput" placeholder="Enter subtitle URL here">
+      <button id="submitSubtitlesBtn">Submit</button>
+      <button id="cancelSubtitlesBtn">Cancel</button>
+    </div>
+  </div>
+
+  <video id="mediaPlayer" autoplay controls></video>
 
   <div id="customControls">
     <button id="playPauseBtn">Pause</button>
@@ -198,6 +212,7 @@
     <button id="volumeBtn">🔊</button>
     <input type="range" id="volumeBar" min="0" max="1" step="0.1" value="1">
     <button id="fullscreenBtn">⛶</button>
+    <button id="ccBtn">Add CC</button> <!-- CC button -->
   </div>
 
   <div class="gap-box"></div>
@@ -237,6 +252,34 @@
     const urlInput = document.getElementById('urlInput');
     const submitUrlBtn = document.getElementById('submitUrlBtn');
     const cancelUrlBtn = document.getElementById('cancelUrlBtn');
+    const ccBtn = document.getElementById('ccBtn'); // CC button
+    const subtitlesOverlay = document.getElementById('subtitlesOverlay');
+    const subtitlesInput = document.getElementById('subtitlesInput');
+    const submitSubtitlesBtn = document.getElementById('submitSubtitlesBtn');
+    const cancelSubtitlesBtn = document.getElementById('cancelSubtitlesBtn');
+
+// Handle submit subtitle URL
+submitSubtitlesBtn.addEventListener('click', () => {
+      const subtitleUrl = subtitlesInput.value;
+      if (subtitleUrl) {
+        const track = document.createElement('track');
+        track.kind = 'subtitles';
+        track.label = 'English';
+        track.srclang = 'en';
+        track.src = subtitleUrl;
+        mediaPlayer.appendChild(track);
+        subtitlesOverlay.style.display = 'none';
+      }
+    });
+
+
+// Function to add subtitles dynamically (e.g., after URL input)
+function addSubtitles(url) {
+  subtitleTrack.src = url;
+  subtitleTrack.track.mode = 'showing'; // Enable subtitles by default
+  subtitleBtn.textContent = 'Subtitles On'; // Set button text to indicate subtitles are on
+}
+
 
     let autoplayEnabled = true;
     let loopEnabled = false;
@@ -268,6 +311,16 @@
         urlDialogOverlay.style.display = 'none';
         dialogOverlay.style.display = 'none';
       }
+    });
+
+    // Handle CC button to show subtitle modal
+    ccBtn.addEventListener('click', () => {
+      subtitlesOverlay.style.display = 'block';
+    });
+
+    // Handle cancel subtitle modal
+    cancelSubtitlesBtn.addEventListener('click', () => {
+      subtitlesOverlay.style.display = 'none';
     });
 
     // Show the dialog on page load

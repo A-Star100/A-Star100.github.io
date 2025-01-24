@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download SimpliPlay</title>
+    <!-- Link to Google Fonts for Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f1013;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Dark Mode - Default */
+        body {
+            background-color: #0f1013;
+            color: #fff;
+        }
+
+        /* Light Mode Styles */
+        @media (prefers-color-scheme: light) {
+            a {
+                color:black;
+            }
+            body {
+                background-color: #f9f9f9;
+                color: #333;
+            }
+
+            .hero {
+                background-color: #fff;
+            }
+
+            .cta-btn {
+                background-color: #1d73b8;
+                color: #fff;
+            }
+
+            .cta-btn:hover {
+                background-color: #154c87;
+            }
+
+            .download-button {
+                background-color: #005fa0;
+            }
+
+            .download-button:hover {
+                background-color: #004080;
+            }
+
+            .footer {
+                background-color: #eaeaea;
+                color: #333;
+            }
+
+            .footer a {
+                color: #1d73b8;
+            }
+
+            .footer a:hover {
+                color: #0c4b7c;
+            }
+
+            .download-section {
+                background-color: #f0f0f0;
+            }
+        }
+
+        a {
+                color:white;
+            }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('your-video-link.mp4');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 15px;
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #e0e0e0;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-btn {
+            padding: 12px 35px;
+            background-color: #61dafb;
+            color: #282c34;
+            font-weight: 700;
+            border-radius: 30px;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background-color: #4fa3f7;
+            transform: translateY(-3px);
+        }
+
+        /* Download Section */
+        .download-section {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #1f1f1f;
+        }
+
+        .download-section h2 {
+            font-size: 36px;
+            color: #fff;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .download-section p {
+            color: #ccc;
+            margin-bottom: 40px;
+            font-size: 18px;
+        }
+
+        .download-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .download-button {
+            padding: 20px 40px;
+            background-color: #0078d4;
+            color: #fff;
+            font-size: 18px;
+            border-radius: 40px;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .download-button:hover {
+            background-color: #005fa0;
+            transform: translateY(-4px);
+        }
+
+        .download-button:active {
+            transform: translateY(0);
+        }
+
+        .download-button span {
+            display: block;
+            font-size: 14px;
+            opacity: 0.7;
+            margin-top: 5px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #282c34;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .footer a {
+            color: #61dafb;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Modal Dialog Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+            color: black;
+        }
+
+        .modal-content a {
+            color: black;
+        }
+
+        .modal-close {
+            color: #aaa;
+            float: right;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .modal-close:hover {
+            color: #000;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section with Background Video -->
+    <div class="hero">
+        <div>
+            <h1>SimpliPlay</h1>
+            <p>The mission to make media playback accessible on every platform. Enjoy seamless video playback on any device.</p>
+            <a href="#downloads" class="cta-btn">Get Started</a>
+        </div>
+    </div>
+
+    <!-- Download Section -->
+    <div id="downloads" class="download-section">
+        <h2>Choose Your Platform</h2>
+        <p>Download the latest version of SimpliPlay for your platform</p>
+        <div class="download-buttons" id="download-buttons">
+            <!-- Buttons will be populated here based on platform -->
+        </div>
+
+        <!--<p style="margin-top: 30px;">Not available for iOS yet, but you can try our web version or <a href="https://github.com/your-repo" target="_blank">build it from source</a>.</p>-->
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <!--<p>Looking for more downloads? <a href="your-other-downloads-page-link.html">Check them out here!</a></p>-->
+    </div>
+
+    <!-- Modal for iOS -->
+    <div id="iosModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <h2>iOS App</h2>
+            <p>No compiled app is available for iOS at the moment. You can either:</p>
+            <ul>
+                <li><a href="https://a-star100.github.io/projects/mediaplayer">Use the web version</a></li>
+                <li><a href="https://github.com/A-Star100/SimpleiOSPlayer" target="_blank">Compile from source</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Function to detect user platform
+        function getPlatform() {
+            const userAgent = window.navigator.userAgent.toLowerCase();
+            if (userAgent.indexOf("win") !== -1) return "windows";
+            if (userAgent.indexOf("mac") !== -1) return "mac";
+            if (userAgent.indexOf("linux") !== -1) return "linux";
+            if (userAgent.indexOf("android") !== -1) return "android";
+            if (userAgent.indexOf("iphone") !== -1 || userAgent.indexOf("ipad") !== -1) return "ios";
+            return "unknown";
+        }
+
+        // Function to display download buttons based on the platform
+        function displayDownloadLinks() {
+            const platform = getPlatform();
+            const downloadButtonsContainer = document.getElementById("download-buttons");
+
+            // Define links for each platform
+            const downloadLinks = {
+                windows: {
+                    url: "https://drive.google.com/file/d/1vl2eQTQSS2M5PiBotY_btYapBWtHoGjv/view?usp=drive_link",
+                    text: "Download for Windows",
+                    desc: "64-bit Installer"
+                },
+                windowsArm: {
+                    url: "https://drive.google.com/file/d/1tjtqjctM8FjbZA8pIMP7M914a-kbdUKO/view?usp=drive_link",
+                    text: "Download for Windows ARM",
+                    desc: "64-bit ARM Installer"
+                },
+                macIntel: {
+                    url: "https://drive.google.com/file/d/1afEGQTvABQdliC8IRaOp7tfhhLPLNoUR/view?usp=drive_link",
+                    text: "Download for macOS Intel",
+                    desc: "64-bit Intel DMG"
+                },
+                macArm: {
+                    url: "https://drive.google.com/file/d/139ppDvON9TYW8hO_TSBw5ldhChETFXtf/view?usp=drive_link",
+                    text: "Download for macOS ARM",
+                    desc: "64-bit ARM DMG"
+                },
+                linux: {
+                    url: "https://drive.google.com/file/d/1SOqMpz-ShWaPA8NF_YaBvBP_D5MO9lPI/view?usp=drive_link",
+                    text: "Download for Linux",
+                    desc: "AppImage"
+                },
+                linuxArm: {
+                    url: "https://drive.google.com/file/d/1kQ_Gd1QUou_AH6yCyEl5-_J3a_NJWhG2/view?usp=drive_link",
+                    text: "Download for Linux ARM",
+                    desc: "ARM AppImage"
+                },
+                android: {
+                    url: "https://github.com/A-Star100/ExoPlayerCreator/releases",
+                    text: "Download for Android",
+                    desc: "APK File"
+                },
+                ios: {
+                    url: "#",
+                    text: "Download for iOS",
+                    desc: "Not Available",
+                    modalTrigger: true
+                },
+                others: {
+                    url: "https://a-star100.github.io/projects/mediaplayer",
+                    text: "Other Platforms",
+                    desc: "Web version"
+                }
+            };
+
+            // Display the download button for the detected platform
+            if (platform === 'mac') {
+                const macIntelButton = createDownloadButton(downloadLinks.macIntel);
+                const macArmButton = createDownloadButton(downloadLinks.macArm);
+                downloadButtonsContainer.appendChild(macIntelButton);
+                downloadButtonsContainer.appendChild(macArmButton);
+            } else if (platform === 'windows') {
+                const windowsButton = createDownloadButton(downloadLinks.windows);
+                downloadButtonsContainer.appendChild(windowsButton);
+            } else if (platform === 'linux') {
+                const linuxButton = createDownloadButton(downloadLinks.linux);
+                downloadButtonsContainer.appendChild(linuxButton);
+            } else if (platform === 'android') {
+                const androidButton = createDownloadButton(downloadLinks.android);
+                downloadButtonsContainer.appendChild(androidButton);
+            } else {
+                // Handle unsupported platforms or unknown user-agent
+                const webVersionButton = document.createElement("a");
+                webVersionButton.href = "https://a-star100.github.io/projects/mediaplayer";
+                webVersionButton.classList.add("download-button");
+                webVersionButton.innerHTML = "Use the Web Version <span>Accessible from any device</span>";
+                downloadButtonsContainer.appendChild(webVersionButton);
+            }
+
+            // More Downloads Section (excluding iOS)
+            const moreDownloadsContainer = document.createElement("div");
+            moreDownloadsContainer.classList.add("download-buttons");
+            Object.keys(downloadLinks).forEach(key => {
+                if (key !== platform && key !== 'ios') {
+                    const moreButton = createDownloadButton(downloadLinks[key]);
+                    moreDownloadsContainer.appendChild(moreButton);
+                }
+            });
+            document.querySelector(".footer").appendChild(moreDownloadsContainer);
+        }
+
+        // Function to create a download button
+        function createDownloadButton(link) {
+            const downloadButton = document.createElement("a");
+            downloadButton.href = link.url;
+            downloadButton.classList.add("download-button");
+            downloadButton.innerHTML = `${link.text}<span>${link.desc}</span>`;
+            if (link.modalTrigger) {
+                downloadButton.addEventListener("click", () => openModal());
+            }
+            return downloadButton;
+        }
+
+        // Function to open modal (for iOS users)
+        function openModal() {
+            document.getElementById("iosModal").style.display = "block";
+        }
+
+        // Function to close modal
+        function closeModal() {
+            document.getElementById("iosModal").style.display = "none";
+        }
+
+        // Call the function on page load
+        window.onload = displayDownloadLinks;
+    </script>
+</body>
+</html>

@@ -263,7 +263,7 @@
     </div>
 
     <script>
-        function getPlatform() {
+    function getPlatform() {
     const userAgent = window.navigator.userAgent.toLowerCase();
 
     // Specifically check for Android
@@ -273,7 +273,7 @@
     if (userAgent.indexOf("win") !== -1) return "windows";
     
     // Check for macOS
-    if (userAgent.indexOf("mac") !== -1) return "macos";
+    if (userAgent.indexOf("mac") !== -1 && userAgent.indexOf("iphone") === -1 && userAgent.indexOf("ipad") === -1) return "macos";
     
     // Check for Linux (excluding Android)
     if (userAgent.indexOf("linux") !== -1 && userAgent.indexOf("android") === -1) return "linux";
@@ -283,6 +283,7 @@
     
     return "unknown";
 }
+
 
 
         // Function to display download buttons based on the selected platform

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLV.js Demo</title>
+    <script src="https://cdn.jsdelivr.net/npm/flv.js@latest"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        video {
+            width: 80%;
+            max-width: 800px;
+            background-color: black;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        input[type="file"], input[type="url"] {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>FLV.js Demo</h1>
+
+    <!-- FLV.js Player -->
+    <video id="mediaPlayer" controls></video>
+
+    <!-- File Input and URL Input -->
+    <div>
+        <button id="chooseFileBtn">Choose FLV File</button>
+        <input type="file" id="fileInput" accept=".flv" style="display: none;">
+        <br>
+        <button id="enterUrlBtn">Enter FLV URL</button>
+        <input type="url" id="urlInput" placeholder="Enter FLV URL here" style="display: none;">
+    </div>
+
+    <script>
+        const mediaPlayer = document.getElementById('mediaPlayer');
+        const chooseFileBtn = document.getElementById('chooseFileBtn');
+        const enterUrlBtn = document.getElementById('enterUrlBtn');
+        const fileInput = document.getElementById('fileInput');
+        const urlInput = document.getElementById('urlInput');
+
+        // Show file input dialog when "Choose FLV File" button is clicked
+        chooseFileBtn.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        // Show URL input field when "Enter FLV URL" button is clicked
+        enterUrlBtn.addEventListener('click', () => {
+            urlInput.style.display = 'inline-block';
+            urlInput.focus();
+        });
+
+        // Handle file input change (when the user selects a local FLV file)
+        fileInput.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            if (file && file.name.endsWith('.flv')) {
+                const fileURL = URL.createObjectURL(file);
+                if (flvjs.isSupported()) {
+                    const flvPlayer = flvjs.createPlayer({
+                        type: 'flv',
+                        url: fileURL
+                    });
+                    flvPlayer.attachMediaElement(mediaPlayer);
+                    flvPlayer.load();
+                    flvPlayer.play();
+                } else {
+                    alert('FLV.js is not supported on your browser.');
+                }
+            } else {
+                alert('Please select a valid FLV file.');
+            }
+        });
+
+        // Handle URL input submission (when the user enters an FLV URL)
+        urlInput.addEventListener('blur', () => {
+            const url = urlInput.value.trim();
+            if (url && url.endsWith('.flv')) {
+                if (flvjs.isSupported()) {
+                    const flvPlayer = flvjs.createPlayer({
+                        type: 'flv',
+                        url: url
+                    });
+                    flvPlayer.attachMediaElement(mediaPlayer);
+                    flvPlayer.load();
+                    flvPlayer.play();
+                } else {
+                    alert('FLV.js is not supported on your browser.');
+                }
+            } else {
+               
+            }
+        });
+
+    </script>
+
+</body>
+</html>

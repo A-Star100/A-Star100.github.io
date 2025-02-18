@@ -17,17 +17,23 @@ For styles, add the HTML snippet given: `<link rel="stylesheet" href="style.css"
 3. Open Terminal or Command Line, then use the `cd` command to change the directory to the one the source code is in. 
 4. Use [Node.js](https://nodejs.org), or if you have Python, type in:
 
-`python3 -m http.server`
+```shell
+python3 -m http.server
+```
 
 if you have Python 3 installed, or:
 
-`python -m simple-http-server`
+```shell
+python -m simple-http-server
+```
 
 if you have Python 2 or below installed.
 
 For Node.js, type in:
 
-`npx http-server`
+```shell
+npx http-server
+```
 
 and you should be ready to go.
 

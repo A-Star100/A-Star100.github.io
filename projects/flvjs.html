@@ -70,26 +70,37 @@
             urlInput.focus();
         });
 
-        // Handle file input change (when the user selects a local FLV file)
-        fileInput.addEventListener('change', (event) => {
-            const file = event.target.files[0];
-            if (file && file.name.endsWith('.flv')) {
-                const fileURL = URL.createObjectURL(file);
-                if (flvjs.isSupported()) {
-                    const flvPlayer = flvjs.createPlayer({
-                        type: 'flv',
-                        url: fileURL
-                    });
-                    flvPlayer.attachMediaElement(mediaPlayer);
-                    flvPlayer.load();
-                    flvPlayer.play();
-                } else {
-                    alert('FLV.js is not supported on your browser.');
-                }
-            } else {
-                alert('Please select a valid FLV file.');
-            }
-        });
+        let previousObjectURL = null; // Store the previous object URL
+
+fileInput.addEventListener('change', (event) => {
+    const file = event.target.files[0];
+    if (file && file.name.endsWith('.flv')) {
+        // Revoke the previous object URL if it exists
+        if (previousObjectURL) {
+            URL.revokeObjectURL(previousObjectURL);
+        }
+
+        // Create a new object URL
+        const fileURL = URL.createObjectURL(file);
+        previousObjectURL = fileURL; // Store the new object URL
+
+        if (flvjs.isSupported()) {
+            const flvPlayer = flvjs.createPlayer({
+                type: 'flv',
+                url: fileURL
+            });
+
+            flvPlayer.attachMediaElement(mediaPlayer);
+            flvPlayer.load();
+            flvPlayer.play();
+        } else {
+            alert('FLV.js is not supported on your browser.');
+        }
+    } else {
+        alert('Please select a valid FLV file.');
+    }
+});
+
 
         // Handle URL input submission (when the user enters an FLV URL)
         urlInput.addEventListener('blur', () => {

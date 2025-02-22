@@ -3,8 +3,7 @@ My site (made without a website builder).
 You should expect index files and other necessary files here.
 
 ## Revamping
-If you noticed (all of you would've but of you didn't it's fine), the site got revamped. This was done using a [W3.CSS](https://google.com)
-template, which was plain. My website now looks more clear and relaxing, and most importantly, less cluttered. If you were **SUPER** attentive, the site almost always used W3.CSS (but it didn't heavily rely on it until now), but the revamp also has its own custom styles (obvi). 
+If you noticed (all of you would've but of you didn't it's fine), the site got revamped. Older versions of my website used [W3.CSS](https://www.w3schools.com/w3css/defaulT.asp) (and the slightly newer one used a W3.CSS template), which was plain. My website now looks more clear and relaxing, and most importantly, less cluttered. If you were **SUPER** attentive, the site almost always used W3.CSS (but it didn't heavily rely on it until now), but the revamp also has its own custom styles (obvi). 
 
 Hope you like the revamped site!
 
@@ -52,9 +51,8 @@ You can reference the site's source code in many ways.
  If you can read this README, you're already on the GitHub repo. From here, click on the HTML file containing the code you want to copy, then you can copy-paste the source code into 
  your [IDE](https://en.wikipedia.org/wiki/Integrated_development_environment) or programming playground.
  #### Using DevTools
- Some browsers let you inspect code on a website. In [Google Chrome](https://www.google.com/chrome/), it is called 
- [DevTools](https://developer.chrome.com/docs/devtools). You can copy-paste parts of code you want and view where they are in real-time. Just right-click and click Inspect, or if that  
- doesn't work, use the hotkey Ctrl/Command+Shift+C. (an alternative is Ctrl+Shift+I/Command+Option+I).
+ Most if not all browsers have a feature where if you right-click and click "Inspect" you can see the website's source code. In [Chrome](https://www.google.com/chrome/), it is called 
+ [DevTools](https://developer.chrome.com/docs/devtools). You can copy-paste parts of code you want and view where they are in real-time.
 
 ## Maintenance
 If the site is going under heavy maintenance or repetitive changes that will disrupt deployment, you will see a message that says: "Site is going under maintenance", by using another Git branch as a publishing source. This is only for **HEAVY** maintenance, where repetitive changes will occur, and as you know, multiple deployments can't occur in GitHub, so I have to switch the publishing branch.

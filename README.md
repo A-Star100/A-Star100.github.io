@@ -52,8 +52,9 @@ You can reference the site's source code in many ways.
  If you can read this README, you're already on the GitHub repo. From here, click on the HTML file containing the code you want to copy, then you can copy-paste the source code into 
  your [IDE](https://en.wikipedia.org/wiki/Integrated_development_environment) or programming playground.
  #### Using DevTools
- Most if not all browsers have a feature where if you right-click and click "Inspect" you can see the website's source code. In [Chrome](https://www.google.com/chrome/), it is called 
- [DevTools](https://developer.chrome.com/docs/devtools). You can copy-paste parts of code you want and view where they are in real-time.
+ Some browsers let you inspect code on a website. In [Google Chrome](https://www.google.com/chrome/), it is called 
+ [DevTools](https://developer.chrome.com/docs/devtools). You can copy-paste parts of code you want and view where they are in real-time. Just right-click and click Inspect, or if that  
+ doesn't work, use the hotkey Ctrl/Command+Shift+C. (an alternative is Ctrl+Shift+I/Command+Option+I).
 
 ## Maintenance
 If the site is going under heavy maintenance or repetitive changes that will disrupt deployment, you will see a message that says: "Site is going under maintenance", by using another Git branch as a publishing source. This is only for **HEAVY** maintenance, where repetitive changes will occur, and as you know, multiple deployments can't occur in GitHub, so I have to switch the publishing branch.

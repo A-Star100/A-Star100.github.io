@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <title>My Projects</title>
+    <style>
+/* Properly centers the entire page */
+body {
+    font-family: "Inter", Arial, sans-serif;
+    background: #f8f8f8;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    min-height: 100vh; /* Full viewport height */
+}
+
+/* Centers the grid and keeps it responsive */
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 20px;
+    max-width: 1000px;
+    width: 100%;
+    justify-content: center; /* Centers items in the grid */
+}
+
+/* Make it stack vertically on smaller screens */
+@media (max-width: 600px) {
+    .projects-container {
+        grid-template-columns: 1fr; /* Single column layout */
+        width: 90%; /* Prevents overflow */
+    }
+}
+
+.project {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+/* Ensures the image scales properly */
+.project img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.project:hover img {
+    transform: scale(1.1);
+}
+
+/* Centers the overlay content */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers content vertically */
+    align-items: center; /* Centers content horizontally */
+    text-align: center; /* Ensures text is centered */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 5px;
+}
+
+.overlay h3, 
+.overlay p {
+    width: auto; /* Allows natural text width */
+    max-width: 90%; /* Prevents it from stretching too much */
+    text-align: center;
+    white-space: normal; /* Ensures wrapping */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+
+/* Ensure the button doesn’t stretch */
+.visit-btn {
+    background: rgb(0, 128, 255);
+    padding: 10px 15px;
+    margin-top: 10px;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    display: inline-block; /* Prevents full-width stretching */
+    width: auto;
+    min-width: 120px; /* Keeps a good size */
+    text-align: center;
+}
+
+.visit-btn:hover {
+    background: rgb(0, 65, 139);
+}
+
+/* Overlay appears on hover */
+.project:hover .overlay {
+    opacity: 1;
+}
+    </style>
+</head>
+<body>
+    <div class="projects-container">
+        <div class="project">
+            <img src="/images/movieserver.png" alt="MovieServer">
+            <div class="overlay">
+                <h3>MovieServer</h3>
+                <p>Serve your movies online with class.</p>
+                <a href="https://aboutmovieserver.netlify.app" target="_blank" class="visit-btn">Visit</a>
+            </div>
+        </div>
+
+        <div class="project">
+            <img src="/images/simpliplay.png" alt="SimpliPlay">
+            <div class="overlay">
+                <h3>SimpliPlay</h3>
+                <p>Simple media playback on every platform.</p>
+                <a href="https://simpliplay.netlify.app" target="_blank" class="visit-btn">Visit</a>
+            </div>
+        </div>
+
+        <div class="project">
+            <img src="/images/httpServer.png" alt="httpServer">
+            <div class="overlay">
+                <h3>httpServer</h3>
+                <p>Serve localhost(s) in seconds.</p>
+                <a href="https://github.com/A-Star100/HTTP-Server" target="_blank" class="visit-btn">Visit</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

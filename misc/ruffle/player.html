@@ -6,12 +6,16 @@
     <title>Ruffle Demo</title>
     <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
     <style>
+        * {
+            font-family: Arial, sans-serif !important;
+        }
         html, body {
             margin: 0;
             padding: 0;
             height: 100vh;
             overflow: hidden; /* Prevent full page scrolling */
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             background: black;
@@ -32,10 +36,16 @@
             height: 75vw; /* 4:3 aspect ratio */
             max-width: 100vh;
             max-height: 75vh;
-            object-fit: cover;
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -43,15 +53,24 @@
     <div id="flash-container">
         <div id="flash-content"></div>
     </div>
+    <button onclick="playAgain()">Play again</button>
 
     <script>
+        let player; // Make player a global variable
+
         document.addEventListener("DOMContentLoaded", function () {
             const ruffle = window.RufflePlayer.newest();
-            const player = ruffle.createPlayer();
+            player = ruffle.createPlayer(); // Assign player to the global variable
             const container = document.getElementById("flash-content");
             container.appendChild(player);
             player.load("top.swf");
         });
+
+        function playAgain() {
+            if (player) {
+                player.load("top.swf"); // Reload the SWF file
+            }
+        }
     </script>
 </body>
 </html>

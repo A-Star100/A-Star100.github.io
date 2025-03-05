@@ -2,25 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
     <title>Ruffle Demo</title>
     <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
-  <style>
-    ruffle-player {
-      margin-left: auto;
-  margin-right: auto;
-  margin-top: 3x;
-  margin-bottom: 3px;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  width: 800;
-  height: 600;  
-    }
-  </style>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden; /* Prevent full page scrolling */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: black;
+        }
+
+        #flash-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: auto; /* Allows controlled scrolling */
+            scroll-snap-type: y mandatory; /* Smooth scrolling effect */
+        }
+
+        ruffle-player {
+            width: 100vw;
+            height: 75vw; /* 4:3 aspect ratio */
+            max-width: 100vh;
+            max-height: 75vh;
+            object-fit: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
 </head>
 <body>
-    <div id="flash-content"></div>
+    <div id="flash-container">
+        <div id="flash-content"></div>
+    </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {

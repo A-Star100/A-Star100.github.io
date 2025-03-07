@@ -8,29 +8,18 @@
     <title>ExoPlayer Creator</title>
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-  <script>window.location.replace("https://simpliplay.netlify.app")</script>
 </head>
-
-</html>
-    <script>
-        const count = 0;
-        function media2() {
-            if count = 0 {
-            video.src = "https://www.dropbox.com/scl/fi/f22nvmgdizvdxelnexe4q/android-exoplayer-creator-demo.mp4?rlkey=19f55tj203cs85suclqaobqhb&st=lb38kp1r&raw=1"
-                count += 1;
-            } else {
-                video.src = "https://www.dropbox.com/scl/fi/y4nne1gv2qgef6nvnz0fn/android-media3-exoplayer-creator-demo.mp4?rlkey=uodlv87b5znqsam14mru7m2r8&st=b6tl1fc3&raw=1"
-                count -= 1;
-            }
-        }
-    </script>
     <style>
         /* Reset */
+        * {
+          font-family: 'Inter', Arial, sans-serif;
+        }
+        
         body,
         html {
             margin: 0;
             padding: 0;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', Arial, sans-serif;
             box-sizing: border-box;
             text-decoration: none;
         }
@@ -169,10 +158,33 @@
             max-width: 100%;
             border-radius: 10px;
         }
+
+        #button, #dismiss {
+            margin: 10px 5px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background: #1a73e8;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+        }
+
+        #button:hover, #dismiss:hover {
+            background: #0c63d9;
+        }
     </style>
 </head>
 
 <body>
+    <div class="dialog-overlay" id="dialogOverlay">
+    <div class="dialog">
+      <p>The project has migrated and is now called SimpliPlay. This webpage is outdated now.</p>
+      <a href="https://simpliplay.netlify.app"><button id="button">Visit new website</button></a>
+      <button id="dismiss">Got it</button>
+    </div>
+  </div>
+    
     <div class="container">
         <h1>About ExoPlayer Creator</h1>
         <p>The ultimate tool to create ExoPlayers instantly on your Android device.</p>
@@ -180,7 +192,7 @@
         <!-- Place this tag where you want the button to render. -->
         <a class="github-button" href="https://github.com/A-Star100/ExoPlayerCreator" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" aria-label="Use this template A-Star100/ExoPlayerCreator on GitHub">View on GitHub</a>
         <!-- Watch Video Button -->
-        <button class="btn" id="watchVideoButton" onclick="media2()">Watch the demos!</button>
+        <button class="btn" id="watchVideoButton">Watch the demo!</button>
 
         <!-- Video Dialog -->
         <div id="videoDialog" class="dialog">
@@ -225,7 +237,7 @@
 
             <div class="feature-box">
                 <h3>Take your creativity to the next level</h3>
-                <p>Download the <a href="https://github.com/A-Star100/ExoPlayerCreator/raw/refs/heads/main/decompiled-releases/aia/">source code</a>, read the README, and instantly modify the app to add your own features and UI!</p>
+                <p>Download the <a href="https://github.com/A-Star100/ExoPlayerCreator/raw/refs/heads/main/decompiled-releases">source code</a>, read the README, and instantly modify the app to add your own features and UI!</p>
             </div>
         </div>
 
@@ -237,42 +249,74 @@
         </footer>
     </div>
     <script>
-        window.location.replace("https://simpliplay.netlify.app/")
-        // Get elements
-        const watchVideoButton = document.getElementById("watchVideoButton");
-        const watchVideoButton2 = document.getElementById("watchVideoButton2");
-        const videoDialog = document.getElementById("videoDialog");
-        const closeButton = document.getElementById("closeButton");
-        const video = document.getElementById("video");
-                
+// Function to set a cookie
+function setCookie(name, value, days) {
+    let expires = "";
+    if (days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+}
 
-        // Open the video dialog when the button is clicked
-        watchVideoButton.addEventListener("click", function() {
-            videoDialog.style.display = "flex"; // Show the dialog
-            video.play(); // Play the video
-        });
+// Function to get a cookie
+function getCookie(name) {
+    const nameEQ = name + "=";
+    const cookiesArray = document.cookie.split(';');
+    for (let i = 0; i < cookiesArray.length; i++) {
+        let cookie = cookiesArray[i].trim();
+        if (cookie.indexOf(nameEQ) === 0) return cookie.substring(nameEQ.length, cookie.length);
+    }
+    return null;
+}
 
-        // Open the video dialog when the button is clicked
-        watchVideoButton2.addEventListener("click", function() {
-            videoDialog.style.display = "flex"; // Show the dialog
-            video.play(); // Play the video
-        });
+// Get elements
+const watchVideoButton = document.getElementById("watchVideoButton");
+const videoDialog = document.getElementById("videoDialog");
+const closeButton = document.getElementById("closeButton");
+const dismissButton = document.getElementById("dismiss");
+const video = document.getElementById("video");
+const overlay = document.getElementById('dialogOverlay');
+const modal = document.querySelector('.dialog'); // Correct reference
 
-        // Close the video dialog when the close button is clicked
-        closeButton.addEventListener("click", function() {
-            videoDialog.style.display = "none"; // Hide the dialog
-            video.pause(); // Pause the video
-            video.currentTime = 0; // Reset video to start
-        });
+// Open the video dialog when the button is clicked
+watchVideoButton.addEventListener("click", function () {
+    videoDialog.style.display = "flex"; // Show the dialog
+    video.play(); // Play the video
+});
 
-        // Optional: Close the dialog when clicked outside of the video content
-        window.addEventListener("click", function(event) {
-            if (event.target === videoDialog) {
-                videoDialog.style.display = "none"; // Hide the dialog
-                video.pause(); // Pause the video
-                video.currentTime = 0; // Reset video to start
-            }
-        });
+// Close the video dialog when the close button is clicked
+closeButton.addEventListener("click", function () {
+    videoDialog.style.display = "none"; // Hide the dialog
+    video.pause(); // Pause the video
+    video.currentTime = 0; // Reset video to start
+});
+
+// Dismiss modal and set cookie
+dismissButton.addEventListener("click", function () {
+    setCookie('modalShown', 'true', 7); // Remember for 7 days
+    modal.style.display = 'none'; // Hide modal
+    overlay.style.display = 'none'; // Hide overlay
+});
+
+// Close the video dialog when clicked outside of the video content
+window.addEventListener("click", function (event) {
+    if (event.target === videoDialog) {
+        videoDialog.style.display = "none"; // Hide the dialog
+        video.pause(); // Pause the video
+        video.currentTime = 0; // Reset video to start
+    }
+});
+
+// Show the modal if the cookie doesn't exist
+window.onload = function () {
+    if (!getCookie('modalShown')) {
+        modal.style.display = 'block'; // Ensure it's visible
+        overlay.style.display = 'block'; // Ensure it's visible
+    }
+};
+
     </script>
 </body>
 

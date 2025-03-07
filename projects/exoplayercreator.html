@@ -184,31 +184,8 @@
       <button id="dismiss">Got it</button>
     </div>
   </div>
-    
-    <div class="container">
-        <h1>About ExoPlayer Creator</h1>
-        <p>The ultimate tool to create ExoPlayers instantly on your Android device.</p>
-        <a href="#features" class="btn">Explore features!</a>
-        <!-- Place this tag where you want the button to render. -->
-        <a class="github-button" href="https://github.com/A-Star100/ExoPlayerCreator" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" aria-label="Use this template A-Star100/ExoPlayerCreator on GitHub">View on GitHub</a>
-        <!-- Watch Video Button -->
-        <button class="btn" id="watchVideoButton">Watch the demo!</button>
 
-        <!-- Video Dialog -->
-        <div id="videoDialog" class="dialog">
-            <div class="dialog-content">
-                <!-- Close Button -->
-                <button id="closeButton" class="close-button">X</button>
-
-                <!-- Video Container -->
-                <video id="video" width="500" controls>
-                    <source src="https://www.dropbox.com/scl/fi/f22nvmgdizvdxelnexe4q/android-exoplayer-creator-demo.mp4?rlkey=19f55tj203cs85suclqaobqhb&st=lb38kp1r&raw=1" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-        </div>
-
-            <script>
+                <script>
 // Function to set a cookie
 function setCookie(name, value, days) {
     let expires = "";
@@ -237,15 +214,6 @@ dismissButton.addEventListener("click", function () {
     overlay.style.display = 'none'; // Hide overlay
 });
 
-// Close the video dialog when clicked outside of the video content
-window.addEventListener("click", function (event) {
-    if (event.target === videoDialog) {
-        videoDialog.style.display = "none"; // Hide the dialog
-        video.pause(); // Pause the video
-        video.currentTime = 0; // Reset video to start
-    }
-});
-
 // Show the modal if the cookie doesn't exist
 window.onload = function () {
     if (!getCookie('modalShown')) {
@@ -255,6 +223,29 @@ window.onload = function () {
 };
 
     </script>
+    
+    <div class="container">
+        <h1>About ExoPlayer Creator</h1>
+        <p>The ultimate tool to create ExoPlayers instantly on your Android device.</p>
+        <a href="#features" class="btn">Explore features!</a>
+        <!-- Place this tag where you want the button to render. -->
+        <a class="github-button" href="https://github.com/A-Star100/ExoPlayerCreator" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" aria-label="Use this template A-Star100/ExoPlayerCreator on GitHub">View on GitHub</a>
+        <!-- Watch Video Button -->
+        <button class="btn" id="watchVideoButton">Watch the demo!</button>
+
+        <!-- Video Dialog -->
+        <div id="videoDialog" class="dialog">
+            <div class="dialog-content">
+                <!-- Close Button -->
+                <button id="closeButton" class="close-button">X</button>
+
+                <!-- Video Container -->
+                <video id="video" width="500" controls>
+                    <source src="https://www.dropbox.com/scl/fi/f22nvmgdizvdxelnexe4q/android-exoplayer-creator-demo.mp4?rlkey=19f55tj203cs85suclqaobqhb&st=lb38kp1r&raw=1" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
 
         <div class="features" id="features">
             <div class="feature-box">
@@ -317,6 +308,15 @@ closeButton.addEventListener("click", function () {
     videoDialog.style.display = "none"; // Hide the dialog
     video.pause(); // Pause the video
     video.currentTime = 0; // Reset video to start
+});
+
+// Close the video dialog when clicked outside of the video content
+window.addEventListener("click", function (event) {
+    if (event.target === videoDialog) {
+        videoDialog.style.display = "none"; // Hide the dialog
+        video.pause(); // Pause the video
+        video.currentTime = 0; // Reset video to start
+    }
 });
 
     </script>

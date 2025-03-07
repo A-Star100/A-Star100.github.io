@@ -208,6 +208,54 @@
             </div>
         </div>
 
+            <script>
+// Function to set a cookie
+function setCookie(name, value, days) {
+    let expires = "";
+    if (days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+}
+
+// Function to get a cookie
+function getCookie(name) {
+    const nameEQ = name + "=";
+    const cookiesArray = document.cookie.split(';');
+    for (let i = 0; i < cookiesArray.length; i++) {
+        let cookie = cookiesArray[i].trim();
+        if (cookie.indexOf(nameEQ) === 0) return cookie.substring(nameEQ.length, cookie.length);
+    }
+    return null;
+}
+// Dismiss modal and set cookie
+dismissButton.addEventListener("click", function () {
+    setCookie('modalShown', 'true', 7); // Remember for 7 days
+    modal.style.display = 'none'; // Hide modal
+    overlay.style.display = 'none'; // Hide overlay
+});
+
+// Close the video dialog when clicked outside of the video content
+window.addEventListener("click", function (event) {
+    if (event.target === videoDialog) {
+        videoDialog.style.display = "none"; // Hide the dialog
+        video.pause(); // Pause the video
+        video.currentTime = 0; // Reset video to start
+    }
+});
+
+// Show the modal if the cookie doesn't exist
+window.onload = function () {
+    if (!getCookie('modalShown')) {
+        modal.style.display = 'block'; // Ensure it's visible
+        overlay.style.display = 'block'; // Ensure it's visible
+    }
+};
+
+    </script>
+
         <div class="features" id="features">
             <div class="feature-box">
                 <h2>Multiple Players</h2>
@@ -249,29 +297,7 @@
         </footer>
     </div>
     <script>
-// Function to set a cookie
-function setCookie(name, value, days) {
-    let expires = "";
-    if (days) {
-        const date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-        expires = "; expires=" + date.toUTCString();
-    }
-    document.cookie = name + "=" + (value || "") + expires + "; path=/";
-}
-
-// Function to get a cookie
-function getCookie(name) {
-    const nameEQ = name + "=";
-    const cookiesArray = document.cookie.split(';');
-    for (let i = 0; i < cookiesArray.length; i++) {
-        let cookie = cookiesArray[i].trim();
-        if (cookie.indexOf(nameEQ) === 0) return cookie.substring(nameEQ.length, cookie.length);
-    }
-    return null;
-}
-
-// Get elements
+        // Get elements
 const watchVideoButton = document.getElementById("watchVideoButton");
 const videoDialog = document.getElementById("videoDialog");
 const closeButton = document.getElementById("closeButton");
@@ -292,30 +318,6 @@ closeButton.addEventListener("click", function () {
     video.pause(); // Pause the video
     video.currentTime = 0; // Reset video to start
 });
-
-// Dismiss modal and set cookie
-dismissButton.addEventListener("click", function () {
-    setCookie('modalShown', 'true', 7); // Remember for 7 days
-    modal.style.display = 'none'; // Hide modal
-    overlay.style.display = 'none'; // Hide overlay
-});
-
-// Close the video dialog when clicked outside of the video content
-window.addEventListener("click", function (event) {
-    if (event.target === videoDialog) {
-        videoDialog.style.display = "none"; // Hide the dialog
-        video.pause(); // Pause the video
-        video.currentTime = 0; // Reset video to start
-    }
-});
-
-// Show the modal if the cookie doesn't exist
-window.onload = function () {
-    if (!getCookie('modalShown')) {
-        modal.style.display = 'block'; // Ensure it's visible
-        overlay.style.display = 'block'; // Ensure it's visible
-    }
-};
 
     </script>
 </body>

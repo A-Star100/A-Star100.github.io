@@ -185,7 +185,10 @@
     </div>
   </div>
 
-                <script>
+<script>
+const overlay = document.getElementById('dialogOverlay');
+const modal = document.querySelector('.dialog'); // Correct reference
+const dismissButton = document.getElementById("dismiss");
 // Function to set a cookie
 function setCookie(name, value, days) {
     let expires = "";
@@ -292,10 +295,7 @@ window.onload = function () {
 const watchVideoButton = document.getElementById("watchVideoButton");
 const videoDialog = document.getElementById("videoDialog");
 const closeButton = document.getElementById("closeButton");
-const dismissButton = document.getElementById("dismiss");
 const video = document.getElementById("video");
-const overlay = document.getElementById('dialogOverlay');
-const modal = document.querySelector('.dialog'); // Correct reference
 
 // Open the video dialog when the button is clicked
 watchVideoButton.addEventListener("click", function () {

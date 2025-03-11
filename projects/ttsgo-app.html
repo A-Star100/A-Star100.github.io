@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <title>TTSGo</title>
+    <style>
+    * {
+                font-family: "Inter", Arial, sans-serif;
+    }
+        body {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f2f5;
+        }
+        .container {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+        textarea {
+            width: 98%;
+            height: 100px;
+            margin-bottom: 10px;
+            border: solid #ddd;
+            border-radius: 8px;
+            resize: none;
+        }
+        button {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #warning {
+            color: #d9534f;
+            background-color: #f9d6d5;
+            padding: 8px;
+            border: 1px solid #d9534f;
+            border-radius: 8px;
+            display: none;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>TTSGo</h2>
+        <div id="warning">⚠️ Your browser may not support text-to-speech.</div>
+        <textarea id="text-input" placeholder="Type something..."></textarea>
+        <button onclick="speakText()">Speak</button>
+    </div>
+
+    <script>
+        // Detect unsupported browsers (like Firefox)
+        window.onload = function () {
+            if (!('speechSynthesis' in window)) {
+                document.getElementById('warning').style.display = 'block';
+            }
+        };
+
+        function speakText() {
+            const text = document.getElementById("text-input").value.trim();
+            if (!text) {
+                alert("Please enter some text.");
+                return;
+            }
+
+            if (!window.speechSynthesis) {
+                alert("Sorry, your browser does not support text-to-speech.");
+                return;
+            }
+
+            const synth = window.speechSynthesis;
+            const utterance = new SpeechSynthesisUtterance(text);
+
+            // Optional: Customize voice and rate
+            const voices = synth.getVoices();
+            utterance.voice = voices.find(voice => voice.lang === 'en-US') || voices[0];
+            utterance.rate = 1;
+
+            // Speak only after a button click to avoid security restrictions
+            synth.speak(utterance);
+        }
+    </script>
+</body>
+</html>

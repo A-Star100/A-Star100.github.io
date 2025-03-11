@@ -26,7 +26,7 @@ a:hover, a:active { color:rgb(26, 158, 241) }
             color: white;
             text-align: center;
         }
-        #osSpecific, #htmlOnly, #windows, #mac, #x11, #android, #html5 {
+        #osSpecific, #htmlOnly, #windows, #mac, #x11, #android, #html5, #web {
             font-family: Arial, Helvetica, sans-serif;
             padding: 5px 10px;
             background-color: rgba(0, 0, 0, 0.7);
@@ -63,7 +63,7 @@ a:hover, a:active { color:rgb(26, 158, 241) }
   display: flex;
   justify-content: center;
         }
-        #osSpecific:hover, #htmlOnly:hover, #windows:hover, #mac:hover, #x11:hover, #android:hover, #html5:hover {
+        #osSpecific:hover, #htmlOnly:hover, #windows:hover, #mac:hover, #x11:hover, #android:hover, #html5:hover, #web:hover {
             padding: 5px 10px;
             background-color: rgba(255, 255, 255, 0.7);
             color: black;
@@ -143,18 +143,18 @@ a:hover, a:active { color:rgb(26, 158, 241) }
       <h1>Get TTSGo</h1>
     </div>
     <div id="os">
-      <button id="osSpecific" onclick="autoDetect()">Download for your OS</button></a>
+      <button id="osSpecific" onclick="autoDetect()">Use for your OS</button></a>
     </div>
     <div id="select-download">
     </div>
     <div id="direct-download">
-      <h1>Direct Download Links:</h1>
+      <h1>Direct Links:</h1>
     </div>
     <div id="select-download1">
-      <a href="https://drive.google.com/file/d/1zoV0pqFdNazYUkenfDOwo1otu3v-yGgX/view"><button id="windows"> <img style="height: 3.1em;" src="https://www.srb2.org/wp-content/uploads/icons8-windows-xp-48.png"> Download for Windows (Universal)</button></a>
-      <!-- <a href="https://www.dropbox.com/scl/fi/tk5cstv32cwzc8h4tr5bz/jcdbmeservermacos.zip?rlkey=bhqirc5iqvjkudfm62ryza1ev&st=ptrbnxly&dl=0"><button id="x11"> Download for Linux (redirect to Mac)</button></a> -->
-      <a href="https://drive.google.com/file/d/15rV9wZIUf5ZbpcBKp5un7uCrv_1wj1Dm/view?usp=sharing"><button id="android"> <img style="height: 3.1em;" src="https://www.srb2.org/wp-content/uploads/androidlogo48.png"> Download for Android (Universal)</button></a>
-      <a href="https://drive.google.com/file/d/163ZViJu51vW7AzC-4kzwe0rr3hqfnCPx/view"><button id="mac"> <img style="height: 3.1em;" src="https://www.srb2.org/wp-content/uploads/icons8-apple-24.png">Download for Mac (Universal)</button></a>
+      <a href="https://drive.google.com/file/d/1zoV0pqFdNazYUkenfDOwo1otu3v-yGgX/view"><button id="windows"> <img style="height: 3.1em;" src="https://www.srb2.org/wp-content/uploads/icons8-windows-xp-48.png">Windows (Intel)</button></a>
+      <a href="/projects/ttsgo-app"><button id="web"> <img style="height: 3.1em;" src="/images/httpServer.png">Web</button></a>
+      <a href="https://drive.google.com/file/d/15rV9wZIUf5ZbpcBKp5un7uCrv_1wj1Dm/view?usp=sharing"><button id="android"> <img style="height: 3.1em;" src="https://www.srb2.org/wp-content/uploads/androidlogo48.png">Android (Universal)</button></a>
+      <a href="https://drive.google.com/file/d/163ZViJu51vW7AzC-4kzwe0rr3hqfnCPx/view"><button id="mac"> <img style="height: 3.1em;" src="https://www.srb2.org/wp-content/uploads/icons8-apple-24.png">Mac (Universal)</button></a>
     </div>
     <p id="msg1"><i style="font-size: x-small;">OS Icons made by <a href="https://icons8.com/">icons8</a> and released under the <a href="https://creativecommons.org/licenses/by-nd/3.0/">Creative Commons Attribution-NoDerivs 3.0 Unported License</a>.</i></p>
    <script> 
@@ -178,7 +178,8 @@ a:hover, a:active { color:rgb(26, 158, 241) }
       } else if (userAgent.includes("Android")) {
           window.location.replace('https://drive.google.com/file/d/15rV9wZIUf5ZbpcBKp5un7uCrv_1wj1Dm/view?usp=sharing')
       } else {
-          alert("Your operating system isn't supported. Sorry!");
+          alert("Your operating system isn't supported, redirecting to web version")
+          window.location.replace('https://a-star100.github.io/projects/ttsgo-app')
       }
       }
       </script>

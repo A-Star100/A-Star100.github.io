@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Record Your Own Commentary</title>
+    <style>
+        body {
+        font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 20px;
+            background-color: black;
+        }
+        #recordControls {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            bottom: 30px;
+            margin: auto;
+        }
+        #startBtn, #stopBtn{
+            padding: 5px 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 50px;
+            transition: 0.7s;
+        }
+        #downloadLink {
+            padding: 5px 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer; 
+            transition: 0.7s; 
+        }
+        #startBtn:hover, #stopBtn:hover {
+            padding: 5px 10px;
+            background-color: rgba(255, 255, 255, 0.7);
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.7s;
+        }
+        #downloadLink:hover {
+            padding: 5px 10px;
+            background-color: rgba(255, 255, 255, 0.7);
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.7s; 
+        }
+        #audioPlayback {
+            margin-bottom: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div id="recordControls">
+    <button id="startBtn">Start Recording</button>
+    <button id="stopBtn" disabled>Stop Recording</button>
+    </div>
+    <br><br>
+    <audio id="audioPlayback" controls></audio>
+    <br><br>
+    <a id="downloadLink" href="" download="commentary.webm" style="display: none;">Download Your Commentary</a>
+
+    <script>
+        let mediaRecorder;
+        let audioChunks = [];
+        
+        const startBtn = document.getElementById('startBtn');
+        const stopBtn = document.getElementById('stopBtn');
+        const audioPlayback = document.getElementById('audioPlayback');
+        const downloadLink = document.getElementById('downloadLink');
+
+        startBtn.addEventListener('click', async () => {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                mediaRecorder = new MediaRecorder(stream, { mimeType: 'audio/webm' });
+
+                mediaRecorder.ondataavailable = event => {
+                    audioChunks.push(event.data);
+                };
+
+                mediaRecorder.onstop = () => {
+                    const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
+                    const audioUrl = URL.createObjectURL(audioBlob);
+
+                    audioPlayback.src = audioUrl;
+                    downloadLink.href = audioUrl;
+                    downloadLink.style.display = 'block';
+                    audioChunks = [];  // Reset the chunks
+                };
+
+                mediaRecorder.start();
+                startBtn.disabled = true;
+                stopBtn.disabled = false;
+            } catch (err) {
+                console.error("Could not start recording:", err);
+            }
+        });
+
+        stopBtn.addEventListener('click', () => {
+            mediaRecorder.stop();
+            startBtn.disabled = false;
+            stopBtn.disabled = true;
+        });
+    </script>
+</body>
+</html>

@@ -22,6 +22,9 @@
             margin-top: 20px;
             color: #333;
         }
+        a {
+          color: black;
+        }
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -76,7 +79,68 @@
     width: auto;  
     height: auto;  
 }
+.srb2-overlay, .kart-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 9999;
+}
+    .srb2Dialog, .kartDialog {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #ffffff;
+      color: #333;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: #ffffff;
+    }
 
+    h1 {
+        color: #ffffff;
+    }
+
+    a {
+        color: #4DA6FF;  /* Light blue for contrast */
+    }
+
+    .creation {
+        background-color: #1E1E1E;
+        box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+    }
+
+    .info {
+        color: #cccccc;
+    }
+
+    .btn {
+        background-color: #4DA6FF; 
+        color: #121212;
+    }
+
+    .btn:hover {
+        background-color: #1D70B8;
+    }
+
+    .srb2Dialog, .kartDialog {
+        background-color: #1E1E1E;
+        color: #ffffff;
+        box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+    }
+}
 
     </style>
 </head>
@@ -90,8 +154,8 @@
               Go faster with Speedy Sonic!
             </div>
           <div class="icons">
-            <img src="srb2.png" alt="SRB2" class="icon">
-            <img src="srb2kart.png" alt="SRB2Kart" class="icon">
+            <img src="srb2.png" alt="SRB2" class="icon" onclick="showSrb2()">
+            <img src="srb2kart.png" alt="SRB2Kart" class="icon" onclick="showKart()">
           </div>
             <div class="buttons">
               <a href="https://github.com/A-Star100/srb2-mods/tree/main/CL_SpeedySonic" class="btn">Learn more</a>
@@ -105,7 +169,7 @@
               Every character can speed thok!
             </div>
           <div class="icons">
-            <img src="srb2.png" alt="SRB2" class="icon">
+            <img src="srb2.png" alt="SRB2" class="icon" onclick="showSrb2()">
           </div>
             <div class="buttons">
                 <a href="https://github.com/A-Star100/srb2-mods/tree/main/L_ThokEveryone" class="btn">Learn more</a>
@@ -115,5 +179,38 @@
     </div>
 <div style="height: 15px;"></div>
 <a href="https://github.com/A-Star100/srb2-mods/" class="btn" style="text-align: center;">More mods</a>
+  <div class="srb2-overlay" id="srb2Overlay">
+    <div class="srb2Dialog">
+      <p>This mod is compatible with/has a version for <a href="srb2.org">Sonic Robo Blast 2</a>.</p>
+      <div style="height: 15px;"></div>
+      <a class="btn" onclick="hideSrb2()" style="text-align: center;">Got it</a>
+    </div>
+  </div>
+
+  <div class="kart-overlay" id="kartOverlay">
+    <div class="kartDialog">
+      <p>This mod is compatible with/has a version for <a href="https://mb.srb2.org/threads/srb2kart.25868/">Sonic Robo Blast 2 Kart</a>.</p>
+      <div style="height: 15px;"></div>
+      <a class="btn" onclick="hideKart()" style="text-align: center;">Got it</a>
+    </div>
+  </div>
+<script>
+  function showSrb2() {
+     document.getElementById("srb2Overlay").style.display = 'block';
+     document.getElementById("srb2Dialog").style.display = 'block';
+  }
+  function hideSrb2() {
+     document.getElementById("srb2Overlay").style.display = 'none';
+     document.getElementById("srb2Dialog").style.display = 'none';
+  }
+  function showKart() {
+     document.getElementById("kartOverlay").style.display = 'block';
+     document.getElementById("kartDialog").style.display = 'block';
+  }
+  function hideKart() {
+     document.getElementById("kartOverlay").style.display = 'none';
+     document.getElementById("kartDialog").style.display = 'none';
+  }
+</script>
 </body>
 </html>

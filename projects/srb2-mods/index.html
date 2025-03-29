@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <div class="srb2Dialog">
       <p>This mod is compatible with/has a version for <a href="https://srb2.org">Sonic Robo Blast 2</a>.</p>
       <div style="height: 15px;"></div>
-      <a class="btn" onclick="hideSrb2()">Got it</a>
+      <a class="btn" onclick="document.getElementById('srb2Overlay').style.display = 'none'; document.getElementById('srb2Dialog').style.display = 'none';">Got it</a>
       <div style="height: 15px;"></div>
     </div>
   </div>
@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <div class="kartDialog">
       <p>This mod is compatible with/has a version for <a href="https://mb.srb2.org/threads/srb2kart.25868/">Sonic Robo Blast 2 Kart</a>.</p>
       <div style="height: 15px;"></div>
-      <a class="btn" onclick="hideKart()">Got it</a>
+      <a class="btn" onclick="document.getElementById('kartOverlay').style.display = 'none'; document.getElementById('kartDialog').style.display = 'none';">Got it</a>
       <div style="height: 15px;"></div>
     </div>
   </div>
@@ -187,8 +187,8 @@ document.addEventListener('DOMContentLoaded', () => {
               Go faster with Speedy Sonic!
             </div>
           <div class="icons">
-            <img src="srb2.png" alt="SRB2" class="icon" onclick="showSrb2()">
-            <img src="srb2kart.png" alt="SRB2Kart" class="icon" onclick="showKart()">
+            <img src="srb2.png" alt="SRB2" class="icon" onclick="document.getElementById('srb2Overlay').style.display = 'block'; document.getElementById('srb2Dialog').style.display = 'block';">
+            <img src="srb2kart.png" alt="SRB2Kart" class="icon" onclick="document.getElementById('kartOverlay').style.display = 'block'; document.getElementById('kartDialog').style.display = 'block';">
           </div>
             <div class="buttons">
               <a href="https://github.com/A-Star100/srb2-mods/tree/main/CL_SpeedySonic" class="btn">Learn more</a>
@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
               Every character can speed thok!
             </div>
           <div class="icons">
-            <img src="srb2.png" alt="SRB2" class="icon" onclick="showSrb2()">
+            <img src="srb2.png" alt="SRB2" class="icon" onclick="document.getElementById('srb2Overlay').style.display = 'block'; document.getElementById('srb2Dialog').style.display = 'block';">
           </div>
             <div class="buttons">
                 <a href="https://github.com/A-Star100/srb2-mods/tree/main/L_ThokEveryone" class="btn">Learn more</a>

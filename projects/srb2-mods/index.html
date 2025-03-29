@@ -23,7 +23,7 @@
             color: #333;
         }
         a {
-          color: black;
+          color: #4DA6FF;  /* Light blue for contrast */
         }
         .gallery {
             display: grid;
@@ -62,6 +62,7 @@
             cursor: pointer;
             text-decoration: none;
             transition: background 0.3s ease;
+            text-align: center;
         }
         .btn:hover {
             background-color: #0056b3;
@@ -112,11 +113,7 @@
     h1 {
         color: #ffffff;
     }
-
-    a {
-        color: #4DA6FF;  /* Light blue for contrast */
-    }
-
+  
     .creation {
         background-color: #1E1E1E;
         box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
@@ -177,12 +174,13 @@
         </div>
     </div>
 <div style="height: 15px;"></div>
-<a href="https://github.com/A-Star100/srb2-mods/" class="btn" style="text-align: center;">More mods</a>
+<a href="https://github.com/A-Star100/srb2-mods/" class="btn">More mods</a>
   <div class="srb2-overlay" id="srb2Overlay">
     <div class="srb2Dialog">
-      <p>This mod is compatible with/has a version for <a href="srb2.org">Sonic Robo Blast 2</a>.</p>
+      <p>This mod is compatible with/has a version for <a href="https://srb2.org">Sonic Robo Blast 2</a>.</p>
       <div style="height: 15px;"></div>
-      <a class="btn" onclick="hideSrb2()" style="text-align: center;">Got it</a>
+      <a class="btn" onclick="hideSrb2()">Got it</a>
+      <div style="height: 15px;"></div>
     </div>
   </div>
 
@@ -190,7 +188,8 @@
     <div class="kartDialog">
       <p>This mod is compatible with/has a version for <a href="https://mb.srb2.org/threads/srb2kart.25868/">Sonic Robo Blast 2 Kart</a>.</p>
       <div style="height: 15px;"></div>
-      <a class="btn" onclick="hideKart()" style="text-align: center;">Got it</a>
+      <a class="btn" onclick="hideKart()">Got it</a>
+      <div style="height: 15px;"></div>
     </div>
   </div>
 <script>

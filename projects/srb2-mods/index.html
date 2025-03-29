@@ -141,7 +141,44 @@
     </style>
 </head>
 <body>
-    <h1>SRB2 Mods</h1>
+<h1>SRB2 Mods</h1>
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+  function showSrb2() {
+     document.getElementById("srb2Overlay").style.display = 'block';
+     document.getElementById("srb2Dialog").style.display = 'block';
+  }
+  function hideSrb2() {
+     document.getElementById("srb2Overlay").style.display = 'none';
+     document.getElementById("srb2Dialog").style.display = 'none';
+  }
+  function showKart() {
+     document.getElementById("kartOverlay").style.display = 'block';
+     document.getElementById("kartDialog").style.display = 'block';
+  }
+  function hideKart() {
+     document.getElementById("kartOverlay").style.display = 'none';
+     document.getElementById("kartDialog").style.display = 'none';
+  }
+}
+</script>
+  <div class="srb2-overlay" id="srb2Overlay">
+    <div class="srb2Dialog">
+      <p>This mod is compatible with/has a version for <a href="https://srb2.org">Sonic Robo Blast 2</a>.</p>
+      <div style="height: 15px;"></div>
+      <a class="btn" onclick="hideSrb2()">Got it</a>
+      <div style="height: 15px;"></div>
+    </div>
+  </div>
+
+  <div class="kart-overlay" id="kartOverlay">
+    <div class="kartDialog">
+      <p>This mod is compatible with/has a version for <a href="https://mb.srb2.org/threads/srb2kart.25868/">Sonic Robo Blast 2 Kart</a>.</p>
+      <div style="height: 15px;"></div>
+      <a class="btn" onclick="hideKart()">Got it</a>
+      <div style="height: 15px;"></div>
+    </div>
+  </div>
     <div class="gallery">
         <div class="creation">
             <img src="speedy.png" alt="Speedy Sonic">
@@ -175,42 +212,6 @@
     </div>
 <div style="height: 15px;"></div>
 <a href="https://github.com/A-Star100/srb2-mods/" class="btn">More mods</a>
-  <div class="srb2-overlay" id="srb2Overlay">
-    <div class="srb2Dialog">
-      <p>This mod is compatible with/has a version for <a href="https://srb2.org">Sonic Robo Blast 2</a>.</p>
-      <div style="height: 15px;"></div>
-      <a class="btn" onclick="hideSrb2()">Got it</a>
-      <div style="height: 15px;"></div>
-    </div>
-  </div>
 
-  <div class="kart-overlay" id="kartOverlay">
-    <div class="kartDialog">
-      <p>This mod is compatible with/has a version for <a href="https://mb.srb2.org/threads/srb2kart.25868/">Sonic Robo Blast 2 Kart</a>.</p>
-      <div style="height: 15px;"></div>
-      <a class="btn" onclick="hideKart()">Got it</a>
-      <div style="height: 15px;"></div>
-    </div>
-  </div>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  function showSrb2() {
-     document.getElementById("srb2Overlay").style.display = 'block';
-     document.getElementById("srb2Dialog").style.display = 'block';
-  }
-  function hideSrb2() {
-     document.getElementById("srb2Overlay").style.display = 'none';
-     document.getElementById("srb2Dialog").style.display = 'none';
-  }
-  function showKart() {
-     document.getElementById("kartOverlay").style.display = 'block';
-     document.getElementById("kartDialog").style.display = 'block';
-  }
-  function hideKart() {
-     document.getElementById("kartOverlay").style.display = 'none';
-     document.getElementById("kartDialog").style.display = 'none';
-  }
-}
-</script>
 </body>
 </html>

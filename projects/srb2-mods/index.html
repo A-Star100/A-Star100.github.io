@@ -200,54 +200,30 @@
   <a href="https://github.com/A-Star100/srb2-mods/" class="btn">More mods</a>
 
   <script>
-    // Define the functions here directly, outside of DOMContentLoaded
+    // Define the functions outside of the DOMContentLoaded event listener
     function showSrb2() {
-      const overlay = document.getElementById("srb2Overlay");
-      const dialog = document.getElementById("srb2Dialog");
-
-      if (overlay && dialog) {
-        overlay.style.display = 'block';
-        dialog.style.display = 'block';
-      } else {
-        console.warn("Element not found: srb2Overlay or srb2Dialog");
-      }
+      document.getElementById("srb2Overlay").style.display = 'block';
+      document.getElementById("srb2Dialog").style.display = 'block';
     }
 
     function hideSrb2() {
-      const overlay = document.getElementById("srb2Overlay");
-      const dialog = document.getElementById("srb2Dialog");
-
-      if (overlay && dialog) {
-        overlay.style.display = 'none';
-        dialog.style.display = 'none';
-      } else {
-        console.warn("Element not found: srb2Overlay or srb2Dialog");
-      }
+      document.getElementById("srb2Overlay").style.display = 'none';
+      document.getElementById("srb2Dialog").style.display = 'none';
     }
 
     function showKart() {
-      const overlay = document.getElementById("kartOverlay");
-      const dialog = document.getElementById("kartDialog");
-
-      if (overlay && dialog) {
-        overlay.style.display = 'block';
-        dialog.style.display = 'block';
-      } else {
-        console.warn("Element not found: kartOverlay or kartDialog");
-      }
+      document.getElementById("kartOverlay").style.display = 'block';
+      document.getElementById("kartDialog").style.display = 'block';
     }
 
     function hideKart() {
-      const overlay = document.getElementById("kartOverlay");
-      const dialog = document.getElementById("kartDialog");
-
-      if (overlay && dialog) {
-        overlay.style.display = 'none';
-        dialog.style.display = 'none';
-      } else {
-        console.warn("Element not found: kartOverlay or kartDialog");
-      }
+      document.getElementById("kartOverlay").style.display = 'none';
+      document.getElementById("kartDialog").style.display = 'none';
     }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Add any initialization logic here if needed
+    });
   </script>
 </body>
 </html>

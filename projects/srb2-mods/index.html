@@ -200,30 +200,34 @@
   <a href="https://github.com/A-Star100/srb2-mods/" class="btn">More mods</a>
 
   <script>
-    // Define the functions outside of the DOMContentLoaded event listener
     function showSrb2() {
-      document.getElementById("srb2Overlay").style.display = 'block';
-      document.getElementById("srb2Dialog").style.display = 'block';
-    }
+  let overlay = document.getElementById("srb2Overlay");
+  let dialog = document.getElementById("srb2Dialog");
+  if (overlay) overlay.style.display = 'block';
+  if (dialog) dialog.style.display = 'block';
+}
 
-    function hideSrb2() {
-      document.getElementById("srb2Overlay").style.display = 'none';
-      document.getElementById("srb2Dialog").style.display = 'none';
-    }
+function hideSrb2() {
+  let overlay = document.getElementById("srb2Overlay");
+  let dialog = document.getElementById("srb2Dialog");
+  if (overlay) overlay.style.display = 'none';
+  if (dialog) dialog.style.display = 'none';
+}
 
-    function showKart() {
-      document.getElementById("kartOverlay").style.display = 'block';
-      document.getElementById("kartDialog").style.display = 'block';
-    }
+function showKart() {
+  let overlay = document.getElementById("kartOverlay");
+  let dialog = document.getElementById("kartDialog");
+  if (overlay) overlay.style.display = 'block';
+  if (dialog) dialog.style.display = 'block';
+}
 
-    function hideKart() {
-      document.getElementById("kartOverlay").style.display = 'none';
-      document.getElementById("kartDialog").style.display = 'none';
-    }
+function hideKart() {
+  let overlay = document.getElementById("kartOverlay");
+  let dialog = document.getElementById("kartDialog");
+  if (overlay) overlay.style.display = 'none';
+  if (dialog) dialog.style.display = 'none';
+}
 
-    document.addEventListener('DOMContentLoaded', () => {
-      // Add any initialization logic here if needed
-    });
   </script>
 </body>
 </html>

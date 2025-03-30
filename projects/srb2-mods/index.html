@@ -81,7 +81,7 @@
       height: auto;
     }
 
-    .srb2-overlay, .kart-overlay {
+    .srb2-overlay, .kart-overlay, .ring-overlay {
       display: none;
       position: fixed;
       top: 0;
@@ -92,7 +92,7 @@
       z-index: 9999;
     }
 
-    .srb2Dialog, .kartDialog {
+    .srb2Dialog, .kartDialog, .ringDialog {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -163,6 +163,15 @@
     </div>
   </div>
 
+   <div class="ring-overlay" id="ringOverlay">
+    <div class="ringDialog">
+      <p>This mod is compatible with/has a version for <a href="https://www.kartkrew.org/">Dr. Robotnik's Ring Racers</a>.</p>
+      <div style="height: 15px;"></div>
+      <a class="btn" onclick="hideRingRacers()">Got it</a>
+      <div style="height: 15px;"></div>
+    </div>
+  </div>
+
   <div class="gallery">
     <div class="creation">
       <img src="speedy.png" alt="Speedy Sonic">
@@ -173,6 +182,7 @@
       <div class="icons">
         <img src="srb2.png" alt="SRB2" class="icon" onclick="showSrb2()">
         <img src="srb2kart.png" alt="SRB2Kart" class="icon" onclick="showKart()">
+        <img src="ringracers.png" alt="Ring Racers" class="icon" onclick="showRingRacers()">
       </div>
       <div class="buttons">
         <a href="https://github.com/A-Star100/srb2-mods/tree/main/CL_SpeedySonic" class="btn">Learn more</a>
@@ -205,6 +215,20 @@ function showSrb2() {
   let dialog = document.getElementById("srb2Dialog");
   if (overlay) overlay.style.display = 'block';
   if (dialog) dialog.style.display = 'block';
+}
+
+function showRingRacers() {
+  let overlay = document.getElementById("ringOverlay");
+  let dialog = document.getElementById("ringDialog");
+  if (overlay) overlay.style.display = 'block';
+  if (dialog) dialog.style.display = 'block';
+}
+
+function hideRingRacers() {
+  let overlay = document.getElementById("ringOverlay");
+  let dialog = document.getElementById("ringDialog");
+  if (overlay) overlay.style.display = 'none';
+  if (dialog) dialog.style.display = 'none';
 }
 
 function hideSrb2() {

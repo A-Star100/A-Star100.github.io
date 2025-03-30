@@ -79,6 +79,11 @@
       max-height: 32px;
       width: auto;
       height: auto;
+      transition: transform 0.3s ease; /* Smooth transition for the transform property */
+    }
+
+    .icon:hover {
+      transform: scale(1.1); /* Scale the image to 120% of its original size */
     }
 
     .srb2-overlay, .kart-overlay, .ring-overlay {
@@ -135,7 +140,7 @@
         background-color: #1D70B8;
       }
 
-      .srb2Dialog, .kartDialog {
+      .srb2Dialog, .kartDialog, .ringDialog {
         background-color: #1E1E1E;
         color: #ffffff;
       }

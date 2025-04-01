@@ -3,7 +3,7 @@ My site (made without a website builder).
 You should expect index files and other necessary files here.
 
 ## Revamping
-If you noticed (all of you would've but of you didn't it's fine), the site got revamped. Older versions of my website used [W3.CSS](https://www.w3schools.com/w3css/defaulT.asp) (and the slightly newer one used a W3.CSS template), which was plain. My website now looks more clear and relaxing, and most importantly, less cluttered. If you were **SUPER** attentive, the site almost always used W3.CSS (but it didn't heavily rely on it until now), but the revamp also has its own custom styles (obvi). 
+If you noticed (all of you would've but of you didn't it's fine), the site got revamped. My website has always used [W3.CSS](https://www.w3schools.com/w3css/defaulT.asp) (and the slightly newer one used a W3.CSS template), which was plain. My website now looks more clear and relaxing, and most importantly, less cluttered (but still relies HEAVILY on W3.CSS). If you were **SUPER** attentive, the site always used W3.CSS (but it didn't heavily rely on it until now), but the revamp also has its own custom styles (obvi). 
 
 Hope you like the revamped site!
 

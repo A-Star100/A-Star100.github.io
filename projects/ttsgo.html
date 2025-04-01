@@ -172,11 +172,11 @@ a:hover, a:active { color:rgb(26, 158, 241) }
         const userAgent = getPlatform();
       
       if (userAgent.includes("Windows")) {
-          window.location.href('https://drive.google.com/file/d/1zoV0pqFdNazYUkenfDOwo1otu3v-yGgX/view')
+          window.location.open('https://drive.google.com/file/d/1zoV0pqFdNazYUkenfDOwo1otu3v-yGgX/view')
       } else if (userAgent.includes("Macintosh")) {
-          window.location.href('https://drive.google.com/file/d/163ZViJu51vW7AzC-4kzwe0rr3hqfnCPx/view')
+          window.location.open('https://drive.google.com/file/d/163ZViJu51vW7AzC-4kzwe0rr3hqfnCPx/view')
       } else if (userAgent.includes("Android")) {
-          window.location.href('https://drive.google.com/file/d/15rV9wZIUf5ZbpcBKp5un7uCrv_1wj1Dm/view?usp=sharing')
+          window.location.open('https://drive.google.com/file/d/15rV9wZIUf5ZbpcBKp5un7uCrv_1wj1Dm/view?usp=sharing')
       } else {
           alert("Your operating system isn't supported, redirecting to web version")
           window.location.href('https://a-star100.github.io/projects/ttsgo-app')

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Find largest number</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+
+    .center {
+      padding: 20px;
+    }
+
+    code {
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    .w3-bar-block .w3-bar-item {
+      padding: 20px;
+    }
+
+    .tutorial-box {
+      padding: 1rem;
+      margin: 1rem 0;
+      background-color: #f2f2f2;
+      border-left: 5px solid #007acc;
+    }
+
+    .example {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 1rem;
+      font-family: monospace;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="w3-center">
+    <h2>Find the largest number in an array</h2>
+    <p>
+      In this tutorial, we will be using for loops and arrays to determine the largest number in a list.
+    </p>
+  </div>
+
+  <div class="center">
+    <h3>Basic Concepts Used</h3>
+      <div class="tutorial-box">
+      <h4>How to use variables</h4>
+      <p>Variables can keep track of values for you.</p>
+      <div class="example">
+        <code>
+          let myName = "John Doe"
+          console.log(`Hello, ${myName}!`)
+        </code>
+      </div>
+      <button onclick="let myName = 'John Doe'; console.log(`Hello, ${myName}!`); alert(`[Console.Log output]: Hello, ${myName}!`)">Try it</button>
+    </div>
+    
+    <div class="tutorial-box">
+      <h4>How to use for loops</h4>
+      <a href="/tutorials/loops">Learn more about loops here</a>
+    </div>
+
+    <div class="tutorial-box">
+      <h4>How to use arrays</h4>
+      <p>Arrays are lists that can contain anything.</p>
+      <div class="example">
+        <code>
+          let numbers = [1, 2, 3, 4, 5]
+          console.log(`Numbers: ${numbers}`)
+        </code>
+      </div>
+      <button onclick="let numbers = [1, 2, 3, 4, 5]; console.log(`Numbers: ${numbers}`); alert(`[Console.Log output]: Numbers: ${numbers}`)">Try it</button>
+    </div>
+    
+    <div class="tutorial-box">
+      <h1><b>Find the largest number</b></h1>
+      <p>Now to mesh these concepts together.</p>
+      <p>First, we will define a list of numbers. Then, we will define a variable called maxNum, our largest number.
+        Think of a few pairs of socks as our numbers. In the for loop we define next, we will compare one sock against the other.
+        Whichever sock is bigger is regarded as the largest number (maxNum).
+        We will keep doing this until the end of the list of numbers and then report the largest number to the user.
+      </p>
+      <div class="example">
+        <code>
+          const numbers = [1, 2, 3, 4, 5]
+          let maxNum = 0
+
+          for (let i = 0; i < numbers.length; i++) {
+              if (maxNum = 0) {
+                  if (numbers[i] < numbers[i + 1]) {
+                      maxNum  = numbers[i + 1]
+                  }  
+              } else {
+                if (maxNum < numbers[i]) {
+                    maxNum = numbers[i]
+                }
+              }
+          }
+
+          console.log(`largest number: ${maxNum}`)
+        </code>
+        </div>
+        <p>This code has a list of numbers and our largest number. It checks every number until the position of which number we're checking is greater than the length of the list itself
+          (meaning the list is over).
+          If our largest number variable is 0, we compare the current number we're checking with the next number.
+          If the next number is larger, we set the largest number so far to the next number. Else we go on.
+
+          At the end, we tell the user the largest number.
+
+          <p><b>**Think:**</b> This code could be simplified. Take a look at how it works and come up with an answer.
+            Once you're ready, click "See answer".
+            <script>
+            function toggleAnswer(show) {
+              document.getElementById('answer').style.display = show ? 'block' : 'none';
+              document.getElementById('seeAnswer').style.display = show ? 'none' : 'block';
+              document.getElementById('hideAnswer').style.display = show ? 'block' : 'none';
+            }
+            </script>
+            <button id="seeAnswer" onclick="toggleAnswer(true)"><i>See answer</i></button>
+            <button id="hideAnswer" style="display:none;" onclick="toggleAnswer(false)"><i>Hide answer</i></button>
+            <div id="answer" style="display: none;">
+              <div class="example">
+                <code>
+                  const numbers2 = [1000, 81, 23, 5, 6, 101]
+
+                  function getLargestNumber(numbers) {
+                     let max = 0
+                     for (let i = 0; i < numbers.length; i++){
+                         if (numbers[i] > max){
+                             max = numbers[i]
+                         }     
+                     }
+   
+                     return max
+                  }
+
+                  console.log(`Simpler largest number: ${getLargestNumber(numbers2)}`)
+                </code>
+              </div>
+              <p>This code instead defines an array first and keeps the largest number variable inside the function where we check the largest number to keep from confusion.
+                Instead of checking if the largest number is 0, we instead check if the current number we're checking is greater than the maximum currently defined.
+                Then we set the largest number to the current number we're checking.
+                Then, we return the largest number at the end to print into the console.
+              </p>
+            </div>
+          </p>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="w3-third anisubmenucenter-bottom">
+    <h3>Other places to visit</h3>
+    <ul class="w3-ul w3-hoverable">
+      <li class="w3-padding-16" onclick="window.location.replace('https://a-star100.github.io/archive.html')">
+        <a class="w3-large" href="http://a-star100.github.io/archive.html">Anirudh's Site Archive</a><br>
+        <span>Old site designs and experiments.</span>
+      </li>
+      <li class="w3-padding-16" onclick="window.location.replace('https://a-star100.github.io/songs.html')">
+        <a class="w3-large" href="/songs.html">My songs</a><br>
+        <span>Listen to original music compositions.</span>
+      </li>
+      <li class="w3-padding-16" onclick="window.location.replace('https://bit.ly/jcdbme')">
+        <a class="w3-large" href="https://bit.ly/jcdbme">Sonic fandubs</a><br>
+        <span>Watch 2+ hours of hilarious Sonic fandubs.</span>
+      </li>
+    </ul>
+  </div>
+
+</body>
+</html>

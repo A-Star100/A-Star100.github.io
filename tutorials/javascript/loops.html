@@ -12,6 +12,12 @@
       margin: 0;
     }
 
+    .hint {
+      color: green;
+      font-style: italic;
+    }
+
+
     .center {
       padding: 20px;
     }
@@ -103,40 +109,57 @@
       <p>While loops run as long as a condition is true.</p>
       <div class="example">
         <code>
-          let age = 10;
-          
-          // This is a timer, we don't need to learn much about this just yet. In short, it is a function that fires only after the specified milliseconds have passed.
-          
-          setTimeout(function() {
-            age = 11
-            console.log("I am 11 years old")
-          }, 3000); 
+          function whileLoopExample() {
+            let age = 10;
+            let counter = 0;
 
-          // Always use two or three equal-tos to check if a variable is equal to something, one equal-to is invalid. Three equal-tos are the most accurate for complex code
-          
-          while (age == 10) {
-           console.log("I am 10 years old")
-          }
+            <p class="hint">// Always use two or three equal-tos to check if a variable is equal to something.</p>
+            <p class="hint">// One equal-to is invalid. Three equal-tos are the most accurate for complex code.</p>
+            <p class="hint">// In this case, we use two equal-tos (==) for simplicity and to match JavaScript's loose typing.</p>
+            <p class="hint">// We add the counter variable to prevent the while loop from freezing or slowing down the browser.</p>
+
+            while (age == 10 && counter < 3) {
+              console.log("I am 10 years old");
+              counter++;
+            }
+
+            <p class="hint">// This is a timer — we don't need to learn much about this just yet.</p>
+            <p class="hint">// In short, it is a function that fires only after the specified milliseconds have passed.</p>
+
+            setTimeout(function() {
+              age = 11;
+              console.log("I am 11 years old");
+            }, 3000);
+            }
         </code>
       </div>
       <button onclick="whileLoopExample()">Try it</button>
       <script>
         function whileLoopExample() {
-          let age = 10;
-          alert("[Console.log output]: I am 10 years old")
-          
-          // This is a timer, we don't need to learn much about this just yet. In short, it is a function that fires only after the specified milliseconds have passed.
-          setTimeout(function() {
-            age = 11
-            console.log("I am 11 years old")
-            alert("[Console.log output]: I am 11 years old")
-          }, 3000); 
+            let age = 10;
+            let counter = 0;
 
-          // Always use two or three equal-tos to check if a variable is equal to something, one equal-to is invalid. Three equal-tos are the most accurate for complex code
-          while (age == 10) {
-           console.log("I am 10 years old")
-          }
-        }
+            alert("[Console.log output]: I am 10 years old");
+
+            // Always use two or three equal-tos to check if a variable is equal to something.
+            // One equal-to is invalid. Three equal-tos are the most accurate for complex code.
+            // In this case, we use two equal-tos (==) for simplicity and to match JavaScript's loose typing.
+            // We add the counter variable to prevent the while loop from freezing or slowing down the browser
+
+            while (age == 10 && counter < 3) {
+              console.log("I am 10 years old");
+              counter++;
+            }
+
+            // This is a timer — we don't need to learn much about this just yet.
+            // In short, it is a function that fires only after the specified milliseconds have passed.
+
+            setTimeout(function() {
+              age = 11;
+              console.log("I am 11 years old");
+              alert("[Console.log output]: I am 11 years old");
+            }, 3000);
+            }
       </script>
       <div style="height:5px;"></div>
       <i>Don't use a while loop with the condition "true". It will cause an infinite loop (because true is always true) and will freeze the webpage in the browser.</i>
@@ -159,9 +182,17 @@
       <p>"break" and "return" are two JavaScript blocks that end a loop and return a value respectively. "break" is the only one that can break out of any loop, even a "while true" one.</p>
       <div class="example">
         <code>
-          // Always use three equal-tos to check if a variable is equal to something, one equal-to is invalid and two equal-tos aren't as accurate
-          while (age === "10") {
+          let age = 10;
+          while (age == 10) {
            console.log("I am 10 years old")
+           break;
+          }
+
+          for (let i = 0; i++){
+                   max = 1
+          }
+   
+           return max
           }
         </code>
       </div>

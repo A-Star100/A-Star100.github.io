@@ -64,6 +64,27 @@
       </div>
       <button onclick="let myName = 'John Doe'; console.log(`Hello, ${myName}!`); alert(`[Console.Log output]: Hello, ${myName}!`)">Try it</button>
     </div>
+
+    <div class="tutorial-box">
+      <h4>How to use functions</h4>
+      <p>Functions can execute things when you tell them to and accepts inputs.</p>
+      <div class="example">
+        <code>
+          function greetPerson(person) {
+            console.log(`Hello, ${person}!`)
+          }
+
+          greetPerson("John Doe")
+        </code>
+      </div>
+      <script>
+      function greetPerson(person) {
+        console.log(`Hello, ${person}!`);
+        alert(`[Console.Log output]: Hello, ${person}!`);
+      }
+    </script>
+      <button onclick="greetPerson('John Doe')">Try it</button>
+    </div>
     
     <div class="tutorial-box">
       <h4>How to use for loops</h4>

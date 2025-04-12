@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Loops</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+
+    .center {
+      padding: 20px;
+    }
+
+    code {
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    .w3-bar-block .w3-bar-item {
+      padding: 20px;
+    }
+
+    .tutorial-box {
+      padding: 1rem;
+      margin: 1rem 0;
+      background-color: #f2f2f2;
+      border-left: 5px solid #007acc;
+    }
+
+    .example {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 1rem;
+      font-family: monospace;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="w3-center">
+    <h2>Loops</h2>
+    <p>
+      In this tutorial, we will learn how to use for loops, while loops, and break/return statements with them in JavaScript
+    </p>
+  </div>
+
+  <div class="center">
+    <h3>Concepts Used</h3>
+    
+      <div class="tutorial-box">
+      <h4>For loops</h4>
+      <p>For loops iterate through a list of items. This can help with checking values in lists and save time.</p>
+      <div class="example">
+        <code>
+          const numbersList = [1000, 81, 23, 5, 6, 101]
+
+          function getLargestNumber(numbers) {
+             let max = 0
+             for (let i = 0; i < numbers.length; i++){
+                 if (numbers[i] > max) {
+                   max = numbers[i]
+                 }
+            }
+   
+           return max
+          }
+
+        console.log(`Largest number: ${getLargestNumber(numbersList)}`)
+        </code>
+      </div>
+      <p>This code uses a for loop to iterate through a list of numbers, and check which is the largest by comparing them to the largest one encountered so far.</p>
+      <script>
+        function forLoopExample() {
+          const numbersList = [1000, 81, 23, 5, 6, 101]
+
+          function getLargestNumber(numbers) {
+             let max = 0
+             for (let i = 0; i < numbers.length; i++){
+                 if (numbers[i] > max) {
+                   max = numbers[i]
+                 }
+            }
+   
+           return max
+          }
+
+         console.log(`Largest number: ${getLargestNumber(numbersList)}`)
+        alert(`[Console.log output]: Largest number: ${getLargestNumber(numbersList)}`)
+        }
+      </script>
+      <button onclick="forLoopExample()">Try it</button>
+    </div>
+
+    <div class="tutorial-box">
+      <h4>While loops</h4>
+      <p>While loops run as long as a condition is true.</p>
+      <div class="example">
+        <code>
+          let age = 10;
+          
+          // This is a timer, we don't need to learn much about this just yet. In short, it is a function that fires only after the specified milliseconds have passed.
+          
+          setTimeout(function() {
+            age = 11
+            console.log("I am 11 years old")
+          }, 3000); 
+
+          // Always use two or three equal-tos to check if a variable is equal to something, one equal-to is invalid. Three equal-tos are the most accurate for complex code
+          
+          while (age == 10) {
+           console.log("I am 10 years old")
+          }
+        </code>
+      </div>
+      <button onclick="whileLoopExample()">Try it</button>
+      <script>
+        function whileLoopExample() {
+          let age = 10;
+          alert("[Console.log output]: I am 10 years old")
+          
+          // This is a timer, we don't need to learn much about this just yet. In short, it is a function that fires only after the specified milliseconds have passed.
+          setTimeout(function() {
+            age = 11
+            console.log("I am 11 years old")
+            alert("[Console.log output]: I am 11 years old")
+          }, 3000); 
+
+          // Always use two or three equal-tos to check if a variable is equal to something, one equal-to is invalid. Three equal-tos are the most accurate for complex code
+          while (age == 10) {
+           console.log("I am 10 years old")
+          }
+        }
+      </script>
+      <div style="height:5px;"></div>
+      <i>Don't use a while loop with the condition "true". It will cause an infinite loop (because true is always true) and will freeze the webpage in the browser.</i>
+    </div>
+    
+    <div class="tutorial-box">
+      <h4>How to use arrays</h4>
+      <p>Arrays are lists that can contain anything.</p>
+      <div class="example">
+        <code>
+          let numbers = [1, 2, 3, 4, 5]
+          console.log(`Numbers: ${numbers}`)
+        </code>
+      </div>
+      <button onclick="let numbers = [1, 2, 3, 4, 5]; console.log(`Numbers: ${numbers}`); alert(`[Console.Log output]: Numbers: ${numbers}`)">Try it</button>
+    </div>
+
+    <div class="tutorial-box">
+      <h4>How to use break and return</h4>
+      <p>"break" and "return" are two JavaScript blocks that end a loop and return a value respectively. "break" is the only one that can break out of any loop, even a "while true" one.</p>
+      <div class="example">
+        <code>
+          // Always use three equal-tos to check if a variable is equal to something, one equal-to is invalid and two equal-tos aren't as accurate
+          while (age === "10") {
+           console.log("I am 10 years old")
+          }
+        </code>
+      </div>
+    </div>
+          </p>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="w3-third anisubmenucenter-bottom">
+    <h3>Other places to visit</h3>
+    <ul class="w3-ul w3-hoverable">
+      <li class="w3-padding-16" onclick="window.location.replace('https://a-star100.github.io/archive.html')">
+        <a class="w3-large" href="http://a-star100.github.io/archive.html">Anirudh's Site Archive</a><br>
+        <span>Old site designs and experiments.</span>
+      </li>
+      <li class="w3-padding-16" onclick="window.location.replace('https://a-star100.github.io/songs.html')">
+        <a class="w3-large" href="/songs.html">My songs</a><br>
+        <span>Listen to original music compositions.</span>
+      </li>
+      <li class="w3-padding-16" onclick="window.location.replace('https://bit.ly/jcdbme')">
+        <a class="w3-large" href="https://bit.ly/jcdbme">Sonic fandubs</a><br>
+        <span>Watch 2+ hours of hilarious Sonic fandubs.</span>
+      </li>
+    </ul>
+  </div>
+
+</body>
+</html>

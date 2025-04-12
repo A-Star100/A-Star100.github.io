@@ -137,6 +137,27 @@
           console.log(`largest number: ${maxNum}`)
         </code>
         </div>
+        <script>
+        function largestNumber() {
+          const numbers = [1, 2, 3, 4, 5]
+          let maxNum = 0
+
+          for (let i = 0; i < numbers.length; i++) {
+              if (maxNum = 0) {
+                  if (numbers[i] < numbers[i + 1]) {
+                      maxNum  = numbers[i + 1]
+                  }  
+              } else {
+                if (maxNum < numbers[i]) {
+                    maxNum = numbers[i]
+                }
+              }
+          }
+          console.log(`largest number: ${maxNum}`)
+          alert(`[Console.log output]: largest number: ${maxNum}`)
+        }
+        </script>
+        <button onclick="largestNumber()">Try it</button>
         <p>This code has a list of numbers and our largest number. It checks every number until the position of which number we're checking is greater than the length of the list itself
           (meaning the list is over).
           If our largest number variable is 0, we compare the current number we're checking with the next number.
@@ -174,6 +195,26 @@
                   console.log(`Simpler largest number: ${getLargestNumber(numbers2)}`)
                 </code>
               </div>
+              <script>
+                function simplerLargestNumber() {
+                  const numbers2 = [1000, 81, 23, 5, 6, 101]
+
+                  function getLargestNumber(numbers) {
+                     let max = 0
+                     for (let i = 0; i < numbers.length; i++){
+                         if (numbers[i] > max){
+                             max = numbers[i]
+                         }     
+                     }
+   
+                     return max
+                  }
+
+                  console.log(`Simpler largest number: ${getLargestNumber(numbers2)}`)
+                  alert(`[Console.log output]: Simpler largest number: ${getLargestNumber(numbers2)}`)
+                }
+              </script>
+              <button onclick="simplerLargestNumber()">Try it</button>
               <p>This code instead defines an array first and keeps the largest number variable inside the function where we check the largest number to keep from confusion.
                 Instead of checking if the largest number is 0, we instead check if the current number we're checking is greater than the maximum currently defined.
                 Then we set the largest number to the current number we're checking.

@@ -31,11 +31,12 @@
 <body>
 
   <h1>Select Coding Language</h1>
+  <button class="language-btn" onclick="selectLanguage('python')">Python</button>
   <button class="language-btn" onclick="selectLanguage('javascript')">JavaScript</button>
 
   <script>
     function selectLanguage(lang) {
-      // This would route to /python or /java etc.
+      // This would route to /python or /javascript etc.
       window.location.href = `/tutorials/${lang}`;
     }
   </script>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Any Animal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+
+    .hint {
+      color: green;
+      font-style: italic;
+    }
+
+
+    .center {
+      padding: 20px;
+    }
+
+    code {
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    .w3-bar-block .w3-bar-item {
+      padding: 20px;
+    }
+
+    .tutorial-box {
+      padding: 1rem;
+      margin: 1rem 0;
+      background-color: #f2f2f2;
+      border-left: 5px solid #007acc;
+    }
+
+    .example {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 1rem;
+      font-family: monospace;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="w3-center">
+    <h2>Any Animal</h2>
+    <p>
+      In this tutorial, we will be using array destructuring and variables to display a portion of our animals to the user.
+    </p>
+  </div>
+
+  <div class="center">
+    <h3>Basic Concepts Used</h3>
+      <div class="tutorial-box">
+      <h4>How to use variables (constants)</h4>
+      <p>Variables can keep track of values for you, but constants cannot be changed.</p>
+      <div class="example">
+        <code>
+          const myName = "John Doe"
+          console.log(`Hello, ${myName}!`)
+        </code>
+      </div>
+      <button onclick="const myName = 'John Doe'; console.log(`Hello, ${myName}!`); alert(`[Console.Log output]: Hello, ${myName}!`)">Try it</button>
+    </div>
+
+    <div class="tutorial-box">
+      <h4>How to use arrays</h4>
+      <p>Arrays are lists that can contain anything.</p>
+      <div class="example">
+        <code>
+          let numbers = [1, 2, 3, 4, 5]
+          console.log(`Numbers: ${numbers}`)
+        </code>
+      </div>
+      <button onclick="let numbers = [1, 2, 3, 4, 5]; console.log(`Numbers: ${numbers}`); alert(`[Console.Log output]: Numbers: ${numbers}`)">Try it</button>
+    </div>
+
+    <div class="tutorial-box">
+      <h4>How to use array destructuring</h4>
+      <p>Arrays destructuring is a way to get values from an array with only a bit of syntax</p>
+      <div class="example">
+        <code>
+          const fruits = ["apple", "peach", "orange", "grapes", "blueberry"]
+          
+          <p class="hint">// The ",," means that we skip an item in the list, and the "..." means that we get the rest of the list as an array, and we assign the fruits retrieved to three different variables and print them.</p>
+            
+          const [a,,b,...c] = fruits
+          console.log(a, b, c)
+        </code>
+      </div>
+      <script>
+        function fruitsExample() {
+          const fruits = ["apple", "peach", "orange", "grapes", "blueberry"]
+          
+        // The ",," means that we skip an item in the list, and the "..." means that we get the rest of the list as an array, and we assign the animals retrieved to three different variables.
+            
+        const [a,,b,...c] = fruits
+        console.log(a, b, c)
+        alert(`[Console.log output:] ${a} ${b} ${c}`)
+        }
+      </script>
+      <button onclick="fruitsExample()">Try it</button>
+    </div>
+    
+    <div class="tutorial-box">
+  <h4><b>Any Animal</b></h4>
+  <p>Now, to mesh these concepts together. Let's create our lists of fruits so you can enjoy them after you understand this code.</p>
+  <div class="example">
+    <code>
+      const animals = ["snake", "tiger", "lion", "giraffe", "hippo"]
+
+      const [a,,b,...c] = animals
+
+      console.log(a, b, c)
+    </code>
+  </div>
+  <script>
+    function showAnimals() {
+      const animals = ["snake", "tiger", "lion", "giraffe", "hippo"]
+
+      const [a,,b,...c] = animals
+
+      console.log(a, b, c)
+      alert(`[Console.log output:] ${a} ${b} ${c}`)
+    }
+  </script>
+  <button onclick="showAnimals()">Try it</button>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="w3-third anisubmenucenter-bottom">
+    <h3>Other places to visit</h3>
+    <ul class="w3-ul w3-hoverable">
+      <li class="w3-padding-16" onclick="window.location.replace('https://a-star100.github.io/archive.html')">
+        <a class="w3-large" href="http://a-star100.github.io/archive.html">Anirudh's Site Archive</a><br>
+        <span>Old site designs and experiments.</span>
+      </li>
+      <li class="w3-padding-16" onclick="window.location.replace('https://a-star100.github.io/songs.html')">
+        <a class="w3-large" href="/songs.html">My songs</a><br>
+        <span>Listen to original music compositions.</span>
+      </li>
+      <li class="w3-padding-16" onclick="window.location.replace('https://bit.ly/jcdbme')">
+        <a class="w3-large" href="https://bit.ly/jcdbme">Sonic fandubs</a><br>
+        <span>Watch 2+ hours of hilarious Sonic fandubs.</span>
+      </li>
+    </ul>
+  </div>
+
+</body>
+</html>

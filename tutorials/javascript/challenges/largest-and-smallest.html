@@ -119,8 +119,8 @@
       <div class="example">
         <code>
            let numbers = [23,4,71,16,18,52,4,8,21,96,126,34,22,5]
-           let largestEven = 0
-           let smallestOdd = 0;
+           let largestEven = null;
+           let smallestOdd = null;
  
            for (let i = 0; i < numbers.length; i++) {
                 if (numbers[i] % 2 == 0) {
@@ -128,7 +128,7 @@
                       largestEven = numbers[i]
                   }
                 } else {
-                  if (smallestOdd === 0) {
+                  if (smallestOdd === null) {
                       smallestOdd = numbers[i]
                 }
                   if (numbers[i] < smallestOdd) {
@@ -143,8 +143,8 @@
         <script>
         function largestNumber() {
            let numbers = [23,4,71,16,18,52,4,8,21,96,126,34,22,5]
- let largestEven = 0
- let smallestOdd = 0;
+ let largestEven = null
+ let smallestOdd = null;
  
  for (let i = 0; i < numbers.length; i++) {
   if (numbers[i] % 2 == 0) {
@@ -152,7 +152,7 @@
           largestEven = numbers[i]
       }
   } else {
-      if (smallestOdd === 0) {
+      if (smallestOdd === null) {
         smallestOdd = numbers[i]
       }
       if (numbers[i] < smallestOdd) {

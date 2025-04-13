@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>If statements</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+
+    .hint {
+      color: green;
+      font-style: italic;
+    }
+
+
+    .center {
+      padding: 20px;
+    }
+
+    code {
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    .w3-bar-block .w3-bar-item {
+      padding: 20px;
+    }
+
+    .tutorial-box {
+      padding: 1rem;
+      margin: 1rem 0;
+      background-color: #f2f2f2;
+      border-left: 5px solid #007acc;
+    }
+
+    .example {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 1rem;
+      font-family: monospace;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="w3-center">
+    <h2>If statements</h2>
+    <p>
+      In this tutorial, we will using the if statement to check whether something is true or false
+    </p>
+  </div>
+
+  <div class="center">
+    <h3>Basic Concepts Used</h3>
+      <div class="tutorial-box">
+      <h4>How to use variables</h4>
+      <p>Variables can keep track of values for you.</p>
+      <div class="example">
+        <code>
+          let myName = "John Doe"
+          console.log(`Hello, ${myName}!`)
+        </code>
+      </div>
+      <button onclick="let myName = 'John Doe'; console.log(`Hello, ${myName}!`); alert(`[Console.Log output]: Hello, ${myName}!`)">Try it</button>
+    </div>
+    
+    <div class="tutorial-box">
+      <h1><b>If statement</b></h1>
+      <p>We will be using variables and if statements to solve a math equation.
+      </p>
+      <div class="example">
+        <code>        
+          let num1 = 1
+          let num2 = 1
+
+          if (num1 + num2 === 2) {
+            console.log(num1 + " plus " + num2 + " is equal to two!")
+          }
+        </code>
+        </div>
+      
+        <script>
+          function solveMath() {
+            let num1 = 1
+            let num2 = 1
+
+            if (num1 + num2 === 2) {
+              console.log(num1 + " plus " + num2 + " is equal to two!")
+              alert("[Console.log output]: " + num1 + " plus " + num2 + " is equal to two!")
+            }
+          }
+        </script>
+        <button onclick="solveMath()">Try it</button>
+          </p>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="w3-third anisubmenucenter-bottom">
+    <h3>Other places to visit</h3>
+    <ul class="w3-ul w3-hoverable">
+      <li class="w3-padding-16" onclick="window.location.replace('https://a-star100.github.io/archive.html')">
+        <a class="w3-large" href="http://a-star100.github.io/archive.html">Anirudh's Site Archive</a><br>
+        <span>Old site designs and experiments.</span>
+      </li>
+      <li class="w3-padding-16" onclick="window.location.replace('https://a-star100.github.io/songs.html')">
+        <a class="w3-large" href="/songs.html">My songs</a><br>
+        <span>Listen to original music compositions.</span>
+      </li>
+      <li class="w3-padding-16" onclick="window.location.replace('https://bit.ly/jcdbme')">
+        <a class="w3-large" href="https://bit.ly/jcdbme">Sonic fandubs</a><br>
+        <span>Watch 2+ hours of hilarious Sonic fandubs.</span>
+      </li>
+    </ul>
+  </div>
+
+</body>
+</html>

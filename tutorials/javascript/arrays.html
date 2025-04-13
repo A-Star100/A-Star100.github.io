@@ -116,28 +116,21 @@
     <code>
       let fruits = ["apple", "banana", "grape"]
 
-      console.log("First fruit: " + fruits[0])
-      console.log("You have " + fruits.length + " fruits.")
-
-      fruits.push("mango") // Add another fruit
-
-      console.log("New fruit added! Here's your updated list:")
+      fruits.push("mango") <p class="hint">// The push operation adds a new item to our list</p>
+      
       console.log(fruits)
+
     </code>
   </div>
   <script>
     function showFruits() {
       let fruits = ["apple", "banana", "grape"]
 
-      console.log("First fruit: " + fruits[0])
-      console.log("You have " + fruits.length + " fruits.")
-
       fruits.push("mango")
-
-      console.log("New fruit added! Here's your updated list:")
+      
       console.log(fruits)
 
-      alert("[Console output]: Check your console for fruit list!")
+     alert("[Console.log output]: " + fruits)
     }
   </script>
   <button onclick="showFruits()">Try it</button>

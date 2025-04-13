@@ -116,11 +116,11 @@
             <p class="hint">// Always use two or three equal-tos to check if a variable is equal to something.</p>
             <p class="hint">// One equal-to is invalid. Three equal-tos are the most accurate for complex code.</p>
             <p class="hint">// In this case, we use two equal-tos (==) for simplicity and to match JavaScript's loose typing.</p>
-            <p class="hint">// We add the counter variable to prevent the while loop from freezing or slowing down the browser.</p>
+            <p class="hint">// We add the counter variable to prevent the while loop from freezing or slowing down the browser, so the loop still executes, but not for long enough to slow the browser down or freeze the tab.</p>
 
             while (age == 10 && counter < 3) {
               console.log("I am 10 years old");
-              counter++;
+              counter++; <p class="hint">// In JavaScript, double plus signs (commonly used in loops) increment the value by 1 (value + 1).</p>
             }
 
             <p class="hint">// This is a timer — we don't need to learn much about this just yet.</p>
@@ -148,7 +148,7 @@
 
             while (age == 10 && counter < 3) {
               console.log("I am 10 years old");
-              counter++;
+              counter++; 
             }
 
             // This is a timer — we don't need to learn much about this just yet.

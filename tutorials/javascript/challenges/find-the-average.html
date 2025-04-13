@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Find the average</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+
+    .hint {
+      color: green;
+      font-style: italic;
+    }
+
+
+    .center {
+      padding: 20px;
+    }
+
+    code {
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    .w3-bar-block .w3-bar-item {
+      padding: 20px;
+    }
+
+    .tutorial-box {
+      padding: 1rem;
+      margin: 1rem 0;
+      background-color: #fff3cd; /* light orange */
+      border-left: 5px solid #ffa500; /* bright orange */
+    }
+
+
+    .example {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 1rem;
+      font-family: monospace;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="w3-center">
+    <h2>Find the average</h2>
+    <p>
+      In this tutorial, we will be using the reduce method, variables, arrays, and arrow functions to find the average score out of 11 scores from students on a test.
+    </p>
+  </div>
+
+  <div class="center">
+    <h3>Concepts Used</h3>
+      <div class="tutorial-box">
+      <h4>How to use variables</h4>
+      <p>Variables can keep track of values for you.</p>
+      <div class="example">
+        <code>
+          let myName = "John Doe"
+          console.log(`Hello, ${myName}!`)
+        </code>
+      </div>
+      <button onclick="let myName = 'John Doe'; console.log(`Hello, ${myName}!`); alert(`[Console.Log output]: Hello, ${myName}!`)">Try it</button>
+    </div>
+
+    <div class="tutorial-box">
+      <h4>How to use arrow functions</h4>
+      <p>Arrow functions can execute things when you tell them to and accept inputs, but they are formatted differently.</p>
+      <div class="example">
+        <code>
+          let greetPerson = (person) => console.log(`Hello, ${person}!`);
+
+          greetPerson("John Doe")
+        </code>
+      </div>
+      <script>
+      let greetPerson = (person) => {
+        console.log(`Hello, ${person}!`);
+        alert(`[Console.Log output]: Hello, ${person}!`);
+      }
+    </script>
+      <button onclick="greetPerson('John Doe')">Try it</button>
+    </div>
+    
+    <div class="tutorial-box">
+      <h4>How to use the reduce method</h4>
+      <p>The reduce method is similar to a for loop but it has built in tools equipped to reduce several numbers into one value, making it preferred for tasks like averaging numbers in JavaScript.</p>
+      <div class="example">
+        <code>
+          const numbers = [15.5, 2.3, 1.1, 4.7];
+          console.log(numbers.reduce(getSum, 0))
+          
+          function getSum(total, num) {
+              return total + Math.round(num);
+          }
+        </code>
+      </div>
+      <script>
+      function reduceMethod() {
+        const numbers = [15.5, 2.3, 1.1, 4.7];
+          console.log(numbers.reduce(getSum, 0))
+          
+          function getSum(total, num) {
+              return total + Math.round(num);
+          }
+      }
+    </script>
+      <button onclick="reduceMethod()">Try it</button>
+    </div>
+
+    <div class="tutorial-box">
+      <h4>How to use arrays</h4>
+      <p>Arrays are lists that can contain anything.</p>
+      <div class="example">
+        <code>
+          let numbers = [1, 2, 3, 4, 5]
+          console.log(`Numbers: ${numbers}`)
+        </code>
+      </div>
+      <button onclick="let numbers = [1, 2, 3, 4, 5]; console.log(`Numbers: ${numbers}`); alert(`[Console.Log output]: Numbers: ${numbers}`)">Try it</button>
+    </div>
+    
+    <div class="tutorial-box">
+      <h1><b>Find the average</b></h1>
+      <p>Now to mesh these concepts together.</p>
+      <p>First, we define our scores from the students, and define an iteration variable (keeps track of our index since we aren't using a for loop). Then we add two variables,
+        total and current. 
+        The reduce block acts as a for loop and gives us our first value. The current value is treated as the second number we encounter while the total starts from the first number and the <code>return</code>
+        block adds these two values.
+      </p>
+      <div class="example">
+        <code>
+          let scores = [10, 75, 83, 63, 21, 99, 11, 51, 45, 63, 88]
+          let iteration = 0
+          let sum = scores.reduce((total, current) => { 
+                      console.log(`iteration: ${iteration}, total: ${total}, current: ${current}`)
+                      iteration++
+                      return total + current
+          })
+
+          let average = sum / scores.length
+
+          console.log(`Average score: ${average}`)
+        </code>
+        </div>
+        <script>
+        function largestNumber() {
+          let scores = [10, 75, 83, 63, 21, 99, 11, 51, 45, 63, 88]
+          let iteration = 0
+          let sum = scores.reduce((total, current) => { 
+                      console.log(`iteration: ${iteration}, total: ${total}, current: ${current}`)
+                      iteration++
+                      return total + current
+          })
+
+          let average = sum / scores.length
+
+          console.log(`Average score: ${average}`)
+          alert(`[Console.log output]: Average score: ${average}`)
+        }
+        </script>
+        <button onclick="largestNumber()">Try it</button>
+          </p>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="w3-third anisubmenucenter-bottom">
+    <h3>Other places to visit</h3>
+    <ul class="w3-ul w3-hoverable">
+      <li class="w3-padding-16" onclick="window.location.replace('https://a-star100.github.io/archive.html')">
+        <a class="w3-large" href="http://a-star100.github.io/archive.html">Anirudh's Site Archive</a><br>
+        <span>Old site designs and experiments.</span>
+      </li>
+      <li class="w3-padding-16" onclick="window.location.replace('https://a-star100.github.io/songs.html')">
+        <a class="w3-large" href="/songs.html">My songs</a><br>
+        <span>Listen to original music compositions.</span>
+      </li>
+      <li class="w3-padding-16" onclick="window.location.replace('https://bit.ly/jcdbme')">
+        <a class="w3-large" href="https://bit.ly/jcdbme">Sonic fandubs</a><br>
+        <span>Watch 2+ hours of hilarious Sonic fandubs.</span>
+      </li>
+    </ul>
+  </div>
+
+</body>
+</html>

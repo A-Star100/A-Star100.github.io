@@ -131,37 +131,7 @@ console.log(firstHalf("WooHoo"))
           }
         </script>
         <button onclick="split()">Try it</button>
-        <p>This code simply greets John Doe with a friendly "Hello there!" in the console.
-
-          <p><b>**Think:**</b> Instead of saying hello at a fixed time, why not be able to say hello anytime. Once you've figured out an answer, click "See answer".
-            <script>
-            function toggleAnswer(show) {
-              document.getElementById('answer').style.display = show ? 'block' : 'none';
-              document.getElementById('seeAnswer').style.display = show ? 'none' : 'block';
-              document.getElementById('hideAnswer').style.display = show ? 'block' : 'none';
-            }
-            </script>
-            <button id="seeAnswer" onclick="toggleAnswer(true)"><i>See answer</i></button>
-            <button id="hideAnswer" style="display:none;" onclick="toggleAnswer(false)"><i>Hide answer</i></button>
-            <div id="answer" style="display: none;">
-              <div class="example">
-                <code>
-                  function greetPerson(name) {
-                    console.log(`Hello there, ${name}!`)
-                  }
-
-                  greetPerson("Jane Doe")
-                </code>
-              </div>
-              <p>This code instead uses a function that accepts a name as an input. When the function is called with "greetPerson()", it greets Jane Doe in the developer's console.</p>
-              <script>
-                function greetPerson(name) {
-                    console.log(`Hello there, ${name}!`)
-                    alert(`[Console.log output]: Hello there, ${name}!`)
-                  }  
-              </script>
-              <button onclick="greetPerson('Jane Doe')">Try it</button>
-            </div>
+        <p>This code splits the even string "WooHoo" into half.
           </p>
         </p>
       </div>

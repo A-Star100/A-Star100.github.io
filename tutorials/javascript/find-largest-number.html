@@ -197,7 +197,7 @@
               </div>
               <script>
                 function simplerLargestNumber() {
-                  const numbers2 = [1000, 81, 23, 5, 6, 101]
+                  const numbers2 = [81, 23, 5, 1000, 6, 101]
 
                   function getLargestNumber(numbers) {
                      let max = 0
@@ -216,7 +216,7 @@
               </script>
               <button onclick="simplerLargestNumber()">Try it</button>
               <p>This code instead defines an array first and keeps the largest number variable inside the function where we check the largest number to keep from confusion.
-                Instead of checking if the largest number is 0, we instead check if the current number we're checking is greater than the maximum currently defined.
+                Instead of checking if the largest number is 0, we instead check if the current number we're checking is greater than the largest currently defined at this point.
                 Then we set the largest number to the current number we're checking.
                 Then, we return the largest number at the end to print into the console.
               </p>

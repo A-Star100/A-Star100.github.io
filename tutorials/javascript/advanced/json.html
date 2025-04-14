@@ -54,7 +54,7 @@
   <div class="w3-center">
     <h2>Examine the cake</h2>
     <p>
-      In this tutorial, we will be using JSON properties, destructuring, nested destructuring, arrow functions, objects, and aliases to take a look at our sweet, sweet cake.
+      In this tutorial, we will be using JSON objects, destructuring, nested destructuring, arrow functions, and aliases to take a look at our sweet, sweet cake.
       <b>The advanced section expect you to have finished the basic section and its challenges. Concepts described there won't be revised here.</b>
     </p>
   </div>
@@ -77,7 +77,7 @@
 
     <div class="tutorial-box">
       <h4>Nested destructuring</h4>
-      <p>Nested destructuring is similar to regular destructuring except we extract data from a sub-section in a JSON object (for example, the object address inside the object factory requires nested destructuring to be accessed).</p>
+      <p>Nested destructuring is similar to regular destructuring except we extract data from a child object inside of its parent JSON object (for example, the object <code>address</code> inside the object <code>factory</code> requires nested destructuring to be accessed, because the <code>address</code> object is a child object).</p>
       <div class="example">
         <code>
           const printAddress = ({factory:{address :{street:s,zip:z}}}) => {

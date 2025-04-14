@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hello there</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+
+    .hint {
+      color: green;
+      font-style: italic;
+    }
+
+
+    .center {
+      padding: 20px;
+    }
+
+    code {
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    .w3-bar-block .w3-bar-item {
+      padding: 20px;
+    }
+
+    .tutorial-box {
+      padding: 1rem;
+      margin: 1rem 0;
+      background-color: #f2f2f2;
+      border-left: 5px solid #007acc;
+    }
+
+    .example {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 1rem;
+      font-family: monospace;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="w3-center">
+    <h2>Hello there</h2>
+    <p>
+      In this tutorial, we will be using functions and variables to greet a person named "John Doe".
+    </p>
+  </div>
+
+  <div class="center">
+    <h3>Basic Concepts Used</h3>
+      <div class="tutorial-box">
+      <h4>How to use variables</h4>
+      <p>Variables can keep track of values for you.</p>
+      <div class="example">
+        <code>
+          myName = "John Doe"
+          print(f"Hello there, {myName}")
+        </code>
+      </div>
+    </div>
+
+    <div class="tutorial-box">
+      <h4>How to use functions</h4>
+      <p>Functions can execute things when you tell them to and accepts inputs.</p>
+      <div class="example">
+        <code>
+          def join_strings(string, string2):
+              print(f"Answer: {string}{string2}")
+        </code>
+      </div>
+    </div>
+    
+    <div class="tutorial-box">
+      <h1><b>Greet a person</b></h1>
+      <p>Now to mesh these concepts together.</p>
+      <p>We will be using variables to greet a person named John Doe with a friendly hello.
+      </p>
+      <div class="example">
+        <code>        
+          name = "John Doe"
+          print(f"Hello there, {name}")
+        </code>
+        </div>
+        <p>This code simply greets John Doe with a friendly "Hello there!" in the console.
+
+          <p><b>**Think:**</b> Instead of saying hello at a fixed time, why not be able to say hello anytime. Once you've figured out an answer, click "See answer".
+            <script>
+            function toggleAnswer(show) {
+              document.getElementById('answer').style.display = show ? 'block' : 'none';
+              document.getElementById('seeAnswer').style.display = show ? 'none' : 'block';
+              document.getElementById('hideAnswer').style.display = show ? 'block' : 'none';
+            }
+            </script>
+            <button id="seeAnswer" onclick="toggleAnswer(true)"><i>See answer</i></button>
+            <button id="hideAnswer" style="display:none;" onclick="toggleAnswer(false)"><i>Hide answer</i></button>
+            <div id="answer" style="display: none;">
+              <div class="example">
+                <code>
+                  def greetPerson(name):
+                      print(f"Hello, {name}!")
+
+                  greetPerson("Jane Doe")
+                </code>
+              </div>
+              <p>This code instead uses a function that accepts a name as an input. When the function is called with "greetPerson()", it greets Jane Doe in the developer's console.</p>
+            </div>
+          </p>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="w3-third anisubmenucenter-bottom">
+    <h3>Other places to visit</h3>
+    <ul class="w3-ul w3-hoverable">
+      <li class="w3-padding-16" onclick="window.location.replace('https://a-star100.github.io/archive.html')">
+        <a class="w3-large" href="http://a-star100.github.io/archive.html">Anirudh's Site Archive</a><br>
+        <span>Old site designs and experiments.</span>
+      </li>
+      <li class="w3-padding-16" onclick="window.location.replace('https://a-star100.github.io/songs.html')">
+        <a class="w3-large" href="/songs.html">My songs</a><br>
+        <span>Listen to original music compositions.</span>
+      </li>
+      <li class="w3-padding-16" onclick="window.location.replace('https://bit.ly/jcdbme')">
+        <a class="w3-large" href="https://bit.ly/jcdbme">Sonic fandubs</a><br>
+        <span>Watch 2+ hours of hilarious Sonic fandubs.</span>
+      </li>
+    </ul>
+  </div>
+
+</body>
+</html>

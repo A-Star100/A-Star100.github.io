@@ -54,7 +54,7 @@
   <div class="w3-center">
     <h2>Do the sequence</h2>
     <p>
-      In this tutorial, we will be using a for loop and an arrow function to be able to perform number sequences in JavaScript.
+      In this tutorial, we will be using a for loop and an arrow function to be able to demonstrate the usage of number patterns in JavaScript.
     </p>
   </div>
 
@@ -89,54 +89,35 @@
     <div class="tutorial-box">
       <h1><b>Greet a person</b></h1>
       <p>Now to mesh these concepts together.</p>
-      <p>We will be using variables to greet a person named John Doe with a friendly hello.
+      <p>We will be using for loops and an arrow function to perform a sequence with number patterns.
+        We first define our function as a variable (changeable), with three values, the number we start at, the value we increment by, and the number we end at.
+        Then we create our loop. We set our index value (<code>i</code>) to the <code>start</code> value provided by the user. The loop will keep running as long as our index (position) is
+        less than or equal to the end value, and our index value will increment the same amount as the <code>inc</code> value to keep the index value correct regardless of how much we increment.
+
+        That's it!
       </p>
       <div class="example">
         <code>        
-          let name = "John Doe"
-          console.log(`Hello there, ${name}!`)
+          let doSequence = (start, inc, end) => {
+             for (let i = start; i <= end; i = i + inc ){
+                  console.log(i)
+             }           
+          }
+
+        doSequence(3, 6, 9)
+
         </code>
         </div>
       
         <script>
-          function greetJohn() {            
-            let name = "John Doe"
-            console.log(`Hello there, ${name}!`)
-            alert(`[Console.log output]: Hello there, ${name}!`)
+          let doSequence = (start, inc, end) => {
+            alert("Please check the developer console for printed info")
+             for (let i = start; i <= end; i = i + inc ){
+                  console.log(i)
+             }           
           }
         </script>
-        <button onclick="greetJohn()">Try it</button>
-        <p>This code simply greets John Doe with a friendly "Hello there!" in the console.
-
-          <p><b>**Think:**</b> Instead of saying hello at a fixed time, why not be able to say hello anytime. Once you've figured out an answer, click "See answer".
-            <script>
-            function toggleAnswer(show) {
-              document.getElementById('answer').style.display = show ? 'block' : 'none';
-              document.getElementById('seeAnswer').style.display = show ? 'none' : 'block';
-              document.getElementById('hideAnswer').style.display = show ? 'block' : 'none';
-            }
-            </script>
-            <button id="seeAnswer" onclick="toggleAnswer(true)"><i>See answer</i></button>
-            <button id="hideAnswer" style="display:none;" onclick="toggleAnswer(false)"><i>Hide answer</i></button>
-            <div id="answer" style="display: none;">
-              <div class="example">
-                <code>
-                  function greetPerson(name) {
-                    console.log(`Hello there, ${name}!`)
-                  }
-
-                  greetPerson("Jane Doe")
-                </code>
-              </div>
-              <p>This code instead uses a function that accepts a name as an input. When the function is called with "greetPerson()", it greets Jane Doe in the developer's console.</p>
-              <script>
-                function greetPerson(name) {
-                    console.log(`Hello there, ${name}!`)
-                    alert(`[Console.log output]: Hello there, ${name}!`)
-                  }  
-              </script>
-              <button onclick="greetPerson('Jane Doe')">Try it</button>
-            </div>
+        <button onclick="doSequence(3, 6, 9)">Try it</button>
           </p>
         </p>
       </div>

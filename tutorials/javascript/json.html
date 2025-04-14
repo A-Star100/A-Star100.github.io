@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Keep safe from the snake</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+
+    .hint {
+      color: green;
+      font-style: italic;
+    }
+
+
+    .center {
+      padding: 20px;
+    }
+
+    code {
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    .w3-bar-block .w3-bar-item {
+      padding: 20px;
+    }
+
+    .tutorial-box {
+      padding: 1rem;
+      margin: 1rem 0;
+      background-color: #f2f2f2;
+      border-left: 5px solid #007acc;
+    }
+
+    .example {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 1rem;
+      font-family: monospace;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="w3-center">
+    <h2>Keep safe from the snake</h2>
+    <p>
+      In this tutorial, we will be using JSON objects, object access, variables and if statements to check if the snake we defined is venomous or not, and if it is, we will notify the user.
+    </p>
+  </div>
+
+  <div class="center">
+    <h3>Basic Concepts Used</h3>
+      <div class="tutorial-box">
+      <h4>Variables</h4>
+      <p>Variables can keep track of values for you.</p>
+      <div class="example">
+        <code>
+          let myName = "John Doe"
+          console.log(`Hello, ${myName}!`)
+        </code>
+      </div>
+      <button onclick="let myName = 'John Doe'; console.log(`Hello, ${myName}!`); alert(`[Console.Log output]: Hello, ${myName}!`)">Try it</button>
+    </div>
+
+    <div class="tutorial-box">
+      <h4>If statements</h4>
+      <a href="/tutorials/javascript/if-statement">Learn more about the if statement here</a>
+    </div>
+    
+    <div class="tutorial-box">
+      <h1><b>Keep safe from the snake</b></h1>
+      <p>Now to mesh these concepts together.</p>
+      <p>
+        We first create our snake and assign properties to it. Then we use a basic if statement to check if the venom property of the snake is true or false. Depending on the value,
+        we notify the user with different messages.
+      </p>
+      <div class="example">
+        <code>        
+          let snake = {
+              speak: "hiss",
+              color: "green",
+              venom: true
+          }
+
+          if (snake.venom === false) {
+              console.log("You are sssss-safe")
+          } else {
+              console.log("You are sssss-going to dieeeeeeeeee")
+          }
+
+          console.log(snake)
+        </code>
+        </div>
+      
+        <script>
+          function snake() {
+            let snake = {
+              speak: "hiss",
+              color: "green",
+              venom: true
+          }
+
+          if (snake.venom === false) {
+              console.log("You are sssss-safe")
+                                    alert(`[Console.log output]: You are sssss-safe`)
+          } else {
+              console.log("You are sssss-going to dieeeeeeeeee")
+                        alert(`[Console.log output]: You are sssss-going to dieeeeeeeeee`)
+          }
+
+            console.log(snake)
+            alert(`[Console.log output]: ${snake}`)
+          }
+        </script>
+        <button onclick="snake()">Try it</button>
+            </div>
+          </p>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="w3-third anisubmenucenter-bottom">
+    <h3>Other places to visit</h3>
+    <ul class="w3-ul w3-hoverable">
+      <li class="w3-padding-16" onclick="window.location.replace('https://a-star100.github.io/archive.html')">
+        <a class="w3-large" href="http://a-star100.github.io/archive.html">Anirudh's Site Archive</a><br>
+        <span>Old site designs and experiments.</span>
+      </li>
+      <li class="w3-padding-16" onclick="window.location.replace('https://a-star100.github.io/songs.html')">
+        <a class="w3-large" href="/songs.html">My songs</a><br>
+        <span>Listen to original music compositions.</span>
+      </li>
+      <li class="w3-padding-16" onclick="window.location.replace('https://bit.ly/jcdbme')">
+        <a class="w3-large" href="https://bit.ly/jcdbme">Sonic fandubs</a><br>
+        <span>Watch 2+ hours of hilarious Sonic fandubs.</span>
+      </li>
+    </ul>
+  </div>
+
+</body>
+</html>

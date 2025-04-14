@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Show the scores</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+
+    .hint {
+      color: green;
+      font-style: italic;
+    }
+
+
+    .center {
+      padding: 20px;
+    }
+
+    code {
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    .w3-bar-block .w3-bar-item {
+      padding: 20px;
+    }
+
+    .tutorial-box {
+      padding: 1rem;
+      margin: 1rem 0;
+      background-color: #fff3cd; /* light orange/yellow */
+      border-left: 5px solid #ffa500; /* vivid orange */
+    }
+
+
+    .example {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 1rem;
+      font-family: monospace;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="w3-center">
+    <h2>Do the sequence</h2>
+    <p>
+      In this tutorial, we will be using JSON, variables, and objects (variables formatted like <code>${variable}</code> so they can print to the console in this case).
+    </p>
+  </div>
+
+  <div class="center">
+    <h3>Concepts Used</h3>
+
+<div class="tutorial-box">
+      <h4>Variables</h4>
+      <p>Variables can keep track of values for you.</p>
+      <div class="example">
+        <code>
+          let myName = "John Doe"
+          console.log(`Hello, ${myName}!`)
+        </code>
+      </div>
+      <button onclick="let myName = 'John Doe'; console.log(`Hello, ${myName}!`); alert(`[Console.Log output]: Hello, ${myName}!`)">Try it</button>
+    </div>
+
+    <div class="tutorial-box">
+      <h4>If statements</h4>
+      <a href="/tutorials/javascript/if-statement">Learn more about the if statement here</a>
+    </div>
+
+    <div class="tutorial-box">
+      <h4>Basic JSON Object Access Notation</h4>
+      <p>We can specify the variable containing JSON and its property separated by a dot to access the value. We can access the same value in other ways too, but for simplicity we'll choose this notation.</p>
+      <div class="example">
+        <code>
+          console.log(snake.venom)
+        </code>
+      </div>
+    </div>
+    
+    <div class="tutorial-box">
+      <h1><b>Show the scores</b></h1>
+      <p>Now to mesh these concepts together.</p>
+      <p>We will be using variables and JSON to display all the students' scores neatly printed into the console.
+      </p>
+      <div class="example">
+        <code>        
+          <p class="hint">/*
+There are 4 students each enrolled in 2 courses, Computer Science and
+English.
+
+These students are assigned with random scores.
+*/</p>
+
+const scores = {
+    John: {
+        score: 91,
+        courses: ["Computer Science", "English"]
+    },
+    Bob: {
+        score: 92,
+        courses: ["Computer Science", "English"]
+    },
+    Arnold: {
+        score: 94,
+        courses: ["Computer Science", "English"]
+    },
+    Joe: {
+        score: 89,
+        courses: ["Computer Science", "English"]
+    }
+}
+
+console.log(scores)
+
+console.log(`John's score: ${scores.John.score}`)
+console.log(`Bob's score: ${scores.Bob.score}`)
+console.log(`Arnold's score: ${scores.Arnold.score}`)
+console.log(`Joe's score: ${scores.Joe.score}`)
+        </code>
+        </div>
+      
+        <script>
+          function printScores() {
+            const scores = {
+    John: {
+        score: 91,
+        courses: ["Computer Science", "English"]
+    },
+    Bob: {
+        score: 92,
+        courses: ["Computer Science", "English"]
+    },
+    Arnold: {
+        score: 94,
+        courses: ["Computer Science", "English"]
+    },
+    Joe: {
+        score: 89,
+        courses: ["Computer Science", "English"]
+    }
+}
+
+console.log(scores)
+
+console.log(`John's score: ${scores.John.score}`)
+console.log(`Bob's score: ${scores.Bob.score}`)
+console.log(`Arnold's score: ${scores.Arnold.score}`)
+console.log(`Joe's score: ${scores.Joe.score}`)
+alert("Please check the developer console for printed information").
+          }
+        </script>
+        <button onclick="printScores()">Try it</button>
+          </p>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="w3-third anisubmenucenter-bottom">
+    <h3>Other places to visit</h3>
+    <ul class="w3-ul w3-hoverable">
+      <li class="w3-padding-16" onclick="window.location.replace('https://a-star100.github.io/archive.html')">
+        <a class="w3-large" href="http://a-star100.github.io/archive.html">Anirudh's Site Archive</a><br>
+        <span>Old site designs and experiments.</span>
+      </li>
+      <li class="w3-padding-16" onclick="window.location.replace('https://a-star100.github.io/songs.html')">
+        <a class="w3-large" href="/songs.html">My songs</a><br>
+        <span>Listen to original music compositions.</span>
+      </li>
+      <li class="w3-padding-16" onclick="window.location.replace('https://bit.ly/jcdbme')">
+        <a class="w3-large" href="https://bit.ly/jcdbme">Sonic fandubs</a><br>
+        <span>Watch 2+ hours of hilarious Sonic fandubs.</span>
+      </li>
+    </ul>
+  </div>
+
+</body>
+</html>

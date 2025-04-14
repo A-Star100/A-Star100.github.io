@@ -92,17 +92,17 @@
     </div>
 
     <div class="tutorial-box">
-      <h4>JSON Object Access Types</h4>
+      <h4>JSON Object Access Notations</h4>
       <p>You can access JSON objects in many different ways.</p>
       <div class="example">
         <code>
-          <p class="hint">// Method 1 (won't work with underscores, special characters, or variables containing a property value):</p>
+          <p class="hint">// Dot notation (won't work with underscores, special characters, or variables containing a property value):</p>
           console.log(cake.decorations)
-          <p class="hint">// Method 2 (can be used with text-based and integer-based access, the latter not recommended, and works with underscores and some special characters):</p>
+          <p class="hint">// Bracket notation (can be used with text-based and integer-based access, the latter not recommended, and works with special characters):</p>
           console.log(cake["decorations_test"])
-          <p class="hint">// Method 1 - Nested Object Access:</p>
+          <p class="hint">// Dot notation - Nested Object Access:</p>
           console.log(cake.factory.address.zip)
-          <p class="hint">// Method 2 - Nested Object Access:</p>
+          <p class="hint">// Bracket notation - Nested Object Access:</p>
           console.log(cake["factory"]["address"]["zip"])
         </code>
       </div>
@@ -143,7 +143,7 @@
                 }
             }
 
-          console.log(cake.decorations_test) <p class="hint">// Remember, underscores don't work with method 1, use method 2 instead!</p>
+          console.log(cake.decorations_test) <p class="hint">// Remember, underscores and other special characters don't work with dot notation, use bracket notation instead!</p>
 
           console.log(cake["decorations_test"])
 

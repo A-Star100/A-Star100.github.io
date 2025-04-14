@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Loops</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+
+    .hint {
+      color: green;
+      font-style: italic;
+    }
+
+    .center {
+      padding: 20px;
+    }
+
+    code {
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    .w3-bar-block .w3-bar-item {
+      padding: 20px;
+    }
+
+    .tutorial-box {
+      padding: 1rem;
+      margin: 1rem 0;
+      background-color: #f2f2f2;
+      border-left: 5px solid #007acc;
+    }
+
+    .example {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 1rem;
+      font-family: monospace;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="w3-center">
+    <h2>Loops</h2>
+    <p>
+      In this tutorial, we will learn how to use <b>for loops</b>, <b>while loops</b>, and <b>break/return</b> in Python.
+    </p>
+  </div>
+
+  <div class="center">
+    <h3>Concepts Used</h3>
+    
+    <div class="tutorial-box">
+      <h4>For loops</h4>
+      <p>For loops iterate through a list of items. This can help with checking values in lists and save time.</p>
+      <div class="example">
+        <code>
+numbers_list = [1000, 81, 23, 5, 6, 101]
+
+def get_largest_number(numbers):
+    max_num = 0
+    for num in numbers:
+        if num > max_num:
+            max_num = num
+    return max_num
+
+print(f"Largest number: {get_largest_number(numbers_list)}")
+        </code>
+      </div>
+      <p>This code uses a for loop to iterate through a list of numbers, and find the largest by comparing each one to the biggest found so far.</p>
+    </div>
+
+    <div class="tutorial-box">
+      <h4>While loops</h4>
+      <p>While loops run as long as a condition is true.</p>
+      <div class="example">
+        <code>
+age = 10
+counter = 0
+
+while age == 10 and counter < 3:
+    print("I am 10 years old")
+    counter += 1
+
+# Simulated delay
+import time
+time.sleep(3)
+
+age = 11
+print("I am 11 years old")
+        </code>
+      </div>
+      <div style="height:5px;"></div>
+      <i>Don't use <code>while True</code> unless you break out of the loop — it can cause an infinite loop.</i>
+    </div>
+    
+    <div class="tutorial-box">
+      <h4>Lists (Arrays)</h4>
+      <p>Lists can contain anything: numbers, strings, even other lists.</p>
+      <div class="example">
+        <code>
+numbers = [1, 2, 3, 4, 5]
+print(f"Numbers: {numbers}")
+        </code>
+      </div>
+    </div>
+
+    <div class="tutorial-box">
+      <h4><code>break</code> and <code>return</code></h4>
+      <p><code>break</code> ends a loop early. <code>return</code> exits a function and can return a value.</p>
+      <div class="example">
+        <code>
+age = 10
+while age == 10:
+    print("I am 10 years old")
+    break
+
+numbers_list = [1000, 81, 23, 5, 6, 101]
+
+def get_largest_number(numbers):
+    max_num = 0
+    for num in numbers:
+        if num > max_num:
+            max_num = num
+    return max_num
+        </code>
+      </div>
+    </div>
+  </div>
+
+  <div class="w3-third anisubmenucenter-bottom">
+    <h3>Other places to visit</h3>
+    <ul class="w3-ul w3-hoverable">
+      <li class="w3-padding-16" onclick="window.location.replace('https://a-star100.github.io/archive.html')">
+        <a class="w3-large" href="http://a-star100.github.io/archive.html">Anirudh's Site Archive</a><br>
+        <span>Old site designs and experiments.</span>
+      </li>
+      <li class="w3-padding-16" onclick="window.location.replace('https://a-star100.github.io/songs.html')">
+        <a class="w3-large" href="/songs.html">My songs</a><br>
+        <span>Listen to original music compositions.</span>
+      </li>
+      <li class="w3-padding-16" onclick="window.location.replace('https://bit.ly/jcdbme')">
+        <a class="w3-large" href="https://bit.ly/jcdbme">Sonic fandubs</a><br>
+        <span>Watch 2+ hours of hilarious Sonic fandubs.</span>
+      </li>
+    </ul>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Examine the cake</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+
+    .hint {
+      color: green;
+      font-style: italic;
+    }
+
+
+    .center {
+      padding: 20px;
+    }
+
+    code {
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    .w3-bar-block .w3-bar-item {
+      padding: 20px;
+    }
+
+    .tutorial-box {
+      padding: 1rem;
+      margin: 1rem 0;
+      background-color: #f5c6cb; /* soft pink, but a bit darker */
+      border-left: 5px solid #e02020; /* bright crimson red */
+    }
+
+
+    .example {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 1rem;
+      font-family: monospace;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="w3-center">
+    <h2>Examine the cake</h2>
+    <p>
+      In this tutorial, we will be using JSON properties, destructuring, nested destructuring, arrow functions, objects, and aliases to take a look at our sweet, sweet cake.
+      <b>The advanced section expect you to have finished the basic section and its challenges. Concepts described there won't be revised here.</b>
+    </p>
+  </div>
+
+  <div class="center">
+    <h3>Concepts Used</h3>
+      <div class="tutorial-box">
+      <h4>Destructuring</h4>
+      <p>As covered in the basic section with arrays, we can use destructuring to easily extract data from an array/piece of JSON data, but the syntax for JSON destructuring is different.</p>
+      <div class="example">
+        <code>
+          const describeSweetnessOfACake = ({sweetness:s}) => {
+               console.log(`sweetness of a cake: ${s}`)
+          }
+        </code>
+      </div>
+      <div style="height:5px;"></div>
+      <p>The curly brackets tell us we are accessing a JSON object, so the variable they are in does not need to be defined as long as it exists there. The colon used is for an alias, so we can refer to the JSON object <code>sweetness</code> as <code>s</code> in our code to save time.</p>
+    </div>
+
+    <div class="tutorial-box">
+      <h4>Nested destructuring</h4>
+      <p>Nested destructuring is similar to regular destructuring except we extract data from a sub-section in a JSON object (for example, the object address inside the object factory requires nested destructuring to be accessed).</p>
+      <div class="example">
+        <code>
+          const printAddress = ({factory:{address :{street:s,zip:z}}}) => {
+              console.log(s, z)
+          } 
+        </code>
+      </div>
+      <div style="height:5px;"></div>
+      <p>After the colons we specify, a curly bracket specifies we are destructuring another JSON object. Once you have started nesting, it isn't recommended to use aliases unless you're sure you're not going to nest more (for example, for the JSON object <code>address</code> here)
+        because then we cannot continue our nesting process, forcing us to start nesting later in the program. At the end nested object we specify, we can <i>then</i> add our aliases and use them in our code.
+      </p>
+    </div>
+
+    <div class="tutorial-box">
+      <h4>JSON Object Access Types</h4>
+      <p>You can access JSON objects in many different ways.</p>
+      <div class="example">
+        <code>
+          <p class="hint">// Method 1 (won't work with underscores special characters):</p>
+          console.log(cake.decorations)
+          <p class="hint">// Method 2 (can be used with text-based and integer-based access, the latter not recommended, and works with underscores and some special characters):</p>
+          console.log(cake["decorations_test"])
+          <p class="hint">// Method 1 - Nested Object Access:</p>
+          console.log(cake.factory.address.zip)
+          <p class="hint">// Method 2 - Nested Object Access:</p>
+          console.log(cake["factory"]["address"]["zip"])
+        </code>
+      </div>
+      <div style="height:5px;"></div>
+      <p>Unlike functions, we <i>must</i> specify the parent of the JSON data we will be accessing (in this case, the <code>cake</code> constant.
+        There are 2 well-known ways as shown above to access JSON objects. We will be using both here.
+      </p>
+    </div>
+    
+    <div class="tutorial-box">
+      <h1><b>Examine the cake</b></h1>
+      <p>Now to mesh these concepts together.</p>
+      <p>
+        First, we define a constant containing our JSON data. It has various properties we will be accessing in clever ways.
+        We then access a few JSON properties and print them to the console just for learning purposes.
+        Then comes our first arrow function called <code>describeCake</code>, which we will use to output the entire variable <code>cake</code> as JSON data in the console with destructuring.
+        
+        Then we create a function (also an arrow one) to describe the sweetness of our delicious cake. We then take the sweetness property (curly brackets specify we are accessing JSON data and since we don't have any other JSON variables it defaults to <code>cake</code>)
+        and create an alias for it using a colon. This alias is described as <code>s</code>.
+
+        Our next function is the first to demonstrate nested destructuring, as we access the street and zip objects from the address object inside the factory object.
+        We then create aliases (s and z respectively) for the street and zip objects and print them in the console.
+
+        At the end, we execute all three arrow functions we created.
+        That's it!
+      </p>
+      <div class="example">
+        <code>
+           const cake = {
+                decorations_test: ["cherry", "name"],
+                sweetness: 10,
+                rating: 10,
+                factory : {
+                    address : {
+                        street: "123 Internet Boulevard",
+                        zip: "12345"
+                    }
+                }
+            }
+
+          console.log(cake.decorations_test) <p class="hint">// Remember, underscores don't work with method 1, use method 2 instead!</p>
+
+          console.log(cake["decorations_test"])
+
+          console.log(cake.factory.address.zip)
+
+
+          const describeCake = (cake) => {
+                console.log(cake)
+          }
+
+          const describeSweetnessOfACake = ({sweetness:s}) => {
+               console.log(`sweetness of a cake: ${s}`)
+          }
+
+          const printAddress = ({factory:{address :{street:s,zip:z}}}) => {
+              console.log(s, z)
+          } 
+
+          describeCake(cake)
+          describeSweetnessOfACake(cake)
+          printAddress(cake)
+
+
+        </code>
+        </div>
+        <script>
+        function cakeJson() {
+          alert("Please check the developer console for data printed to the console.")
+        const cake = {
+    decorations_test: ["cherry", "name"],
+    sweetness: 10,
+    rating: 10,
+    factory : {
+        address : {
+            street: "473 Travis street",
+            zip: "75019"
+        }
+    }
+}
+
+console.log(cake.decorations_test)
+
+console.log(cake["decorations_test"])
+
+console.log(cake.factory.address.zip)
+
+
+const describeCake = (cake) => {
+    console.log(cake)
+}
+
+const describeSweetnessOfACake = ({sweetness:s}) => {
+     console.log(`sweetness of a cake: ${s}`)
+}
+
+const printAddress = ({factory:{address :{street:s,zip:z}}}) => {
+    console.log(s, z)
+} 
+
+describeCake(cake)
+describeSweetnessOfACake(cake)
+
+printAddress(cake)
+        }
+        </script>
+        <button onclick="cakeJson()">Try it</button>
+          </p>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="w3-third anisubmenucenter-bottom">
+    <h3>Other places to visit</h3>
+    <ul class="w3-ul w3-hoverable">
+      <li class="w3-padding-16" onclick="window.location.replace('https://a-star100.github.io/archive.html')">
+        <a class="w3-large" href="http://a-star100.github.io/archive.html">Anirudh's Site Archive</a><br>
+        <span>Old site designs and experiments.</span>
+      </li>
+      <li class="w3-padding-16" onclick="window.location.replace('https://a-star100.github.io/songs.html')">
+        <a class="w3-large" href="/songs.html">My songs</a><br>
+        <span>Listen to original music compositions.</span>
+      </li>
+      <li class="w3-padding-16" onclick="window.location.replace('https://bit.ly/jcdbme')">
+        <a class="w3-large" href="https://bit.ly/jcdbme">Sonic fandubs</a><br>
+        <span>Watch 2+ hours of hilarious Sonic fandubs.</span>
+      </li>
+    </ul>
+  </div>
+
+</body>
+</html>

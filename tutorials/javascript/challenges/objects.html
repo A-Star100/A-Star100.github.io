@@ -232,6 +232,8 @@ let totalCost = 0;
 let totalPrice = 0;
 
 function printStocks() {
+  totalCost = 0;
+  totalPrice = 0;
   for (let i = 0; i < stocks.length; i++) {
     const stock = stocks[i];
     totalCost += stock.cost * stock.quantity;
@@ -244,6 +246,73 @@ function printStocks() {
 
         </script>
         <button onclick="printStocks()">Try it</button>
+
+          <p><b>**Think:**</b> Instead of using a long for loop, we can use a different kind of loop to make things faster and easier. When you're ready, click "See answer".
+            <script>
+            function toggleAnswer(show) {
+              document.getElementById('answer').style.display = show ? 'block' : 'none';
+              document.getElementById('seeAnswer').style.display = show ? 'none' : 'block';
+              document.getElementById('hideAnswer').style.display = show ? 'block' : 'none';
+            }
+            </script>
+            <button id="seeAnswer" onclick="toggleAnswer(true)"><i>See answer</i></button>
+            <button id="hideAnswer" style="display:none;" onclick="toggleAnswer(false)"><i>Hide answer</i></button>
+            <div id="answer" style="display: none;">
+              <div class="example">
+                <code>
+                  stocks.forEach((stock) => {
+                        totalCost += stock.cost * stock.quantity
+                        totalPrice += stock.price * stock.quantity
+                  })
+                </code>
+              </div>
+              <p>By replacing our for loop with this forEach loop (which does the same thing), you'll use less lines of code and be able to think better.</p>
+              <script>
+                const stocks = [
+    {
+        ticker: "123",
+        quantity: 400,
+        cost: 75,
+        price: 376
+    },
+    {
+        ticker: "456",
+        quantity: 2000,
+        cost: 36,
+        price: 25
+    },
+    {
+        ticker: "789",
+        quantity: 50,
+        cost: 100,
+        price: 20
+    },
+    {
+        ticker: "987",
+        quantity: 1500,
+        cost: 160,
+        price: 10
+    }
+]
+
+
+
+let totalCost = 0;
+let totalPrice = 0;
+
+function printStocks() {
+  totalCost = 0;
+  totalPrice = 0;
+  stocks.forEach((stock) => {
+    totalCost += stock.cost * stock.quantity
+    totalPrice += stock.price * stock.quantity
+})
+  console.log(`total cost: ${totalCost}, total price: ${totalPrice}, total profit: ${Math.abs(totalPrice - totalCost)}`);
+
+  alert(`[Console.log output]: total cost: ${totalCost}, total price: ${totalPrice}, total profit: ${Math.abs(totalPrice - totalCost)}`);
+}
+              </script>
+              <button onclick="printStocks()">Try it</button>
           </p>
         </p>
       </div>

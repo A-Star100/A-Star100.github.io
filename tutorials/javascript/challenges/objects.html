@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculate with stocks</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+
+    .hint {
+      color: green;
+      font-style: italic;
+    }
+
+
+    .center {
+      padding: 20px;
+    }
+
+    code {
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    .w3-bar-block .w3-bar-item {
+      padding: 20px;
+    }
+
+    .tutorial-box {
+      padding: 1rem;
+      margin: 1rem 0;
+      background-color: #fff3cd; /* light orange/yellow */
+      border-left: 5px solid #ffa500; /* vivid orange */
+    }
+
+
+    .example {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 1rem;
+      font-family: monospace;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="w3-center">
+    <h2>Calculate with stocks</h2>
+    <p>
+      In this tutorial, we will be using objects within arrays, variables, arrow functions, loops, and more to calculate with our stocks.
+    </p>
+  </div>
+
+  <div class="center">
+    <h3>Concepts Used</h3>
+
+    <div class="tutorial-box">
+      <h4>Arrays</h4>
+      <a href="/tutorials/javascript/arrays">Learn more about arrays here</a>.
+    </div>
+    
+    <div class="tutorial-box">
+      <h4>Objects</h4>
+      <p>Objects can be used to access values in variables, and in our case, serve as formatted data.</p>
+      <div class="example">
+        <code>
+          const array1 = [{
+            value1: "123",
+            value2: 400,
+            value3: 75,
+            value4: 376
+          },
+          {
+            value1: "1233",
+            value2: 4030,
+            value3: 735,
+            value4: 3736
+          }
+          <p class="hint">// The above two wrapped in curly brackets ({/}) are series' of objects inside an array.
+          ]
+        </code>
+      </div>
+    </div>
+
+<div class="tutorial-box">
+      <h4>Variables</h4>
+      <p>Variables can keep track of values for you.</p>
+      <div class="example">
+        <code>
+          let myName = "John Doe"
+          console.log(`Hello, ${myName}!`)
+        </code>
+      </div>
+      <button onclick="let myName = 'John Doe'; console.log(`Hello, ${myName}!`); alert(`[Console.Log output]: Hello, ${myName}!`)">Try it</button>
+    </div>
+
+    <div class="tutorial-box">
+      <h4>Loops</h4>
+      <a href="/tutorials/javascript/loops">Learn more about loops here</a>.
+    </div>
+
+    <div class="tutorial-box">
+      <h4>forEach loop</h4>
+      <p>A forEach loop iterates through each item in a list and assigns the current values to a variable of your choice. This is useful for list-based loop interaction with less lines of code.</p>
+      <div class="example">
+        <code>
+          let words = ['Amazing', 'Cool', 'Great']
+          
+          words.forEach((word) => console.log(word))
+        </code>
+      </div>
+     <button onclick="
+  let words = ['Amazing', 'Cool', 'Great'];
+  words.forEach((word) => {
+    console.log(word);
+    alert(`[Console.Log output]: ${word}`);
+  });
+">
+  Try it
+</button>
+
+    </div>
+
+    <div class="tutorial-box">
+      <h4>Object Access Notation</h4>
+      <p>We can specify the variable containing the objects and its property separated by a dot to access the value. We can access the same value in other ways too, but for simplicity we'll choose this notation.</p>
+      <div class="example">
+        <code>
+          console.log(snake.venom)
+        </code>
+      </div>
+    </div>
+    
+    <div class="tutorial-box">
+      <h1><b>Calculate with stocks</b></h1>
+      <p>Now to mesh these concepts together.</p>
+      <p>We will be using variables, objects, arrays, and loops to calculate the what we paid for our stocks, how much we can sell them for now, and the profit we'll make if we do sell them.
+
+        
+        That's it!
+      </p>
+      <div class="example">
+        <code>        
+const stocks = [
+    {
+        ticker: "123",
+        quantity: 400,
+        cost: 75,
+        price: 376
+    },
+    {
+        ticker: "456",
+        quantity: 2000,
+        cost: 36,
+        price: 25
+    },
+    {
+        ticker: "789",
+        quantity: 50,
+        cost: 100,
+        price: 20
+    },
+    {
+        ticker: "987",
+        quantity: 1500,
+        cost: 160,
+        price: 10
+    }
+]
+
+
+
+let totalCost = 0;
+let totalPrice = 0;
+
+
+for (let i = 0; i < stocks.length; i++) {
+    const stock = stocks[i]
+    totalCost += stock.cost * stock.quantity
+    totalPrice += stock.price * stock.quantity
+}
+
+
+
+console.log(`total cost: ${totalCost}, total price: ${totalPrice}, total profit: ${Math.abs(totalPrice - totalCost)}`)
+
+
+        </code>
+        </div>
+      
+        <script>
+const stocks = [
+    {
+        ticker: "123",
+        quantity: 400,
+        cost: 75,
+        price: 376
+    },
+    {
+        ticker: "456",
+        quantity: 2000,
+        cost: 36,
+        price: 25
+    },
+    {
+        ticker: "789",
+        quantity: 50,
+        cost: 100,
+        price: 20
+    },
+    {
+        ticker: "987",
+        quantity: 1500,
+        cost: 160,
+        price: 10
+    }
+]
+
+
+
+let totalCost = 0;
+let totalPrice = 0;
+
+function printStocks() {
+  for (let i = 0; i < stocks.length; i++) {
+    const stock = stocks[i];
+    totalCost += stock.cost * stock.quantity;
+    totalPrice += stock.price * stock.quantity;
+  }
+  console.log(`total cost: ${totalCost}, total price: ${totalPrice}, total profit: ${Math.abs(totalPrice - totalCost)}`);
+
+  alert(`[Console.log output]: total cost: ${totalCost}, total price: ${totalPrice}, total profit: ${Math.abs(totalPrice - totalCost)}`);
+}
+
+        </script>
+        <button onclick="printStocks()">Try it</button>
+          </p>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="w3-third anisubmenucenter-bottom">
+    <h3>Other places to visit</h3>
+    <ul class="w3-ul w3-hoverable">
+      <li class="w3-padding-16" onclick="window.location.replace('https://a-star100.github.io/archive.html')">
+        <a class="w3-large" href="http://a-star100.github.io/archive.html">Anirudh's Site Archive</a><br>
+        <span>Old site designs and experiments.</span>
+      </li>
+      <li class="w3-padding-16" onclick="window.location.replace('https://a-star100.github.io/songs.html')">
+        <a class="w3-large" href="/songs.html">My songs</a><br>
+        <span>Listen to original music compositions.</span>
+      </li>
+      <li class="w3-padding-16" onclick="window.location.replace('https://bit.ly/jcdbme')">
+        <a class="w3-large" href="https://bit.ly/jcdbme">Sonic fandubs</a><br>
+        <span>Watch 2+ hours of hilarious Sonic fandubs.</span>
+      </li>
+    </ul>
+  </div>
+
+</body>
+</html>

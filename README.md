@@ -51,7 +51,7 @@ You can reference the site's source code in many ways.
  If you can read this README, you're already on the GitHub repo. From here, click on the HTML file containing the code you want to copy, then you can copy-paste the source code into 
  your [IDE](https://en.wikipedia.org/wiki/Integrated_development_environment) or programming playground.
  #### Using DevTools
- Most if not all browsers have a feature where if you right-click and click "Inspect" you can see the website's source code. In [Chrome](https://www.google.com/chrome/), it is called 
+ Most if not all browsers have a feature where if you right-click and click "Inspect" you can see the website's source code. In Google Chrome, it is called 
  [DevTools](https://developer.chrome.com/docs/devtools). You can copy-paste parts of code you want and view where they are in real-time.
 
 ## Maintenance

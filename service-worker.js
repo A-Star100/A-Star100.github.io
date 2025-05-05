@@ -3,7 +3,7 @@ self.addEventListener('install', function(event) {
     caches.open('my-cache-v1').then(function(cache) {
       return cache.addAll([
         '/index.html',
-        '/index-style.css',
+        '/index-style-min.css',
         '/images/me.png',
         '/images/gitlab.png',
       ]);

@@ -23,7 +23,7 @@
 
     <link rel="preload" href="/images/me.png" as="image">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="stylesheet" href="index-style.css">
+    <link rel="stylesheet" href="index-style-min?v=1.0.1.css">
 </head>
 
 <body>
@@ -225,5 +225,16 @@
         }
     });
     </script>
+        <script>
+            if ('serviceWorker' in navigator) {
+              window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+                  console.log('Service Worker registered with scope: ', registration.scope);
+                }).catch(function(error) {
+                  console.log('Service Worker registration failed: ', error);
+                });
+              });
+            }
+</script> 
 </body>
 </html>

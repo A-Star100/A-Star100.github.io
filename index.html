@@ -10,13 +10,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <!-- Preload Google Fonts stylesheet with the correct 'as' attribute -->
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" as="style">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
 <!-- Preload W3CSS stylesheet to ensure fast loading -->
 <link rel="preload" href="https://www.w3schools.com/w3css/5/w3.css" as="style">
 
 <!-- Link to the external W3.CSS stylesheet -->
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+<noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap">
+  </noscript>
 
     <link rel="preload" href="/images/me.png" as="image">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">

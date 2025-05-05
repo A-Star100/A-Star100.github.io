@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tricking the system</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+
+    .hint {
+      color: green;
+      font-style: italic;
+    }
+
+
+    .center {
+      padding: 20px;
+    }
+
+    code {
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    .w3-bar-block .w3-bar-item {
+      padding: 20px;
+    }
+
+    .tutorial-box {
+      padding: 1rem;
+      margin: 1rem 0;
+      background-color: #fff3cd; /* light orange */
+      border-left: 5px solid #ffa500; /* bright orange */
+    }
+
+
+    .example {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 1rem;
+      font-family: monospace;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="w3-center">
+    <h2>Tricking JavaScript with loops</h2>
+    <p>
+      In this tutorial, we will be using a basic for loop with seemingly useless parameters to trick Javascript.
+    </p>
+  </div>
+
+  <div class="center">
+    <h3>Basic Concepts Used</h3>
+      <div class="tutorial-box">
+      <h4>Loops</h4>
+      <p>Learn more about loops <a href="/tutorials/javascript/loops">here!</a></p>
+    </div>
+
+    <div class="tutorial-box">
+      <h4>How to use variables</h4>
+      <p>Variables keep track of data so you don't have to remember it.</p>
+      <div class="example">
+        <code>
+          function greetPerson() {
+            let person = "John Doe"
+            console.log(`Hello, ${person}!`)
+          }
+
+          greetPerson()
+        </code>
+      </div>
+      <script>
+      function greetPerson() {
+            let person = "John Doe"
+            console.log(`Hello, ${person}!`)
+            alert(`[Console.log output]: Hello, ${person}!`)
+          }
+    </script>
+      <button onclick="greetPerson()">Try it</button>
+    </div>
+
+    <div class="tutorial-box">
+      <h1><b>Trick the system</b></h1>
+      <p>Now to mesh these concepts together.</p>
+      <p>First, we define a variable named <code>count</code>
+        Then, we create a for loop with seemingly useless parameters (semicolons)
+        and carry on.
+        Then, we print the value of count, add it again, and then repeat until count is equal to 10,
+        if so, the loop breaks.
+      </p>
+      <div class="example">
+        <code>
+            let count = 0
+            for (;;){
+               console.log(count)
+               count++
+               if (count > 10){
+                   break;
+               }
+            }
+        </code>
+        </div>
+        <script>
+        function loop() {
+            let count = 0
+            let array = []
+            for (;;){
+               console.log(count)
+               array.push(count)
+               count++
+               if (count > 10){
+                   break;
+               }
+            } 
+            alert(`[Console.log output converted to array]: ${array}`)
+        }
+        </script>
+        <button onclick="loop()">Try it</button>
+        <p>Seems simple, right?
+
+          <p><b>**Think:**</b> This code could be expressed differently,
+            <em>and</em> you could break down the loop 
+            to see <em>why</em> using semicolons tricks it.
+            When you're ready, click <i>See answer</i>.
+            <script>
+            function toggleAnswer(show) {
+              document.getElementById('answer').style.display = show ? 'block' : 'none';
+              document.getElementById('seeAnswer').style.display = show ? 'none' : 'block';
+              document.getElementById('hideAnswer').style.display = show ? 'block' : 'none';
+            }
+            </script>
+            <button id="seeAnswer" onclick="toggleAnswer(true)"><i>See answer</i></button>
+            <button id="hideAnswer" style="display:none;" onclick="toggleAnswer(false)"><i>Hide answer</i></button>
+            <div id="answer" style="display: none;">
+              <div class="example">
+                <code>
+                    let count = 0
+                    do {
+                       console.log(count)
+                       count++
+                    }while(count <= 10)
+                </code>
+              </div>
+              <script>
+                function simplerLoop() {
+                    let count = 0
+                    let array = []
+                    do {
+                       console.log(count)
+                       array.push(count)
+                       count++
+                    }while(count <= 10)
+                }
+                alert(`[Console.log output converted to array]: ${array}`)
+              </script>
+              <button onclick="simplerLoop()">Try it</button>
+              <p>All this code does is use a <code>do while</code> loop, which up until this point you haven't learnt about yet.
+                It's almost the <em>exact</em> same as a regular <code>while</code> loop,
+                but it does the action in the <code>do</code> field first, <em>then</em> checks if the output 
+                matches the while condition's statement.
+
+                In short, we initialize a variable called <code>count</code>.
+                Then we <code>do</code> the following:
+                <ul>
+                    <li>Output <code>count</code> in the developer console</li>
+                    <li>Increment <code>count</code> by one</li>
+                    <li><em>Then</em> check if <code>count</code> is greater than or equal to ten,
+                        and if so the loop stops.
+                    </li>
+                </ul>
+              </p>
+              Now it's time to talk about the two <em>semicolons</em> we used instead of regular parameters.
+              <code>
+                const construct = "const index = 0;;"
+                const parts = construct.split(";")
+
+                console.log(parts)
+                if (parts.length !==  3){
+                    console.error("incorrect for loop construct")
+                }
+                else {
+                console.log("good for loop")
+                }
+            </code>
+            <script>
+                function loopExample() {
+                const construct = "const index = 0;;"
+                const parts = construct.split(";")
+
+                console.log(parts)
+                alert(`[Console.log output]: ${parts}`)
+                if (parts.length !==  3){
+                    console.error("incorrect for loop construct")
+                    alert(`[Console.log output]: incorrect for loop construct`)
+                }
+                else {
+                console.log("good for loop")
+                alert(`[Console.log output]: good for loop`)
+                }
+                }
+            </script>
+            <button onclick="loopExample()">Try it</button>
+            All this code does is mimic what your device does when it executes JavaScript.
+            First, we define a construct. This construct serves as our "parameters" in our fake for loop.
+            Then we create a split version of it and assign it to the variable <code>parts</code>,
+            which is what the computer visualizes when it sees that code. 
+
+            It expects exactly 3 parts in your for loop.
+            Otherwise it throws an error and doesn't execute the loop because it can't understand your formatting.
+            Long story short, the computer only understands a for loop if it has three parts,
+            like how we only understand properly formatted sentences in writing.
+            </div>
+          </p>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="w3-third anisubmenucenter-bottom">
+    <h3>Other places to visit</h3>
+    <ul class="w3-ul w3-hoverable">
+      <li class="w3-padding-16" onclick="window.location.replace('https://a-star100.github.io/archive.html')">
+        <a class="w3-large" href="http://a-star100.github.io/archive.html">Anirudh's Site Archive</a><br>
+        <span>Old site designs and experiments.</span>
+      </li>
+      <li class="w3-padding-16" onclick="window.location.replace('https://a-star100.github.io/songs.html')">
+        <a class="w3-large" href="/songs.html">My songs</a><br>
+        <span>Listen to original music compositions.</span>
+      </li>
+      <li class="w3-padding-16" onclick="window.location.replace('https://bit.ly/jcdbme')">
+        <a class="w3-large" href="https://bit.ly/jcdbme">Sonic fandubs</a><br>
+        <span>Watch 2+ hours of hilarious Sonic fandubs.</span>
+      </li>
+    </ul>
+  </div>
+
+</body>
+</html>

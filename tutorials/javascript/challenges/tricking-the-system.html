@@ -179,18 +179,21 @@
                 </ul>
               </p>
               Now it's time to talk about the two <em>semicolons</em> we used instead of regular parameters.
-              <code>
-                const construct = "const index = 0;;"
-                const parts = construct.split(";")
+              <div class="example">
+                <code>
+                  const construct = "const index = 0;;"
+                  const parts = construct.split(";")
+  
+                  console.log(parts)
+                  if (parts.length !==  3){
+                      console.error("incorrect for loop construct")
+                  }
+                  else {
+                  console.log("good for loop")
+                  }
+              </code>
+              </div>
 
-                console.log(parts)
-                if (parts.length !==  3){
-                    console.error("incorrect for loop construct")
-                }
-                else {
-                console.log("good for loop")
-                }
-            </code>
             <script>
                 function loopExample() {
                 const construct = "const index = 0;;"
@@ -214,9 +217,11 @@
             Then we create a split version of it and assign it to the variable <code>parts</code>,
             which is what the computer visualizes when it sees that code. 
 
-            It expects exactly 3 parts in your for loop.
+            It expects exactly 3 parts in your for loop, and doesn't care what they are 
+            unless they lack necessary semicolons for formatting.
+
             Otherwise it throws an error and doesn't execute the loop because it can't understand your formatting.
-            Long story short, the computer only understands a for loop if it has three parts,
+            Long story short, the computer only understands a for loop if it has semicolons and all
             like how we only understand properly formatted sentences in writing.
             </div>
           </p>

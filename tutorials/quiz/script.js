@@ -52,7 +52,7 @@ var JSquestions=[
     },
     {
         question: "What is TypeScript?",
-        choices: ["A popular superset of JavaScript with type safety features","A clone of JavaScript that ","invisible","None of the above"],
+        choices: ["A popular superset of JavaScript with type safety features","A clone of JavaScript that is simply named differently","A version of JavaScript that has shorter lines of code so programmers can type it faster","None of the above"],
         answer: 1
     
     }, 

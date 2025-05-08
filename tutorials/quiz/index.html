@@ -1,0 +1,82 @@
+<html>
+
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Test Your Skills</title>  
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    <!-- original created by ceodigvijay on GitHub -->
+        <link rel="stylesheet" href="stylesheet.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+
+
+    </head>
+    
+    <body>
+        <div id="wrapper">
+        <nav>
+        <ul>
+            <li id="about">About</li>
+            <li><a href="/tutorials/" class="mail">Back to Tutorials</a></li>
+            <li><a href="https://github.com/ceodigvijay/quiz-template-html-css-js/tree/master" class="mail">Original Template</a></li>
+        </ul>
+        </nav>
+        <p style="color:white;">Before starting these quizzes, it's recommended that you complete all the tutorials first
+            and research about the language you choose.
+            <br />
+            Some questions may be challenging, but give them your best shot!
+        </p>
+            <div id="form-box">
+                <form>
+                    <select id="language">
+                    <option value="JS">JavaScript</option>
+                    </select> 
+                    <a href="#lb3" class="choose-lang">Test Skills</a>
+                </form>
+            </div>    
+        </div>
+        
+        <div class="quiz">
+            
+            <div id="info">
+                <div id="score">Score: 0</div>
+                <div id="ques-left">Question:1/20</div>
+            </div>
+            <div id="ques-view">
+               
+            </div>
+            <div class="question">
+            <h1>Question</h1>
+            </div>
+            
+            <div class="choice">
+                <div class="options"><input type="radio" name="options" value="option1" id="opt0"><label for="opt0" id="lb0">Option1</label></div>
+                <div class="options"><input type="radio" name="options" value="option2" id="opt1"><label for="opt1" id="lb1">Option2</label></div>
+                <div class="options"><input type="radio" name="options" value="option3" checked="checked" id="opt2"><label for="opt2" id="lb2">Option3</label></div>
+                <div class="options"><input type="radio" name="options" value="option4" id="opt3"><label for="opt3" id="lb3">Option4</label></div>   
+            </div>
+
+             <div class="ans-btn">
+                <button type="button" class="submit-answer">Submit Answer</button>
+                 <a href="#display-final-score" type="button" class="view-results">View Results</a>
+            </div>
+        
+        </div>
+        
+        <div class="final-result">
+            <h1>The Quiz is Over</h1>
+            <div class="solved-ques-no">You Solved 10 questions of HTML</div>
+            <div class="right-wrong">3 Were Right and 4 were Wrong</div>
+            <div id="display-final-score">Your Final Score is: 35</div>
+            <div class="remark">Remark: Satisfactory, Keep trying.</div>
+            <button id="restart">Restart Quiz</button>        
+        </div>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="script.js"></script>
+    </body>
+
+</html>

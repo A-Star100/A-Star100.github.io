@@ -291,9 +291,9 @@ document.querySelector(".view-results").addEventListener("click",function(){
         document.querySelector(".remark").innerHTML="Remark: Good, keep improving.";
     
     }else if(correct/(countQues+1)){
-        document.querySelector(".remark").innerHTML="Remark: Decent, learn more.";
+        document.querySelector(".remark").innerHTML="Remark: Better than the worst, learn more.";
     }else{
-        document.querySelector(".remark").innerHTML="Remark: Could've been better. Keep learning!";
+        document.querySelector(".remark").innerHTML="Remark: You might want to learn from the tutorials and the internet.";
     }
     
 //    window.location.href="#display-final-score";

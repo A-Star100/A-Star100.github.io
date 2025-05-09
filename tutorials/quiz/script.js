@@ -21,8 +21,8 @@ var JSquestions=[
     
     },
     {
-        question: "What are examples of loops and timers in JavaScript?",
-        choices: ["For loop","While loop", "setInterval", "All of the above"],
+        question: "What are examples of loops AND timers in JavaScript?",
+        choices: ["For loop","While loop & Do while loop", "setInterval", "All of the above"],
         answer: 4
     
     }, 
@@ -67,10 +67,71 @@ var JSquestions=[
         choices: ["LimeScript","OpenJS Foundation","Both of the above","ECMAScript"],
         answer: 4
     
-    }
-                
+    },
+    
+    // part 2
+
+    {
+        question: "Which of the below will work in JavaScript?",
+        choices: ['return 1 + "hello" + 2','let array = [1, "hi", "there", 2]', 'let array = [1, hi, there, %]', "No. 1 and 2."],
+        answer: 4
+    
+    }, 
+    {
+        question: "How can you enforce type-safe equations in JavaScript?",
+        choices: ["Double equal to","Triple equal to", "Single equal to", "All of the above"],
+        answer: 2
+    
+    },
+    {
+        question: "What is FALSE about JavaScript?",
+        choices: ["It is type-safe & statically typed", "None of the above", "All of the above", "It is type-unsafe and dynamically typed",],
+        answer: 1
+    
+    }, 
+    {
+        question: "What are some frameworks that use JavaScript",
+        choices: ["React","Node","Next","All of the above"],
+        answer: 4
+    
+    },
+    {
+        question: "What are three different types of for loops in JavaScript?",
+        choices: ["For loop","For each loop","For in & For of","All of the above"],
+        answer: 4
+    
+    },
+    {
+        question: "How many threads can JavaScript handle by default?",
+        choices: ["One","Two","As many as the system can handle","All of the above"],
+        answer: 1
+    
+    }, 
+    {
+    question: "What is the difference between a do while loop and a regular while loop in JavaScript?",
+        choices: ["A while loop checks the condition after executing the code","A do while loop executes code line by line and for every line checks if the condition is true","A do while loop does the action first, then check if it matches the condition","A do while loop is a different name for a regular while loop"],
+        answer: 3
+    
+    },
+    {
+        question: "What is a class in JavaScript?",
+        choices: ["A function that runs and can return an object with properties.", "A special function that defines default values for data.","A function designed for classroom use", "A function that serves as a blueprint to create objects"],
+        answer: 4
+    }, 
+    {
+        question: "What is an instance of a class in JavaScript?",
+        choices: ["An object that represents the final output of the class","An object created from the class with its own properties and methods.","An object based on the class but not directly","A special object that serves as a copy of the class"],
+        answer: 2
+    
+    },
+    {
+        question: "What is the this object in JavaScript?",
+        choices: ["A special JavaScript object used to refer to any global value, for instance 'this.name' if the variable 'name' is assigned globally","A JavaScript object that refers to the primary value in a function","An object that refers to the object or instance that executed the code","A context-based object that refers to the most prominent value at the time"],
+        answer: 3
+    
+    }             
 ];
-var PYquestions=[
+/*var PYquestions=[
 
     {
         question: "What is the output of the following program : print(Hello World'[::-1])",
@@ -133,7 +194,7 @@ var PYquestions=[
     
     }
                 
-];
+];*/
 
 
 
@@ -216,23 +277,23 @@ document.querySelector(".view-results").addEventListener("click",function(){
     
     document.querySelector(".final-result").style.display="block";
     
-    document.querySelector(".solved-ques-no").innerHTML="You Solved "+(countQues+1)+" questions of "+document.getElementById("language").value;
+    document.querySelector(".solved-ques-no").innerHTML="You solved "+(countQues+1)+" questions of "+document.getElementById("language").value;
     
     var correct= document.getElementById("ques-view").getElementsByClassName("correct").length;
     
-    document.querySelector(".right-wrong").innerHTML=correct+" were Right and "+((countQues+1)-correct)+" were Wrong";
+    document.querySelector(".right-wrong").innerHTML=correct+" were right and "+((countQues+1)-correct)+" were wrong";
     
-    document.getElementById("display-final-score").innerHTML="Your Final Score is: "+score;
+    document.getElementById("display-final-score").innerHTML="Your final score is: "+score;
     
     if (correct/(countQues+1)>0.8){
-        document.querySelector(".remark").innerHTML="Remark: OutStanding ! :)";
+        document.querySelector(".remark").innerHTML="Remark: Outstanding ! :)";
     }else if(correct/(countQues+1)>0.6){
-        document.querySelector(".remark").innerHTML="Remark: Good, Keep Improving.";
+        document.querySelector(".remark").innerHTML="Remark: Good, keep improving.";
     
     }else if(correct/(countQues+1)){
-        document.querySelector(".remark").innerHTML="Remark: Satisfactory, Learn More.";
+        document.querySelector(".remark").innerHTML="Remark: Decent, learn more.";
     }else{
-        document.querySelector(".remark").innerHTML="Remark: Unsatisfactory, Try Again.";
+        document.querySelector(".remark").innerHTML="Remark: Could've been better. Keep learning!";
     }
     
 //    window.location.href="#display-final-score";
@@ -245,7 +306,7 @@ document.getElementById("restart").addEventListener("click",function(){
 });
 
 document.getElementById("about").addEventListener("click",function(){
-    alert("Quiz Website Project Created By Digvijay Singh");
+    alert("Quiz Website Project Created By Digvijay Singh - Modified and used here (with credit) by Anirudh Sevugan");
 
 });
 

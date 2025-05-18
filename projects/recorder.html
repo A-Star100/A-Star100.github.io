@@ -73,47 +73,59 @@
     <br><br>
     <a id="downloadLink" href="" download="commentary.webm" style="display: none;">Download Your Commentary</a>
 
-    <script>
-        let mediaRecorder;
-        let audioChunks = [];
-        
+    <script>      
         const startBtn = document.getElementById('startBtn');
         const stopBtn = document.getElementById('stopBtn');
         const audioPlayback = document.getElementById('audioPlayback');
         const downloadLink = document.getElementById('downloadLink');
 
-        startBtn.addEventListener('click', async () => {
-            try {
-                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-                mediaRecorder = new MediaRecorder(stream, { mimeType: 'audio/webm' });
+        let mediaRecorder;
+let audioChunks = [];
+let audioUrl = null;
+let stream = null;
 
-                mediaRecorder.ondataavailable = event => {
-                    audioChunks.push(event.data);
-                };
+startBtn.addEventListener('click', async () => {
+    try {
+        stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        mediaRecorder = new MediaRecorder(stream, { mimeType: 'audio/webm' });
 
-                mediaRecorder.onstop = () => {
-                    const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
-                    const audioUrl = URL.createObjectURL(audioBlob);
+        mediaRecorder.ondataavailable = event => {
+            audioChunks.push(event.data);
+        };
 
-                    audioPlayback.src = audioUrl;
-                    downloadLink.href = audioUrl;
-                    downloadLink.style.display = 'block';
-                    audioChunks = [];  // Reset the chunks
-                };
-
-                mediaRecorder.start();
-                startBtn.disabled = true;
-                stopBtn.disabled = false;
-            } catch (err) {
-                console.error("Could not start recording:", err);
+        mediaRecorder.onstop = () => {
+            if (audioUrl) {
+                URL.revokeObjectURL(audioUrl);
             }
-        });
+            const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
+            audioUrl = URL.createObjectURL(audioBlob);
 
-        stopBtn.addEventListener('click', () => {
-            mediaRecorder.stop();
-            startBtn.disabled = false;
-            stopBtn.disabled = true;
-        });
+            audioPlayback.src = audioUrl;
+            downloadLink.href = audioUrl;
+            downloadLink.style.display = 'block';
+            audioChunks = [];
+
+            // Stop all tracks in the stream
+            stream.getTracks().forEach(track => track.stop());
+            stream = null;
+        };
+
+        mediaRecorder.start();
+        startBtn.disabled = true;
+        stopBtn.disabled = false;
+    } catch (err) {
+        console.error("Could not start recording:", err);
+    }
+});
+
+stopBtn.addEventListener('click', () => {
+    if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+        mediaRecorder.stop();
+    }
+    startBtn.disabled = false;
+    stopBtn.disabled = true;
+});
+
     </script>
 </body>
 </html>

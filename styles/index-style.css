@@ -38,7 +38,7 @@ a.w3-button {
 }
 
 .w3-button:hover {
-    background-color: #0051c3 !important;
+    background-color: #d64545;
     transform: scale(1.1);
 }
 

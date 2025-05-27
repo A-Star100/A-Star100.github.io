@@ -177,6 +177,6 @@ nav {
 }
 
 .w3-padding-16:hover {
-    background: rgba(19, 101, 254, 0.2); /* #1365fe with transparency */
+    background: rgba(19, 101, 254, 0.2) !important; /* #1365fe with transparency */
 }
 

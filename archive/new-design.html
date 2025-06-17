@@ -1,0 +1,340 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Anirudh's Site</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <style>
+        /* Reset */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            box-sizing: border-box;
+            text-decoration: none;
+        }
+
+        /* General styles */
+        body {
+            background: linear-gradient(135deg, #4a90e2, #1365fe);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        h1, p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        /* Rounded buttons with hover effects */
+        .w3-button {
+            background-color: #0071fa;
+            color: white;
+            border-radius: 25px;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .w3-button:hover {
+            background-color: #d64545;
+            transform: scale(1.1);
+        }
+
+        .w3-container {
+            padding: 30px;
+        }
+
+        .horizontal-menu {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+        }
+
+        .horizontal-menu li {
+            margin: 0 10px;
+        }
+
+        /* Social icons styling */
+        .social-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+
+        nav {
+            left: 0;
+            right: 100;
+        }
+
+        .gap {
+            height: 10px;
+        }
+
+        .social-icon:hover {
+            opacity: 0.7;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 40px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            margin-bottom: 40px;
+            max-width: 1200px;
+            color: #fff;
+        }
+
+        .about-section img {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .feature-box {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            text-align: left;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .feature-box:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        footer {
+            margin-top: 50px;
+            font-size: 0.9rem;
+            color: #fff;
+        }
+
+        footer a {
+            color: #ff6b6b;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        #more {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            right: 70;
+            padding: 20px;
+            width: 300px;
+            text-align: left;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        .w3-padding-16 {
+            text-align: left;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+
+    /* Align the horizontal menu to the right */
+.horizontal-menu {
+    display: flex;
+    justify-content: flex-end; /* Align menu items to the right */
+    margin-right: 20px; /* Space between the horizontal menu and right edge */
+}
+
+/* Align pagination container to the right */
+#page {
+    display: flex;
+    justify-content: flex-end;  /* Align pagination to the right */
+    margin-left: auto; /* Force the pagination to the right side */
+    margin-right: 110px; /* Space between the pagination and right edge */
+}
+
+footer .w3-bar {
+    display: flex;
+    justify-content: flex-end;  /* Align pagination to the right */
+    width: auto;  /* Auto width to fit content */
+}
+
+/* Space between horizontal menu list items */
+.horizontal-menu li {
+    margin: 0 10px;
+}
+
+    </style>
+</head>
+
+<body>
+    <header id="start"></header>
+    <!-- Sidebar (hidden by default) -->
+    <nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left" style="display:none;z-index:2;width:40%;min-width:300px" id="mySidebar">
+        <a href="https://a-star100.github.io/ani2021" class="w3-bar-item w3-button">My first website</a>
+        <div class="gap"></div>
+        <a href="https://tinyurl.com/sonicmisc" class="w3-bar-item w3-button">My apps</a>
+        <div class="gap"></div>
+        <a href="/downloads.html" class="w3-bar-item w3-button">Downloads</a>
+        <div class="gap"></div>
+        <a href="https://bit.ly/jcdbme" class="w3-bar-item w3-button">My fandubs</a>
+        <div class="gap"></div>
+        <a href="/songs.html" class="w3-bar-item w3-button">My songs</a>
+        <div class="gap"></div>
+        <a href="https://github.com/A-Star100/A-Star100.github.io" class="w3-bar-item w3-button">This site's source code</a>
+        <div class="gap"></div>
+        <a href="/extras.html" class="w3-bar-item w3-button">Extras</a>
+        <div class="gap"></div>
+        <a href="#more" onclick="w3_close()" class="w3-bar-item w3-button">More...</a>
+        <div class="gap"></div>
+        <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button">Close Menu</a>
+    </nav>
+
+    <!-- Top menu -->
+    <div class="w3-top">
+        <div class="w3-white w3-xlarge" style="max-width:1200px;margin:auto">
+            <header id="main-header" class="w3-container">
+                <div class="w3-button w3-padding-16 w3-left custom-menu-button" title="Side menu" onclick="w3_open()">☰</div>
+                <div class="w3-center" style="display: flex; align-items: center; justify-content: center;">
+                    <b>Anirudh's Site</b>
+                </div>
+                <small style="display: flex; align-items: center; justify-content: center;"><b>🎉Happy New Year's!🎉</b></small>
+            </header>
+        </div>
+    </div>
+
+    <!-- Page Content -->
+    <div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
+        <div class="about-section">
+            <div class="w3-row-padding w3-padding-16 w3-center" id="info">
+                <div class="w3-center">
+                <h3>About Me</h3>
+                  <p>I'm Anirudh Sevugan, and I do lots of creative things. <b>Lots,</b> and I mean it. It's all too much to tell in just one word.
+                    But in a short summary, I like making movies and songs from time to time, as well as being on the tech side making some web apps, native apps, etc.
+                  </p>
+                </div>
+              </div>
+        </div>
+
+        <div class="w3-container w3-padding-32 w3-center">
+            <h3>More about me</h3>
+            <br>
+            <img src="/images/me.png" alt="Me" class="w3-image" style="display:block;margin:auto" width="800" height="533">
+            <div class="w3-padding-32">
+                <hr id="moreabout">
+                <h4><b>Anirudh Sevugan</b></h4>
+                <h6><i>A guy who's multi-talented in plenty of aspects</i></h6>
+                <div class="w3-padding-32">
+                    <p>I've been exploring a lot of topics over the years, but the thing that made it all click was computer science. It was interesting, fired up my brain, and inspired me to do many things. But I was also interested in math, as it challenged me a lot. And I'm also interested in movies, musicmaking, and apps (which are subtopics of computer science). But I've been doing movies a lot, in fact, I even made a few <a href="https://en.wikipedia.org/wiki/Fandub">fandubs</a> every now and then, which you can learn more about <a href="https://bit.ly/jcdbme">here.</a></p>
+                  
+                  </div>
+            </div>
+        </div>
+        <footer>
+            <div class="w3-center">
+                <h3><b>Anirudh's Site</b></h3>
+                <p>Made by Anirudh Sevugan</p>
+            </div>
+          
+          <div class="border">
+              </div>
+            
+              <div id="more" class="w3-third anisubmenucenter-bottom">
+                <h3>Other places to visit</h3>
+                <ul class="w3-ul w3-hoverable">
+                  <li class="w3-padding-16" onclick="window.location.href='/archive.html';">
+                    <a class="w3-left w3-margin-right" style="width:50px"></a>
+                    <a class="w3-large" href="/archive.html">Anirudh's Site Archive</a><br>
+                    <span>An archive consisting of many of the past designs of Anirudh's Site</span>
+                  </li>
+                  <div class="gap"></div>
+                  <li class="w3-padding-16" onclick="window.location.href='/songs.html';">
+                    <a class="w3-left w3-margin-right" style="width:50px"></a>
+                    <a class="w3-large" href="/songs.html">My songs</a><br>
+                    <span>These actually sound quite good! Try listening to them (that is, if you want to).</span>
+                  </li>
+                  <div class="gap"></div>
+                  <li class="w3-padding-16" onclick="window.location.href='https://bit.ly/jcdbme';">
+                    <a class="w3-left w3-margin-right" style="width:50px"></a>
+                    <a class="w3-large" href="https://bit.ly/jcdbme">Sonic fandubs</a><br>
+                    <span>The crazy thing is, watching all of these fandubs takes more than 2 hours! But if you want any form of entertainment, here might be a spot of interest.</span>
+                  </li>
+                </ul>
+          <h3>Tech Demos</h3>
+          <ul class="w3-ul w3-hoverable">
+                  <li class="w3-padding-16" onclick="window.location.href='/misc/hls-dash-videojs-demo.html';">
+                    <a class="w3-left w3-margin-right" style="width:50px"></a>
+                    <p class="w3-large" href="/misc/hls-dash-videojs-demo.html"><a href="/misc/hls-dash-videojs-demo.html">MPEG-DASH demo with Video.js</a></p><br>
+                    <span>Use MPEG-DASH, an adaptive-bitrate streaming technology to make your streaming faster than ever in this demo with Video.js (without Video.js is also an option). Everybody uses it, including YouTube, so learn how to do it yourself!</span>
+                  </li>    
+              </ul></div>
+              <!-- Pagination -->
+              <div id="page">
+              <div class="w3-center w3-padding-32">
+                <div class="w3-bar">
+                  <a href="#start" class="w3-bar-item w3-button w3-hover-black">«</a>
+                  <a href="#start" class="w3-bar-item w3-black w3-button">1</a>
+                  <a href="#moreabout" class="w3-bar-item w3-button w3-hover-black">2</a>
+                  <a href="#moreabout" class="w3-bar-item w3-button w3-hover-black">»</a>
+                </div>
+              </div>
+              </div>
+            <ul class="horizontal-menu">
+                <div id="comp-kmxjmc6u" class="comp-kmxjmc6u YzqVVZ wixui-column-strip__column">
+                    <div id="bgLayers_comp-kmxjmc6u" data-hook="bgLayers" data-motion-part="BG_LAYER" class="MW5IWV">
+                      <div data-testid="colorUnderlay" class="LWbAav Kv1aVt"></div>
+                      <div id="bgMedia_comp-kmxjmc6u" data-motion-part="BG_MEDIA" class="VgO9Yg"></div>
+                    </div>
+                    <div data-mesh-id="comp-kmxjmc6uinlineContent" data-testid="inline-content" class="">
+                      <div data-mesh-id="comp-kmxjmc6uinlineContent-gridContainer" data-testid="mesh-container-content">
+                        <!--$-->
+                        <div id="comp-kmxjmca2" class="comp-kmxjmca2 WzbAF8">
+                          <ul class="mpGTIt horizontal-menu" aria-label="Social Bar">
+                            <li id="dataItem-m0bpcfre-comp-kmxjmca2" class="O6KwRn"><a data-testid="linkElement" href="https://gitlab.com/A-Star100" target="_blank" rel="noreferrer noopener" class="oRtuWN" aria-label="GitLab"><img src="/images/gitlab.png" alt="GitLab" class="social-icon"></a></li>
+                                                        <li id="dataItem-lzugk565-comp-kmxjmca2" class="O6KwRn"><a data-testid="linkElement" href="https://vimeo.com/user219057089" target="_blank" rel="noreferrer noopener" class="oRtuWN" aria-label="Vimeo"><img src="https://static.vecteezy.com/system/resources/previews/008/385/671/non_2x/vimeo-social-media-icon-symbol-illustration-free-vector.jpg" alt="Vimeo" class="social-icon"></a></li>
+                                                        <li id="dataItem-lzugeay8-comp-kmxjmca2" class="O6KwRn"><a data-testid="linkElement" href="https://github.com/A-Star100" target="_blank" rel="noreferrer noopener" class="oRtuWN" aria-label="GitHub" id="github-icn"><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" class="social-icon"></a></li>                      
+
+                            <li id="dataItem-lzt4gt54-comp-kmxjmca2" class="O6KwRn"><a data-testid="linkElement" href="https://scratch.mit.edu/users/SONICWORLD100/" target="_blank" rel="noreferrer noopener" class="oRtuWN" aria-label="Scratch"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Scratch_S.svg" alt="Scratch" class="social-icon"></a></li>      
+                            <li id="dataItem-lzugk566-comp-kmxjmca2" class="O6KwRn"><a data-testid="linkElement" href="https://www.youtube.com/@sonicturbo771" target="_blank" rel="noreferrer noopener" class="oRtuWN" aria-label="Youtube"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="Youtube" class="social-icon"></a></li>
+                            <li id="dataItem-lzw6zyqm-comp-kmxjmca2" class="O6KwRn"><a data-testid="linkElement" href="https://mail.google.com/mail/u/0/?fs=1&amp;to=sonicforces207@gmail.com&amp;tf=cm" target="_blank" rel="noreferrer noopener" class="oRtuWN" aria-label="Gmail"><img src="https://static.wixstatic.com/media/45e8b3_ee4a530c6d7848e9afc5ba4bbc36886d~mv2.webp" alt="Gmail" class="social-icon"></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </ul>
+        </footer>
+    </div>
+
+    <script>
+        function w3_open() {
+            document.getElementById("mySidebar").style.display = "block";
+        }
+ 
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+        }
+        // Close the sidebar when clicking outside of it
+    document.addEventListener('click', function(event) {
+        var sidebar = document.getElementById("mySidebar");
+        var menuButton = document.querySelector('.custom-menu-button'); // For opening the sidebar
+        var isClickInsideSidebar = sidebar.contains(event.target);
+        var isClickOnMenuButton = menuButton.contains(event.target);
+
+        if (!isClickInsideSidebar && !isClickOnMenuButton) {
+            w3_close(); // Close the sidebar if the click is outside
+        }
+    });
+    </script>
+</body>

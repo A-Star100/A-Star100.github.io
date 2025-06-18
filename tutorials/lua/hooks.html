@@ -109,7 +109,7 @@
         The following code creates a variable named THOKSPEED for the speed of our recreation of the speed thok.
         It is equal to 48 * FRACUNIT, FRACUNIT serving as the number "1" in SRB2 as a fractional unit.
         Then, we create a ThinkFrame hook. For every player in existence, if the player's skin isn't Sonic, then just don't do anything.
-        If it is Sonic, then create a variable called mo, which links to the player's mo object (used for movement and stuff).
+        If it is Sonic, then create a variable called mo, which links to the player's mo object (used for modifying parts of the player object in Lua).
 
         Then, we check if the player object and mo object exist, along with the mo object's validity, and check if the player's state is PST_LIVE (meaning the player is not dead and in-game).
         Then, if player.cmd.buttons is BT_CUSTOM1 (Custom 1 is currently being pressed),

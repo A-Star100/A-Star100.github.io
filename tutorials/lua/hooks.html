@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hooks</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+
+    .hint {
+      color: green;
+      font-style: italic;
+    }
+
+
+    .center {
+      padding: 20px;
+    }
+
+    code {
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    .w3-bar-block .w3-bar-item {
+      padding: 20px;
+    }
+
+    .tutorial-box {
+      padding: 1rem;
+      margin: 1rem 0;
+      background-color: #f2f2f2;
+      border-left: 5px solid #007acc;
+    }
+
+    .example {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 1rem;
+      font-family: monospace;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="w3-center">
+    <h2>Hooks</h2>
+    <p>
+      In this tutorial, we will be using basic SRB2 Lua hooks to add a simple custom ability to Sonic.
+    </p>
+  </div>
+
+  <div class="center">
+    <h3>Basic Concepts Used</h3>
+      <div class="tutorial-box">
+      <h4>Hooks</h4>
+      <p>Hooks are like event listeners, but trigger in the middle or between tics instead of every overall tic.</p>
+      <div class="example">
+        <code>
+          addHook("ThinkFrame", function()
+            print("Hello world")
+            <p class="hint">-- This prints "Hello world" into the console pretty much every frame</p>
+          end)
+        </code>
+      </div>
+    </div>
+
+    <div class="tutorial-box">
+      <h4>Flags</h4>
+      <p>Flags return true or false depending on what situation the player is in.</p>
+      <div class="example">
+        <code>
+          if player.mo.eflags & MFE_UNDERWATER then
+            actionspd = actionspd / 2
+          end
+          <p class="hint">-- Splits the speed of the character in half if they are underwater (MFE_UNDERWATER is the flag)</p>
+        </code>
+      </div>
+    </div>
+
+    <div class="tutorial-box">
+      <h4>Player flags</h4>
+      <p>The same as regular flags, but linked to the <code>player</code> object.</p>
+      <div class="example">
+        <code>
+            addHook("ThinkFrame", function()
+                for player in players.iterate()
+                    if player and player.mo and player.mo.valid then
+                        player.pflags = $ & ~PF_NOJUMPDAMAGE
+                    end
+                end
+            end)
+            <p class="hint">-- Iterates through every player. If they exist, then set the PF_NOJUMPDAMAGE flag (keeps other flags intact via the $ and & signs) in the player object to "false" (hence the "~")</p>
+        </code>
+      </div>
+    </div>
+    
+    <div class="tutorial-box">
+      <h1><b>Hooks</b></h1>
+      <p>Now to mesh these concepts together.</p>
+      <p>
+        The following code creates a variable named THOKSPEED for the speed of our recreation of the speed thok.
+        It is equal to 48 * FRACUNIT, FRACUNIT serving as the number "1" in SRB2 as a fractional unit.
+        Then, we create a ThinkFrame hook. For every player in existence, if the player's skin isn't Sonic, then just don't do anything.
+        If it is Sonic, then create a variable called mo, which links to the player's mo object (used for movement and stuff).
+
+        Then, we check if the player object and mo object exist, along with the mo object's validity, and check if the player's state is PST_LIVE (meaning the player is not dead and in-game).
+        Then, if player.cmd.buttons is BT_CUSTOM1 (Custom 1 is currently being pressed),
+        and the player has NOT jumped and has NOT executed their special move, then use an InstaThrust to thrust them forward from their current angle,
+        then manually set the special move executed flag to yes until they hit the ground, and set PF_NOJUMPDAMAGE to false so their jumps inflict damage,
+        then set the player's state to a curled ball, and start the thok sound, then the rest is just for visuals.
+      </p>
+      <div class="example">
+        <code>        
+          <p class="hint">-- credit to EveryoneGetsAThok mod [Open Assets] on SRB2 MB</p>
+
+local THOKSPEED = 48 * FRACUNIT
+
+addHook("ThinkFrame", function()
+	for player in players.iterate() do
+		if player.mo.skin ~= "sonic" then
+			return
+		end
+		
+		local mo = player.mo
+		if player and mo and mo.valid and player.playerstate == PST_LIVE then
+			if (player.cmd.buttons & BT_CUSTOM1) ~= 0
+			   and (player.pflags & PF_JUMPED) ~= 0
+			   and not (player.pflags & PF_THOKKED) then
+
+				P_InstaThrust(mo, mo.angle, THOKSPEED)
+				player.pflags = player.pflags | PF_THOKKED
+				player.pflags = player.pflags & (~PF_NOJUMPDAMAGE)
+				mo.state = S_PLAY_ROLL
+				
+				S_StartSound(mo, sfx_thok)
+			end
+			
+			if (player.pflags & PF_THOKKED) ~= 0 and (player.cmd.buttons & BT_CUSTOM1) ~= 0 then
+				local trail = P_SpawnGhostMobj(mo)
+				if trail then
+					trail.state = S_THOK
+				end
+			end
+		end
+	end
+end)
+        </code>
+        </div>
+            </div>
+          </p>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="w3-third anisubmenucenter-bottom">
+    <h3>Other places to visit</h3>
+    <ul class="w3-ul w3-hoverable">
+      <li class="w3-padding-16" onclick="window.location.replace('https://anirudhsevugan.me/archive.html')">
+        <a class="w3-large" href="http://a-star100.github.io/archive.html">Anirudh's Site Archive</a><br>
+        <span>Old site designs and experiments.</span>
+      </li>
+      <li class="w3-padding-16" onclick="window.location.replace('https://anirudhsevugan.me/songs.html')">
+        <a class="w3-large" href="/songs.html">My songs</a><br>
+        <span>Listen to original music compositions.</span>
+      </li>
+      <li class="w3-padding-16" onclick="window.location.replace('https://bit.ly/jcdbme')">
+        <a class="w3-large" href="https://bit.ly/jcdbme">Sonic fandubs</a><br>
+        <span>Watch 2+ hours of hilarious Sonic fandubs.</span>
+      </li>
+    </ul>
+  </div>
+
+</body>
+</html>

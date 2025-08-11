@@ -1,0 +1,45 @@
+<html>
+<body>
+    <button id="connectButton">Connect to micro:bit</button>
+    <!--<button id="refreshButton">Refresh</button>-->
+    <script>
+      let port; // global
+
+document.getElementById("connectButton").addEventListener("click", async () => {
+  try {
+    if (port && port.readable) {
+      console.log("Port already open");
+      return; // Don't open again
+    }
+
+    port = await navigator.serial.requestPort();
+    await port.open({ baudRate: 115200 });
+
+    const textEncoder = new TextEncoder();
+    const writer = port.writable.getWriter();
+
+    await writer.write(textEncoder.encode("\x03"));
+    await new Promise(resolve => setTimeout(resolve, 200));
+
+    function prepareMicrobitCode(code) {
+      const trimmed = code.trim();
+      return trimmed.replace(/\n/g, "\r\n") + "\r\n";
+    }
+
+    const rawCode = prompt("Enter your code here (in one line):");
+    if (!rawCode) {
+      console.log("No code entered, aborting.");
+      writer.releaseLock();
+      return;
+    }
+
+    const code = prepareMicrobitCode(rawCode);
+
+    await writer.write(textEncoder.encode(code));
+    writer.releaseLock();
+  } catch (err) {
+    console.error("Serial Error:", err);
+  }
+});
+    </script>
+</body>

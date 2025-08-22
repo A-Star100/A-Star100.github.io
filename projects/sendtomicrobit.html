@@ -1,45 +1,107 @@
 <html>
 <body>
-    <button id="connectButton">Connect to micro:bit</button>
-    <!--<button id="refreshButton">Refresh</button>-->
-    <script>
-      let port; // global
-
-document.getElementById("connectButton").addEventListener("click", async () => {
-  try {
-    if (port && port.readable) {
-      console.log("Port already open");
-      return; // Don't open again
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #1e1e1e;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 40px;
+      height: 100vh;
     }
 
-    port = await navigator.serial.requestPort();
-    await port.open({ baudRate: 115200 });
-
-    const textEncoder = new TextEncoder();
-    const writer = port.writable.getWriter();
-
-    await writer.write(textEncoder.encode("\x03"));
-    await new Promise(resolve => setTimeout(resolve, 200));
-
-    function prepareMicrobitCode(code) {
-      const trimmed = code.trim();
-      return trimmed.replace(/\n/g, "\r\n") + "\r\n";
+    textarea {
+      width: 80%;
+      max-width: 800px;
+      height: 300px;
+      padding: 12px;
+      font-family: 'Courier New', monospace;
+      font-size: 16px;
+      line-height: 1.5;
+      background-color: #2d2d2d;
+      color: #d4d4d4;
+      border: 1px solid #555;
+      border-radius: 6px;
+      resize: vertical;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
+      outline: none;
     }
 
-    const rawCode = prompt("Enter your code here (in one line):");
-    if (!rawCode) {
-      console.log("No code entered, aborting.");
-      writer.releaseLock();
-      return;
+    textarea:focus {
+      border-color: #007acc;
+      box-shadow: 0 0 5px #007acc;
     }
 
-    const code = prepareMicrobitCode(rawCode);
+    button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      background-color: #007acc;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
 
-    await writer.write(textEncoder.encode(code));
-    writer.releaseLock();
-  } catch (err) {
-    console.error("Serial Error:", err);
-  }
-});
-    </script>
+    button:hover {
+      background-color: #005fa3;
+    }
+
+    button:active {
+      background-color: #004f85;
+    }
+
+    @media (max-width: 640px) {
+      textarea {
+        width: 90%;
+      }
+    }
+  </style>
+
+  <textarea id="codeInput" placeholder="Type your code here..."></textarea>
+  <button id="connectButton">Send code</button>
+
+  <script>
+    let port;   // global
+    let writer; // global
+
+    document.getElementById("connectButton").addEventListener("click", async () => {
+      try {
+        if (!port) {
+          port = await navigator.serial.requestPort();
+          await port.open({ baudRate: 115200 });
+        }
+
+        // Only create writer once
+        if (!writer) {
+          writer = port.writable.getWriter();
+        }
+
+        const encoder = new TextEncoder();
+
+        // Stop any previous running code
+        await writer.write(encoder.encode("\x03"));
+        await new Promise(resolve => setTimeout(resolve, 200));
+
+        const rawCode = document.getElementById("codeInput").value;
+        if (!rawCode) {
+          alert("No code entered, aborting.");
+          return;
+        }
+
+        const code = rawCode.trim().replace(/\n/g, "\r\n") + "\r\n";
+
+        await writer.write(encoder.encode(code));
+
+        console.log("Code sent successfully!");
+      } catch (err) {
+        console.error("Serial Error:", err);
+      }
+    });
+  </script>
 </body>
+</html>

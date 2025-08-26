@@ -17,7 +17,7 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    text-align: center; /* keep everything centered */
+    text-align: center;
     line-height: 1.8;
     padding: 40px 20px;
 }
@@ -36,7 +36,7 @@ p {
     margin-bottom: 35px;
     max-width: 900px;
     margin-left: auto;
-    margin-right: auto; /* keeps paragraphs centered */
+    margin-right: auto;
 }
 
 /* ==============================
@@ -54,7 +54,7 @@ a.w3-button {
     text-decoration: none;
     box-shadow: 0 6px 12px rgba(0,0,0,0.2);
     transition: all 0.3s ease;
-    display: inline-block; /* centers buttons inside text */
+    display: inline-block;
 }
 
 .w3-button:hover {
@@ -64,14 +64,15 @@ a.w3-button {
 }
 
 /* ==============================
-   NAVIGATION MENU
+   TOP NAVIGATION BAR
    ============================== */
 .horizontal-menu {
     display: flex;
-    justify-content: center; /* centered */
-    padding: 15px 0;
+    justify-content: flex-end; /* right-aligned like old CSS */
+    padding: 20px 0; /* taller bar */
     list-style: none;
-    margin-bottom: 30px;
+    margin: 0 30px 40px 30px; /* spacing around top bar */
+    font-size: 1.2rem;
 }
 
 .horizontal-menu li {
@@ -83,10 +84,21 @@ a.w3-button {
         flex-direction: column;
         align-items: center;
     }
-
     .horizontal-menu li {
         margin: 12px 0;
     }
+}
+
+/* ==============================
+   SIDE MENU (NOT CENTERED)
+   ============================== */
+footer .w3-bar,
+nav .w3-bar,
+.w3-bar {
+    display: flex;
+    justify-content: flex-start; /* keep aligned left */
+    width: 100%;
+    padding: 10px 20px;
 }
 
 /* ==============================
@@ -118,7 +130,7 @@ a.w3-button {
     color: #fff;
     backdrop-filter: blur(10px);
     box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-    text-align: center; /* restore centering */
+    text-align: center;
     margin-left: auto;
     margin-right: auto;
 }
@@ -139,8 +151,8 @@ a.w3-button {
     border-radius: 14px;
     padding: 35px;
     width: 360px;
-    margin: 20px auto; /* centers box horizontally */
-    text-align: center; /* center content inside box */
+    margin: 20px auto;
+    text-align: center;
     box-shadow: 0 6px 14px rgba(0,0,0,0.15);
     transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
@@ -171,19 +183,12 @@ footer a:hover {
     color: #fff;
 }
 
-footer .w3-bar {
-    display: flex;
-    justify-content: center; /* centered again */
-    width: auto;
-    margin-top: 20px;
-}
-
 /* ==============================
    PAGINATION
    ============================== */
 #page {
     display: flex;
-    justify-content: center; /* centered */
+    justify-content: center;
     margin-top: 30px;
 }
 
@@ -196,14 +201,14 @@ footer .w3-bar {
     border-radius: 12px;
     padding: 25px;
     width: 350px;
-    text-align: center; /* centered */
+    text-align: center;
     margin-left: auto;
     margin-right: auto;
     transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .w3-padding-16 {
-    text-align: center; /* centered */
+    text-align: center;
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 12px;
     transition: background 0.3s ease, transform 0.3s ease;

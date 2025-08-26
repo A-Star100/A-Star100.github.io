@@ -1,4 +1,6 @@
-/* Reset */
+/* ==============================
+   RESET & BASE STYLES
+   ============================== */
 * {
     font-family: 'Inter', Arial, sans-serif !important;
     box-sizing: border-box;
@@ -7,7 +9,6 @@
     padding: 0;
 }
 
-/* General Styles */
 body {
     background: linear-gradient(135deg, #4a90e2, #1365fe);
     color: #fff;
@@ -17,14 +18,27 @@ body {
     justify-content: center;
     min-height: 100vh;
     text-align: center;
+    line-height: 1.6;
 }
 
-h1, p {
-    font-size: 1.2rem;
+/* ==============================
+   TYPOGRAPHY
+   ============================== */
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+p {
+    font-size: 1rem;
     margin-bottom: 30px;
+    max-width: 700px;
 }
 
-/* Buttons */
+/* ==============================
+   BUTTONS
+   ============================== */
 .w3-button,
 button.w3-button,
 a.w3-button {
@@ -33,33 +47,40 @@ a.w3-button {
     border-radius: 25px;
     padding: 12px 30px;
     font-size: 1.1rem;
+    font-weight: 500;
     text-decoration: none;
-    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
 }
 
 .w3-button:hover {
-    background-color: #d64545;
-    transform: scale(1.1);
+    background-color: #0056d6;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
 }
 
-/* Containers */
+/* ==============================
+   CONTAINERS
+   ============================== */
 .w3-container {
     padding: 30px;
 }
 
-/* Horizontal Menu */
+/* ==============================
+   NAVIGATION MENU
+   ============================== */
 .horizontal-menu {
     display: flex;
     justify-content: flex-end;
     margin-right: 20px;
     padding: 10px 0;
+    list-style: none;
 }
 
 .horizontal-menu li {
     margin: 0 10px;
 }
 
-/* Responsive Menu */
 @media (max-width: 768px) {
     .horizontal-menu {
         flex-direction: column;
@@ -71,27 +92,34 @@ a.w3-button {
     }
 }
 
-/* Social Icons */
+/* ==============================
+   SOCIAL ICONS
+   ============================== */
 .social-icon {
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     object-fit: cover;
-    transition: opacity 0.3s ease;
+    transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .social-icon:hover {
-    opacity: 0.7;
+    transform: scale(1.15);
+    background: rgba(255,255,255,0.2);
 }
 
-/* About Section */
+/* ==============================
+   ABOUT SECTION (Glassmorphism)
+   ============================== */
 .about-section {
     padding: 40px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.4);
     border-radius: 15px;
     margin-bottom: 40px;
     max-width: 1200px;
     color: #fff;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
 }
 
 .about-section img {
@@ -101,41 +129,51 @@ a.w3-button {
     margin-top: 20px;
 }
 
-/* Feature Boxes */
+/* ==============================
+   FEATURE BOXES
+   ============================== */
 .feature-box {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-    padding: 20px;
-    width: 300px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    padding: 25px;
+    width: 320px;
+    margin: 15px;
     text-align: left;
-    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
 .feature-box:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.2);
 }
 
-/* Gap Element */
+/* ==============================
+   GAP ELEMENT
+   ============================== */
 .gap {
     height: 10px;
 }
 
-/* Footer */
+/* ==============================
+   FOOTER
+   ============================== */
 footer {
     margin-top: 50px;
     font-size: 0.9rem;
-    color: #fff;
+    color: #ccc;
 }
 
 footer a {
-    color: black;
+    color: #a4c8ff;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 footer a:hover {
-    text-decoration: underline;
+    color: #fff;
 }
 
 footer .w3-bar {
@@ -144,7 +182,9 @@ footer .w3-bar {
     width: auto;
 }
 
-/* Pagination Container */
+/* ==============================
+   PAGINATION
+   ============================== */
 #page {
     display: flex;
     justify-content: flex-end;
@@ -152,7 +192,9 @@ footer .w3-bar {
     margin-right: 110px;
 }
 
-/* Miscellaneous */
+/* ==============================
+   MISC
+   ============================== */
 nav {
     left: 0;
     right: 100px;
@@ -177,6 +219,5 @@ nav {
 }
 
 .w3-padding-16:hover {
-    background: rgba(38, 114, 255, 0.403) !important; /* #1365fe with transparency */
+    background: rgba(38, 114, 255, 0.4) !important; /* #1365fe with transparency */
 }
-

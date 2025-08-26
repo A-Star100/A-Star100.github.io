@@ -17,23 +17,26 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    text-align: center;
-    line-height: 1.6;
+    text-align: center; /* keep everything centered */
+    line-height: 1.8;
+    padding: 40px 20px;
 }
 
 /* ==============================
    TYPOGRAPHY
    ============================== */
 h1 {
-    font-size: 2rem;
-    margin-bottom: 20px;
+    font-size: 2.8rem;
+    margin-bottom: 25px;
     font-weight: 700;
 }
 
 p {
-    font-size: 1rem;
-    margin-bottom: 30px;
-    max-width: 700px;
+    font-size: 1.25rem;
+    margin-bottom: 35px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto; /* keeps paragraphs centered */
 }
 
 /* ==============================
@@ -44,26 +47,20 @@ button.w3-button,
 a.w3-button {
     background-color: #0071fa;
     color: white;
-    border-radius: 25px;
-    padding: 12px 30px;
-    font-size: 1.1rem;
-    font-weight: 500;
+    border-radius: 30px;
+    padding: 15px 40px;
+    font-size: 1.25rem;
+    font-weight: 600;
     text-decoration: none;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
     transition: all 0.3s ease;
+    display: inline-block; /* centers buttons inside text */
 }
 
 .w3-button:hover {
     background-color: #0056d6;
-    transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-}
-
-/* ==============================
-   CONTAINERS
-   ============================== */
-.w3-container {
-    padding: 30px;
+    transform: translateY(-3px) scale(1.08);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.25);
 }
 
 /* ==============================
@@ -71,14 +68,14 @@ a.w3-button {
    ============================== */
 .horizontal-menu {
     display: flex;
-    justify-content: flex-end;
-    margin-right: 20px;
-    padding: 10px 0;
+    justify-content: center; /* centered */
+    padding: 15px 0;
     list-style: none;
+    margin-bottom: 30px;
 }
 
 .horizontal-menu li {
-    margin: 0 10px;
+    margin: 0 20px;
 }
 
 @media (max-width: 768px) {
@@ -88,7 +85,7 @@ a.w3-button {
     }
 
     .horizontal-menu li {
-        margin: 10px 0;
+        margin: 12px 0;
     }
 }
 
@@ -96,37 +93,41 @@ a.w3-button {
    SOCIAL ICONS
    ============================== */
 .social-icon {
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     object-fit: cover;
     transition: transform 0.3s ease, background 0.3s ease;
+    margin: 5px;
 }
 
 .social-icon:hover {
-    transform: scale(1.15);
+    transform: scale(1.2);
     background: rgba(255,255,255,0.2);
 }
 
 /* ==============================
-   ABOUT SECTION (Glassmorphism)
+   ABOUT SECTION
    ============================== */
 .about-section {
-    padding: 40px;
-    background: rgba(0, 0, 0, 0.4);
-    border-radius: 15px;
-    margin-bottom: 40px;
-    max-width: 1200px;
+    padding: 60px;
+    background: rgba(0, 0, 0, 0.45);
+    border-radius: 20px;
+    margin-bottom: 60px;
+    max-width: 1000px;
     color: #fff;
     backdrop-filter: blur(10px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    text-align: center; /* restore centering */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .about-section img {
     width: 100%;
-    max-width: 800px;
-    border-radius: 10px;
-    margin-top: 20px;
+    max-width: 850px;
+    border-radius: 12px;
+    margin-top: 25px;
 }
 
 /* ==============================
@@ -135,35 +136,29 @@ a.w3-button {
 .feature-box {
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 12px;
-    padding: 25px;
-    width: 320px;
-    margin: 15px;
-    text-align: left;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 14px;
+    padding: 35px;
+    width: 360px;
+    margin: 20px auto; /* centers box horizontally */
+    text-align: center; /* center content inside box */
+    box-shadow: 0 6px 14px rgba(0,0,0,0.15);
     transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
 .feature-box:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateY(-5px);
-    box-shadow: 0 6px 14px rgba(0,0,0,0.2);
-}
-
-/* ==============================
-   GAP ELEMENT
-   ============================== */
-.gap {
-    height: 10px;
+    background: rgba(255, 255, 255, 0.18);
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
 /* ==============================
    FOOTER
    ============================== */
 footer {
-    margin-top: 50px;
-    font-size: 0.9rem;
+    margin-top: 60px;
+    font-size: 1rem;
     color: #ccc;
+    text-align: center;
 }
 
 footer a {
@@ -178,8 +173,9 @@ footer a:hover {
 
 footer .w3-bar {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center; /* centered again */
     width: auto;
+    margin-top: 20px;
 }
 
 /* ==============================
@@ -187,37 +183,34 @@ footer .w3-bar {
    ============================== */
 #page {
     display: flex;
-    justify-content: flex-end;
-    margin-left: auto;
-    margin-right: 110px;
+    justify-content: center; /* centered */
+    margin-top: 30px;
 }
 
 /* ==============================
    MISC
    ============================== */
-nav {
-    left: 0;
-    right: 100px;
-}
-
 #more {
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-    right: 70px;
-    padding: 20px;
-    width: 300px;
-    text-align: left;
+    border-radius: 12px;
+    padding: 25px;
+    width: 350px;
+    text-align: center; /* centered */
+    margin-left: auto;
+    margin-right: auto;
     transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .w3-padding-16 {
-    text-align: left;
+    text-align: center; /* centered */
     border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
+    border-radius: 12px;
     transition: background 0.3s ease, transform 0.3s ease;
+    padding: 20px;
+    font-size: 1.1rem;
 }
 
 .w3-padding-16:hover {
-    background: rgba(38, 114, 255, 0.4) !important; /* #1365fe with transparency */
+    background: rgba(38, 114, 255, 0.45) !important;
 }

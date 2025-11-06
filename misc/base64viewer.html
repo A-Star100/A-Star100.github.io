@@ -1,7 +1,14 @@
 <script>
+  window.onload = function(){
+  let params = new URLSearchParams(window.location.search);
   let URLParam = params.get('base64Url');
+  if (URLParam.startsWith('data:image/') && URLParam.includes('base64')) {
   const img = document.createElement('img')
   img.src = URLParam
   img.height = '1920'
   img.width = '1080'
+  } else {
+    alert('Invalid base64 URL')
+  }
+  }
 </script>

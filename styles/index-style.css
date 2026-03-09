@@ -1,6 +1,4 @@
-/* ==============================
-   RESET & BASE STYLES
-   ============================== */
+/* base styles and the global reset */
 * {
     font-family: 'Inter', Arial, sans-serif !important;
     box-sizing: border-box;
@@ -22,9 +20,7 @@ body {
     padding: 40px 20px;
 }
 
-/* ==============================
-   TYPOGRAPHY
-   ============================== */
+/* text elements */
 h1 {
     font-size: 2.8rem;
     margin-bottom: 25px;
@@ -39,9 +35,7 @@ p {
     margin-right: auto;
 }
 
-/* ==============================
-   BUTTONS
-   ============================== */
+/* buttons */
 .w3-button,
 button.w3-button,
 a.w3-button {
@@ -63,9 +57,7 @@ a.w3-button {
     box-shadow: 0 8px 16px rgba(0,0,0,0.25);
 }
 
-/* ==============================
-   TOP NAVIGATION BAR
-   ============================== */
+/* topnav */
 .horizontal-menu {
     display: flex;
     justify-content: flex-end; /* right-aligned like old CSS */
@@ -89,9 +81,7 @@ a.w3-button {
     }
 }
 
-/* ==============================
-   SIDE MENU (NOT CENTERED)
-   ============================== */
+/* side menu */
 footer .w3-bar,
 nav .w3-bar,
 .w3-bar {
@@ -101,9 +91,7 @@ nav .w3-bar,
     padding: 10px 20px;
 }
 
-/* ==============================
-   SOCIAL ICONS
-   ============================== */
+/* social icon */
 .social-icon {
     width: 40px;
     height: 40px;
@@ -118,9 +106,6 @@ nav .w3-bar,
     background: rgba(255,255,255,0.2);
 }
 
-/* ==============================
-   ABOUT SECTION
-   ============================== */
 .about-section {
     padding: 60px;
     background: rgba(0, 0, 0, 0.45);
@@ -142,9 +127,7 @@ nav .w3-bar,
     margin-top: 25px;
 }
 
-/* ==============================
-   FEATURE BOXES
-   ============================== */
+
 .feature-box {
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.15);
@@ -163,9 +146,6 @@ nav .w3-bar,
     box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
-/* ==============================
-   FOOTER
-   ============================== */
 footer {
     margin-top: 60px;
     font-size: 1rem;
@@ -183,18 +163,14 @@ footer a:hover {
     color: #fff;
 }
 
-/* ==============================
-   PAGINATION
-   ============================== */
+
 #page {
     display: flex;
     justify-content: center;
     margin-top: 30px;
 }
 
-/* ==============================
-   MISC
-   ============================== */
+/* misc stuff */
 #more {
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);

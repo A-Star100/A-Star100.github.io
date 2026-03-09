@@ -7,7 +7,7 @@
     },
     {
       "source": "/misc/apk/IntegrityCheck.apk",
-      "destination": "https://github.com/A-Star100/A-Star100.github.io/blob/e1a16ac53b3c39d0040a10fe11fe60db76cd3f42/misc/apk/IntegrityCheck.apk"
+      "destination": "https://github.com/A-Star100/A-Star100.github.io/raw/e1a16ac53b3c39d0040a10fe11fe60db76cd3f42/misc/apk/IntegrityCheck.apk"
     },
     {
       "source": "/download/Educator.apk",
@@ -19,11 +19,11 @@
     },
     {
       "source": "/download/fps-mac.dmg",
-      "destination": "https://github.com/A-Star100/A-Star100.github.io/blob/e1a16ac53b3c39d0040a10fe11fe60db76cd3f42/download/fps-mac.dmg"
+      "destination": "https://github.com/A-Star100/A-Star100.github.io/raw/e1a16ac53b3c39d0040a10fe11fe60db76cd3f42/download/fps-mac.dmg"
     },
     {
       "source": "/download/ttsgoinstall.exe",
-      "destination": "https://github.com/A-Star100/A-Star100.github.io/blob/e1a16ac53b3c39d0040a10fe11fe60db76cd3f42/download/ttsgoinstall.exe"
+      "destination": "https://github.com/A-Star100/A-Star100.github.io/raw/e1a16ac53b3c39d0040a10fe11fe60db76cd3f42/download/ttsgoinstall.exe"
     },
     {
       "source": "/download/VoiceAssistant.apk",

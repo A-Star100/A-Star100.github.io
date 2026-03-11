@@ -112,13 +112,13 @@
                     <a class="w3-large" href="https://dev.anirudhsevugan.me">Dev Blog</a><br>
                     <span>Developer stuff, mostly coding articles</span>
                   </li>
-                  <div class="gap"></div>
+                  <!-- <div class="gap"></div>
                   <li class="w3-padding-16" onclick="window.location.href='https://forums.anirudhsevugan.me';">
                     <a class="w3-left w3-margin-right" style="width:50px"></a>
                     <a class="w3-large" href="https://forums.anirudhsevugan.me">Forums</a><br>
                     <span>Everyone's welcome! Just be nice, okay?</span>
                   </li>
-                  <div class="gap"></div>
+                  <div class="gap"></div> -->
                   <div class="gap"></div>
                   <li class="w3-padding-16" onclick="window.location.href='/songs.html';">
                     <a class="w3-left w3-margin-right" style="width:50px"></a>
@@ -129,7 +129,7 @@
                   <li class="w3-padding-16" onclick="window.location.href='https://bit.ly/jcdbme';">
                     <a class="w3-left w3-margin-right" style="width:50px"></a>
                     <a class="w3-large" href="https://bit.ly/jcdbme">Sonic fandubs</a><br>
-                    <span>The crazy thing is, watching all of these fandubs takes more than 2 hours! But if you want any form of entertainment, here might be a spot of interest.</span>
+                    <span>The crazy thing is, watching all of these fandubs takes more than 2 hours! But if you want to watch them, go ahead!</span>
                   </li>
                   <div class="gap"></div>
                     <li class="w3-padding-16" onclick="window.location.href='/extras';">
@@ -202,7 +202,6 @@
                 -->
               </ul>
               </div>
-              <!-- Pagination -->
               <div id="page">
               <div class="w3-center w3-padding-32">
                 <div class="w3-bar">
@@ -249,15 +248,15 @@
         function w3_close() {
             document.getElementById("mySidebar").style.display = "none";
         }
-        // Close the sidebar when clicking outside of it
+        // close sidebar when clicked outside
     document.addEventListener('click', function(event) {
         var sidebar = document.getElementById("mySidebar");
-        var menuButton = document.querySelector('.custom-menu-button'); // For opening the sidebar
+        var menuButton = document.querySelector('.custom-menu-button'); // to open sidebar
         var isClickInsideSidebar = sidebar.contains(event.target);
         var isClickOnMenuButton = menuButton.contains(event.target);
 
         if (!isClickInsideSidebar && !isClickOnMenuButton) {
-            w3_close(); // Close the sidebar if the click is outside
+            w3_close();
         }
     });
     </script>

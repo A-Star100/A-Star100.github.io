@@ -5,11 +5,11 @@
             player = ruffle.createPlayer();
             const container = document.getElementById("flash-content");
             container.appendChild(player);
-            player.load("ultimateflashsonic.swf");
+            player.load("https://uploads.ungrounded.net/151000/151706_ultimate_sonic.swf");
         });
 
         function playAgain() {
             if (player) {
-                player.load("ultimateflashsonic.swf");
+                player.load("https://uploads.ungrounded.net/151000/151706_ultimate_sonic.swf");
             }
         }

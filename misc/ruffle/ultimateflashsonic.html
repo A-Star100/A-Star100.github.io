@@ -5,28 +5,12 @@
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
     <title>Ultimate Flash Sonic</title>
     <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+    <style src="/misc/ruffle/styles/ruffle_template.css">
+    <script src="/misc/ruffle/scripts/ruffle_template.js"
 </head>
 <body>
     <div id="flash-container">
         <div id="flash-content"></div>
     </div>
-
-    <script>
-        let player;
-
-        document.addEventListener("DOMContentLoaded", function () {
-            const ruffle = window.RufflePlayer.newest();
-            player = ruffle.createPlayer();
-            const container = document.getElementById("flash-content");
-            container.appendChild(player);
-            player.load("top.swf");
-        });
-
-        function playAgain() {
-            if (player) {
-                player.load("top.swf");
-            }
-        }
-    </script>
 </body>
 </html>

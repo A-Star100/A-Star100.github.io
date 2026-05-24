@@ -10,13 +10,13 @@
             align-items: center;
             display: flex;
             background: black;
-            aspect-ratio: 4 / 3;
         }
 
        #flash-container {
            justify-content: center;
            align-items: center;
            overflow: hidden;
+           aspect-ratio: 4 / 3;
        }
 
        ruffle-player {
@@ -24,6 +24,7 @@
            height: 100vh;
            justify-content: center;
            align-items: center;
+           /*aspect-ratio: 4 / 3;*/
        }
 /* 
         button {

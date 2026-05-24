@@ -1,4 +1,10 @@
         let player;
+        window.RufflePlayer = window.RufflePlayer || {};
+        window.RufflePlayer.config = {
+            // force ruffle to do 4:3 properly to prevent stupid scaling
+            // to 16:9 since game breaks there cuz it is from 2004
+            letterbox: "on"
+        }
 
         document.addEventListener("DOMContentLoaded", function () {
             const ruffle = window.RufflePlayer.newest();

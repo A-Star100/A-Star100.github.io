@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- todo: refactor and maybe move from w3.css -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,10 +10,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<!-- use 'as' for the gfont -->
+<!-- load as stylesheet -->
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
-<!-- preload w3css so loads dont take ages -->
+<!-- preload w3css so loads dont take too long -->
 <link rel="preload" href="https://www.w3schools.com/w3css/5/w3.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
 <noscript>
@@ -22,7 +23,7 @@
 
     <link rel="preload" href="/images/me.png" as="image">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/styles/index-style-min.css">
+    <link rel="stylesheet" href="/styles/index-style-min.css"> <!-- minified -->
 </head>
 <body>
     <header id="start"></header>
